@@ -1,390 +1,137 @@
-<!DOCTYPE html>
-<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>EATWELL V28 FINAL - Super Admin Cost Control</title>
+<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EATWELL V19 - ALUR LENGKAP 7 LANGKAH</title>
 <style>
-*{box-sizing:border-box;font-family:Arial,sans-serif}body{margin:0;background:#eef2f7}
-header{background:#1a1a4d;color:#fff;padding:14px;text-align:center;font-weight:900}
-header span{color:#ffd700}.wrap{max-width:1100px;margin:auto;padding:12px}
-.card{background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px #0001}
-h2{margin:6px 0}button{border:0;border-radius:10px;padding:10px 14px;font-weight:800;cursor:pointer}
-.b-blue{background:#1a1a4d;color:#fff}.b-yellow{background:#ffd700}.b-green{background:#16a34a;color:#fff}.b-orange{background:#f97316;color:#fff}.b-red{background:#ef4444;color:#fff}.b-purple{background:#7c3aed;color:#fff}
-input,textarea,select{width:100%;padding:10px;border:1px solid #ddd;border-radius:10px;margin:5px 0}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
-.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.kpi div{background:#1a1a4d;color:#fff;padding:12px;border-radius:12px;text-align:center}
+*{box-sizing:border-box;font-family:Arial,sans-serif}body{margin:0;background:#fefce8;color:#111}
+header{background:#0f172a;color:#fff;padding:14px;text-align:center}header b{font-size:20px}header b span{color:#ffd700}header p{margin:4px 0 0;font-size:12px;color:#cbd5e1}
+.wrap{max-width:1000px;margin:auto;padding:10px}
+.card{background:#fff;border:2px solid #e2e8f0;border-radius:16px;padding:14px;margin:10px 0;box-shadow:0 2px 10px #0001}
+h2{margin:0 0 8px;font-size:16px}h2 span{padding:4px 10px;border-radius:8px;color:#fff}
+.s1 span{background:#eab308;color:#000}.s2 span{background:#2563eb}.s3 span{background:#f97316}.s4 span{background:#16a34a}.s5 span{background:#ef4444}.s6 span{background:#2563eb}.s7 span{background:#7c3aed}
+button{border:0;border-radius:10px;padding:11px;font-weight:800;cursor:pointer;margin:4px 0}.b-y{background:#ffd700}.b-b{background:#2563eb;color:#fff}.b-o{background:#f97316;color:#fff}.b-g{background:#16a34a;color:#fff}.b-r{background:#ef4444;color:#fff}.b-p{background:#7c3aed;color:#fff}.b-d{background:#0f172a;color:#fff}
+input,textarea,select{width:100%;padding:10px;border-radius:10px;border:1px solid #ddd;margin:4px 0}
 table{width:100%;border-collapse:collapse;font-size:13px}th,td{border:1px solid #eee;padding:8px;text-align:left}th{background:#f8f8f8}
-.badge{padding:4px 8px;border-radius:20px;font-size:11px;font-weight:800}.red{background:#fee2e2;color:#b91c1c}.green{background:#dcfce7;color:#166534}.yellow{background:#fef9c3;color:#854d0e}
-.hidden{display:none}.vn{background:#ede9fe;border:2px solid #7c3aed;border-radius:14px;padding:12px}
-@media(max-width:700px){.grid,.grid3,.kpi{grid-template-columns:1fr}}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.kpi{background:#fef08a;border-radius:10px;padding:10px;text-align:center;font-weight:800}
+.badge{padding:4px 8px;border-radius:20px;font-size:11px;font-weight:800}.naik{background:#dcfce7;color:#166534}.tidak{background:#fee2e2;color:#b91c1c}
+.flow{text-align:center;font-size:20px}
+@media(max-width:700px){.grid,.grid4{grid-template-columns:1fr}}
+@media print{.no-print{display:none}body{background:#fff}}
 </style></head>
 <body>
-<header>EATWELL V28 FINAL - <span>SUPER ADMIN / COST CONTROL - PUSAT KENDALI</span></header>
+<header><b>EATWELL V19 - ALUR LENGKAP<br><span>- 1 GAMBAR LANGSUNG FAHAM -</span></b><p>Flowchart — 7 Langkah Praktis | Real-Time & Terpusat</p></header>
 <div class="wrap">
 
-<!-- LOGIN -->
-<div class="card" id="loginCard">
-<h2>🔐 Login - Pilih Dashboard (DIPISAH)</h2>
-<select id="role"><option value="super">Super Admin / Cost Control - Bos (Bisa Semua)</option><option value="atasan">Dashboard Atasan - Lihat + Approve Saja</option><option value="inbound">Dashboard Inbound - ARYA / MIRGA / HIBAN / YOGI / MARSEL / NURYANTO</option><option value="assembly">Dashboard Assembly - Line Sendiri Saja</option></select>
-<input id="namaUser" placeholder="Nama: Contoh ARYA">
-<select id="brandUser"><option>CKDS Daging</option><option>CKDS Sayur</option><option>CKDS Bumbu</option></select>
-<button class="b-blue" onclick="login()">MASUK DASHBOARD ➡️</button>
-<p style="font-size:12px">Super Admin kontrol Atasan, Inbound, Assembly. Atasan hanya lihat+approve. Gudang hanya brand sendiri. Assembly hanya line sendiri.</p>
+<!-- LANGKAH 1 -->
+<div class="card s1"><h2><span>1</span> LANGKAH 1 - SUPER ADMIN PUSAT KENDALI</h2>
+<p>• Bos input Master Barang, SO Stok Awal, atur semua halaman (Atasan, Inbound, Assembly ON)<br>• Voice Note buat perintah</p>
+<b>Contoh: Stok Awal Ayam 340 KG</b>
+<div class="grid"><div><b>Master Barang:</b><input id="masterNama" value="Ayam"><input id="masterSO" type="number" value="340"><button class="b-y" onclick="simpanMaster()">💾 SIMPAN MASTER + SO AWAL</button></div>
+<div><b>Voice Note Perintah Bos:</b><textarea id="perintahBos" rows="2">Cek stok ayam, isi 50 KG hari ini!</textarea><button class="b-b" onclick="kirimPerintah()">🎤 KIRIM PERINTAH VOICE NOTE</button><div id="perintahOut" style="font-size:13px"></div></div></div>
+<div class="grid4"><div class="kpi">SO AWAL<br><b id="kSO">340</b></div><div class="kpi" style="background:#bfdbfe">IN<br><b id="kIN">0</b></div><div class="kpi" style="background:#fed7aa">OUT<br><b id="kOUT">0</b></div><div class="kpi" style="background:#fecaca">RETUR<br><b id="kRetur">0</b></div></div>
+</div>
+<div class="flow">⬇️</div>
+
+<!-- LANGKAH 2 -->
+<div class="card s2"><h2><span>2</span> LANGKAH 2 - PLANNING PRODUKSI</h2>
+<p>• Kertas Planning ditulis: Ayam 20 KG, Premix 10 PACK, Kemiri 5 KG<br>• Assembly foto kertas planning di HP</p>
+<div class="grid"><div><textarea id="planning" rows="3">Ayam 20 KG
+Premix 10 PACK
+Kemiri 5 KG</textarea><button class="b-b" onclick="simpanPlanning()">💾 SIMPAN PLANNING</button></div>
+<div><button class="b-b" onclick="alert('Kamera HP dibuka - Foto kertas planning!')">📷 FOTO KERTAS PLANNING DI HP</button><div id="planningOut" style="font-size:13px;background:#eff6ff;padding:8px;border-radius:8px">Planning: Ayam 20KG • Premix 10 PACK • Kemiri 5KG</div></div></div>
+</div>
+<div class="flow">⬇️</div>
+
+<!-- LANGKAH 3 -->
+<div class="card s3"><h2><span>3</span> LANGKAH 3 - INBOUND BARANG KELUAR</h2>
+<p>• Anak Inbound voice note: <i>"Ayam keluar 20 kg buat produksi"</i> → Sistem jadi OUT -20 KG, list real-time<br>• Inbound juga bisa Scan Barcode</p>
+<textarea id="vnOut" rows="2">Ayam keluar 20 kg buat produksi</textarea>
+<div class="grid"><button class="b-o" onclick="prosesOUT()">🎤 TEKAN & NGOMONG - JADI OUT</button><button class="b-y" onclick="alert('Scan Barcode dibuka - arahkan ke barcode!')">📷 SCAN BARCODE</button></div>
+<div id="outList" style="font-size:13px;margin-top:6px"></div>
+<div style="background:#fee2e2;padding:8px;border-radius:8px;font-size:13px;margin-top:6px">OUT: -20 KG Ayam | Stok Live: <b id="stokLive">320 KG</b></div>
+</div>
+<div class="flow">⬇️</div>
+
+<!-- LANGKAH 4 -->
+<div class="card s4"><h2><span>4</span> LANGKAH 4 - ASSEMBLY - CEKLIS PRODUKSI</h2>
+<table><thead><tr><th>Item</th><th>Status</th><th>Keterangan</th><th>Ceklis</th></tr></thead><tbody id="assemblyTbl"></tbody></table>
+<button class="b-g" onclick="simpanAssembly()">💾 Pencet Simpan & → Jadi Laporan Otomatis</button><div id="assemblyOut" style="font-size:13px"></div>
+</div>
+<div class="flow">⬇️</div>
+
+<!-- LANGKAH 5 -->
+<div class="card s5"><h2><span>5</span> LANGKAH 5 - RETUR - TIDAK JADI PRODUKSI</h2>
+<p>• Inbound voice note: <i>"Ayam ga naik produksi 5 kg"</i> → Masuk kolom Barang Tidak Naik Produksi di Super Admin</p>
+<textarea id="vnRetur" rows="2">Ayam ga naik produksi 5 kg</textarea>
+<button class="b-r" onclick="prosesRetur()">🎤 VOICE NOTE RETUR - TEKAN & NGOMONG</button>
+<div id="returOut" style="font-size:13px;margin-top:6px"></div>
+<table><thead><tr><th>Barang</th><th>Jumlah</th><th>Tanggal</th><th>Jam</th><th>Ket</th></tr></thead><tbody id="returTbl"></tbody></table>
+<div style="background:#dcfce7;padding:8px;border-radius:8px;font-size:13px">✅ Kembali ke Stok Awal +5 KG</div>
+</div>
+<div class="flow">⬇️</div>
+
+<!-- LANGKAH 6 -->
+<div class="card s6"><h2><span>6</span> LANGKAH 6 - STOK AKHIR OTOMATIS</h2>
+<div style="background:#fef08a;padding:10px;border-radius:10px;font-weight:800">Rumus: Stok Awal 340 + IN 0 - OUT 20 + RETUR 5 = Stok Akhir <span id="rumusAkhir">325</span></div>
+<div class="grid" style="margin-top:8px"><div style="background:#eff6ff;padding:10px;border-radius:10px">👔 <b>Atasan:</b> Hanya bisa LIHAT alur ini, tidak bisa edit</div><div style="background:#fef9c3;padding:10px;border-radius:10px">⚙️ <b>Super Admin:</b> Bisa Edit | Tambah | Kurangi | Hapus semua</div></div>
+<p style="font-size:12px">Plus Mode Infokus HDMI untuk presentasi di proyektor <button class="b-d" onclick="alert('Mode Infokus HDMI aktif - layar full untuk proyektor!')">📺 Mode Infokus</button></p>
+</div>
+<div class="flow">⬇️</div>
+
+<!-- LANGKAH 7 -->
+<div class="card s7"><h2><span>7</span> LANGKAH 7 - LAPORAN 1 PDF</h2>
+<div class="grid4">
+<div class="card" style="background:#ffd700"><b>Super Admin</b><br>Laporan Lengkap<br><button class="b-y" onclick="buatLaporan('Super Admin - Laporan Lengkap')">📄 Laporan Super Admin</button></div>
+<div class="card" style="background:#bfdbfe"><b>Atasan</b><br>Laporan Statistik<br>Masuk 120 • Keluar 85 • Retur 15<br><button class="b-b" onclick="buatLaporan('Atasan - Laporan Statistik')">📄 Laporan Atasan</button></div>
+<div class="card" style="background:#fed7aa"><b>Inbound</b><br>Laporan Inbound<br><button class="b-o" onclick="buatLaporan('Inbound - Laporan Inbound')">📄 Laporan Inbound</button></div>
+<div class="card" style="background:#bbf7d0"><b>Assembly</b><br>Laporan Assembly<br>2 Naik • 1 Tidak Naik<br><button class="b-g" onclick="buatLaporan('Assembly - Laporan Assembly')">📄 Laporan Assembly</button></div>
+</div>
+<div id="laporanOut" style="font-size:13px;background:#f8f8f8;padding:10px;border-radius:10px"></div>
+<button class="b-p no-print" style="width:100%;font-size:16px" onclick="window.print()">📄 DOWNLOAD 1 PDF LAPORAN LENGKAP - KLIK INI</button>
 </div>
 
-<!-- SUPER ADMIN -->
-<div id="superDash" class="hidden">
-<div class="kpi"><div>SO AWAL<br><b id="kSO">0</b></div><div>IN<br><b id="kIN">0</b></div><div>OUT PRODUKSI<br><b id="kOUT">0</b></div><div>STOK AKHIR<br><b id="kAKHIR">0</b></div></div>
-
-<!-- 1 MASTER BARANG -->
-<div class="card"><h2>1️⃣ MASTER BARANG - Bos Input (Acuan Pinjam & Raw Material)</h2>
-<p style="font-size:13px">Bisa Copy Paste / PDF / Excel. Contoh paste: <code>Ayam Fillet | KG | CKDS Daging</code></p>
-<textarea id="masterInput" rows="3" placeholder="Paste Master Barang di sini... Contoh:
-Ayam Fillet | KG | CKDS Daging
-Gula | KG | CKDS Bumbu
-Bawang | KG | CKDS Bumbu
-Tempe | KG | CKDS Sayur"></textarea>
-<button class="b-yellow" onclick="simpanMaster()">💾 SIMPAN MASTER BARANG</button>
-<button class="b-blue" onclick="alert('Upload PDF / Excel - pilih file di GitHub Pages, nanti otomatis kebaca')">📄 UPLOAD PDF / EXCEL</button>
-<div id="masterList"></div></div>
-
-<!-- 2 ITEM IN & OUT -->
-<div class="card"><h2>2️⃣ ITEM IN & OUT - Copy Paste Saja</h2>
-<div class="grid">
-<div><b>ITEM IN - Barang Masuk (Nambah Stok)</b><textarea id="inInput" rows="3" placeholder="Ayam Fillet 40 KG&#10;Gula 50 KG"></textarea><button class="b-green" onclick="tambahIN()">+ TAMBAH IN</button></div>
-<div><b>ITEM OUT - Barang Keluar (Ngurangin Stok)</b><textarea id="outInput" rows="3" placeholder="Gula 5 KG&#10;Bawang 5 KG"></textarea><button class="b-orange" onclick="tambahOUT()">+ TAMBAH OUT</button></div>
-</div></div>
-
-<!-- 3 SO -->
-<div class="card"><h2>3️⃣ SO - Stok Awal Bulanan / Mingguan</h2>
-<div class="grid"><div><select id="soPeriode"><option>SO Bulanan - November 2026</option><option>SO Mingguan - Minggu 3 November</option></select><input id="soNama" placeholder="Nama Barang: Ayam Fillet"><input id="soQty" type="number" placeholder="Qty SO: 200"></div>
-<div><p style="font-size:13px">SO = Stok Awal. Rumus: <b>Stok Akhir = SO + IN - OUT + Retur</b></p><button class="b-blue" onclick="tambahSO()">💾 SIMPAN SO</button></div></div></div>
-
-<!-- 4 STOK AKHIR -->
-<div class="card"><h2>4️⃣ HASIL - STOK AKHIR (Otomatis)</h2>
-<table><thead><tr><th>Barang</th><th>SO</th><th>IN</th><th>OUT</th><th>Retur / Ga Naik</th><th>STOK AKHIR</th><th>Status</th></tr></thead><tbody id="tabelStok"></tbody></table>
-<p id="rumusTxt" style="font-size:13px"></p>
-<button class="b-purple" onclick="kirimPerintah()">📩 KIRIM PERINTAH KE INBOUND / ASSEMBLY / ATASAN</button>
-<input id="perintahInput" placeholder="Perintah Bos: Contoh ARYA cek ayam mines, isi 50 KG hari ini!">
+<div style="background:#0f172a;color:#ffd700;text-align:center;padding:14px;border-radius:12px;font-weight:900">SEMUA TERPUSAT DI SUPER ADMIN, SEMUA REAL-TIME ⚡</div>
+<p style="text-align:center;font-size:11px;color:#888">Infografis EATWELL V19 • Flowchart lengkap • Real-time</p>
 </div>
-
-<!-- MENU SUPER ADMIN -->
-<div class="card"><h2>Menu Super Admin Lainnya</h2>
-<div class="grid3">
-<button class="b-blue" onclick="showSection('atasanDash')">👔 Dashboard Atasan</button>
-<button class="b-green" onclick="showSection('inboundDash')">📦 Dashboard Inbound</button>
-<button class="b-orange" onclick="showSection('assemblyDash')">🍳 Dashboard Assembly</button>
-</div><div class="grid3" style="margin-top:8px">
-<button class="b-yellow" onclick="alert('Filter: Master, SO, IN/OUT, Perintah, User, Assembly, Pinjam, Laporan - semua ada filter')">🔍 FILTER SEMUA MENU</button>
-<button class="b-blue" onclick="alert('AI: ketik ayam CKDS ada berapa? / cari minus / buatkan PPT')">🤖 ASISTEN AI - TINGGAL PERINTAH</button>
-<button class="b-red" onclick="alert('Export 1 PDF - Laporan + PPT + Surat Jalan')">📄 EXPORT 1 PDF</button>
-</div></div>
-</div><!-- ============ DASHBOARD INBOUND - ARYA ============ -->
-<div id="inboundDash" class="hidden">
-<div class="card" style="background:#1a3a6e;color:#fff"><h2>DASHBOARD INBOUND - <span id="labelNama">ARYA</span> - <span id="labelBrand">CKDS Daging</span></h2><p style="margin:0">ADA SCAN BARCODE PINJAM BARANG</p></div>
-
-<div class="card"><h2>Halo <span class="namaOut">ARYA</span> - Brand: <span class="brandOut">CKDS Daging</span> - Stok Hari Ini</h2>
-<button class="b-yellow" style="width:100%;font-size:16px" onclick="alert('Kamera terbuka - Scan Barcode Pinjam Barang')">📷 SCAN BARCODE PINJAM BARANG</button>
-<div style="background:#ffd700;padding:10px;border-radius:10px;margin-top:8px;font-weight:800">📢 ADA! SCAN BARCODE PINJAM BARANG ADA DI DASHBOARD INBOUND.</div>
-<div class="grid3" style="margin-top:10px">
-<button class="b-green" onclick="alert('Form IN - Barang Masuk')">IN<br>Barang Masuk</button>
-<button class="b-orange" onclick="document.getElementById('vnBox').scrollIntoView()">OUT<br>Barang Keluar</button>
-<button class="b-red" onclick="alert('Form Retur')">Retur<br>Retur Barang</button>
-<button class="b-yellow" onclick="alert('Form Pinjam Barang')">Pinjam<br>Pinjam Barang</button>
-</div></div>
-
-<!-- VOICE NOTE = GANTI NGETIK - INTI V28 -->
-<div class="card vn" id="vnBox">
-<h2>🎤 VOICE NOTE INBOUND - NGOMONG = JADI BARANG KELUAR UNTUK PRODUKSI</h2>
-<p style="font-size:13px">Tinggal ngomong, gak perlu ngetik! Contoh: <i>"Hari ini barang keluar, gula 5 kilo, bawang 5 kilo, tempe 5 kilo, untuk produksi. Ayam goreng ga naik."</i></p>
-<button class="b-purple" id="btnMic" onclick="mulaiVoice()">🎤 TAHAN UNTUK NGOMONG OUT PRODUKSI</button>
-<button class="b-red" onclick="stopVoice()">⏹️ STOP & UBAH JADI TEKS</button>
-<p style="font-size:12px">Status Mic: <b id="micStatus">Belum mulai - klik tombol mic, izinkan mic di browser</b></p>
-<textarea id="vnHasil" rows="3" placeholder="Hasil suara akan muncul di sini... Contoh: Hari ini barang keluar gula 5 kilo bawang 5 kilo tempe 5 kilo untuk produksi ayam goreng ga naik"></textarea>
-<button class="b-green" onclick="prosesVoice()">✅ PROSES SUARA JADI OUT PRODUKSI</button>
-<div id="vnParsed"></div>
-<div id="gaNaikBox"></div>
-</div>
-
-<!-- HASIL OUT PRODUKSI -->
-<div class="card"><h2>📦 OUT PRODUKSI HARI INI (Dari Voice Note)</h2>
-<table><thead><tr><th>Barang</th><th>Qty</th><th>Untuk</th><th>Status</th></tr></thead><tbody id="tabelOUT"></tbody></table>
-<div id="keteranganGaNaik" style="margin-top:8px"></div>
-<p style="font-size:12px">Keterangan Ga Naik otomatis masuk ke Super Admin & Assembly, ditandain MERAH.</p></div>
-
-<!-- PINJAM SAYA -->
-<div class="card"><h2>Pinjam Saya</h2>
-<div style="background:#f8f8f8;padding:10px;border-radius:10px">🟣 Y - <b>YOGI pinjam dari MARSEL 10 KG</b> <span class="badge yellow">Menunggu Approve</span><br><button class="b-green" onclick="alert('Approve Pinjam 10 KG')">Approve</button> <button class="b-red" onclick="alert('Tolak Pinjam')">Tolak</button></div>
-<h3 style="margin-top:12px">Daftar IN & OUT hari ini</h3>
-<p>🟢 IN - Ayam Fillet 25 KG - 08:20 WIB<br>🟠 OUT - Daging Sapi 5 KG - 09:10 WIB</p>
-<div style="background:#e0f2fe;padding:10px;border-radius:10px">ℹ️ Perintah dari Super Admin: <b id="perintahTampil">Cek stok beku CKDS hari ini.</b></div>
-<button class="b-blue" style="width:100%;margin-top:8px" onclick="alert('Scan Barcode Kembali Barang')">📷 Scan Barcode Kembali Barang <br><small>saat kembalikan barang</small></button>
-<div style="display:flex;justify-content:space-around;margin-top:10px;font-size:13px"><span>🏠 Beranda</span><span>🕐 Histori</span><span>🔔 Notifikasi</span><span>👤 Profil</span></div>
-</div>
-</div>
-
-<!-- ============ DASHBOARD ATASAN ============ -->
-<div id="atasanDash" class="hidden">
-<div class="card"><h2>👔 DASHBOARD ATASAN - Lihat + Approve Saja (Tanpa Edit)</h2>
-<p>Monitoring & Kontrol Keseluruhan - Laporan Stok Global - Analisis Biaya</p>
-<div class="kpi"><div>Stok Global<br><b id="atasanStok">-</b></div><div>OUT Hari Ini<br><b id="atasanOUT">-</b></div><div>Pinjam Menunggu<br><b>1</b></div><div>Ga Naik<br><b id="atasanGaNaik">0</b></div></div>
-<div id="atasanGaNaikList"></div>
-<button class="b-green" onclick="alert('Atasan Approve OUT Produksi')">✅ APPROVE OUT PRODUKSI</button>
-<button class="b-blue" onclick="alert('Atasan Lihat Laporan PDF')">📄 LIHAT LAPORAN</button>
-</div></div>
-
-<!-- ============ DASHBOARD ASSEMBLY ============ -->
-<div id="assemblyDash" class="hidden">
-<div class="card"><h2>🍳 DASHBOARD ASSEMBLY - Line Sendiri Saja</h2>
-<p>Proses Produksi & Assembly - Tracking OUT untuk Produksi - Penggunaan Raw Material</p>
-<div id="assemblyList">Belum ada OUT Produksi masuk. Tunggu Voice Note dari Inbound.</div>
-<div class="card vn"><h3>🎤 Voice Note Assembly Juga Bisa</h3><p style="font-size:13px">Assembly juga bisa ngomong: <i>"Ayam fillet mines 20 kilo"</i> → Masuk MINES. <i>"Sayur mix ga naik"</i> → Masuk Ga Naik.</p>
-<textarea id="vnAssembly" rows="2" placeholder="Assembly ngomong di sini..."></textarea><button class="b-purple" onclick="prosesAssemblyVN()">✅ PROSES VOICE ASSEMBLY</button><div id="assemblyVNOut"></div></div>
-</div></div>
 
 <script>
-// DATA GLOBAL - MASTER, SO, IN, OUT, RETUR
-let MASTER = [{nama:'Ayam Fillet',satuan:'KG',brand:'CKDS Daging'},{nama:'Gula',satuan:'KG',brand:'CKDS Bumbu'},{nama:'Bawang',satuan:'KG',brand:'CKDS Bumbu'},{nama:'Tempe',satuan:'KG',brand:'CKDS Sayur'}];
-let DATA = { 'Ayam Fillet':{so:200,in:40,out:30,retur:0}, 'Gula':{so:50,in:0,out:0,retur:0}, 'Bawang':{so:30,in:0,out:0,retur:0}, 'Tempe':{so:20,in:0,out:0,retur:0} };
-let OUT_LIST = []; let GANAik_LIST = [];
-let recognition=null;
-function login(){ let r=document.getElementById('role').value; let n=document.getElementById('namaUser').value||'ARYA'; let b=document.getElementById('brandUser').value; document.querySelectorAll('.namaOut').forEach(e=>e.textContent=n); document.getElementById('labelNama').textContent=n; document.getElementById('labelBrand').textContent=b; document.querySelectorAll('.brandOut').forEach(e=>e.textContent=b); document.getElementById('loginCard').classList.add('hidden'); document.getElementById('superDash').classList.remove('hidden'); if(r==='inbound') showSection('inboundDash'); if(r==='atasan') showSection('atasanDash'); if(r==='assembly') showSection('assemblyDash'); alert('Masuk sebagai '+n+' - '+b+' - Dashboard terpisah, Super Admin tetap bisa kontrol semua'); }
-function showSection(id){ ['inboundDash','atasanDash','assemblyDash'].forEach(x=>document.getElementById(x).classList.add('hidden')); document.getElementById(id).classList.remove('hidden'); document.getElementById(id).scrollIntoView(); }
-function renderStok(){ let tb=document.getElementById('tabelStok'); tb.innerHTML=''; let tSO=0,tIN=0,tOUT=0,tAK=0; for(let k in DATA){ let d=DATA[k]; let akhir=d.so+d.in-d.out+d.retur; tSO+=d.so; tIN+=d.in; tOUT+=d.out; tAK+=akhir; let st = GANAik_LIST.includes(k) ? '<span class="badge red">GA NAIK ❌</span>' : '<span class="badge green">AMAN</span>'; tb.innerHTML+=`<tr><td>${k}</td><td>${d.so}</td><td>${d.in}</td><td>${d.out}</td><td>${d.retur} ${GANAik_LIST.includes(k)?' - GA NAIK':''}</td><td><b>${akhir}</b></td><td>${st}</td></tr>`; } document.getElementById('kSO').textContent=tSO; document.getElementById('kIN').textContent=tIN; document.getElementById('kOUT').textContent=tOUT; document.getElementById('kAKHIR').textContent=tAK; document.getElementById('rumusTxt').textContent=`Rumus: Stok Akhir = SO (${tSO}) + IN (${tIN}) - OUT (${tOUT}) + Retur = ${tAK}`; document.getElementById('atasanStok').textContent=tAK; document.getElementById('atasanOUT').textContent=tOUT; document.getElementById('atasanGaNaik').textContent=GANAik_LIST.length; }
-function simpanMaster(){ let v=document.getElementById('masterInput').value; if(!v) return alert('Paste Master dulu Bos'); document.getElementById('masterList').innerHTML='<b>Master Tersimpan:</b><br>'+v.replace(/\n/g,'<br>'); alert('Master Barang tersimpan - jadi acuan Pinjam & Raw Material'); }
-function tambahIN(){ let v=document.getElementById('inInput').value; parseAngka(v,'in'); }
-function tambahOUT(){ let v=document.getElementById('outInput').value; parseAngka(v,'out'); }
-function parseAngka(teks,jenis){ let lines=teks.toLowerCase().split('\n'); lines.forEach(l=>{ let m=l.match(/([a-z ]+)(\d+)/); if(m){ let nama=cap(m[1].trim()); let qty=parseInt(m[2]); if(!DATA[nama]) DATA[nama]={so:0,in:0,out:0,retur:0}; DATA[nama][jenis]+=qty; } }); renderStok(); alert('Berhasil tambah '+jenis.toUpperCase()); }
-function cap(s){ return s.split(' ').map(w=>w.charAt(0).toUpperCase()+w.slice(1)).join(' '); }
-function tambahSO(){ let n=cap(document.getElementById('soNama').value.trim()); let q=parseInt(document.getElementById('soQty').value)||0; if(!n) return alert('Isi nama barang SO'); if(!DATA[n]) DATA[n]={so:0,in:0,out:0,retur:0}; DATA[n].so=q; renderStok(); alert('SO '+n+' = '+q+' tersimpan sebagai Stok Awal'); }
-function kirimPerintah(){ let p=document.getElementById('perintahInput').value; if(!p) return alert('Tulis perintah dulu'); document.getElementById('perintahTampil').textContent=p; alert('Perintah terkirim ke Inbound / Assembly / Atasan (Notif di aplikasi, bukan WA)'); }<script>
-// ===== VOICE NOTE ENGINE - GANTI NGETIK =====
-// Pakai Web Speech API bawaan browser HP - GRATIS, gak perlu API berbayar
-function mulaiVoice(){
-  document.getElementById('micStatus').textContent = '🎤 Mendengarkan... Silakan ngomong: Gula 5 kilo, bawang 5 kilo, tempe 5 kilo untuk produksi, ayam goreng ga naik';
-  let SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  if(!SR){ 
-    document.getElementById('micStatus').textContent = 'HP ini belum support auto voice. Ketik manual di kotak bawah lalu klik PROSES - tetap jalan!';
-    return; 
-  }
-  recognition = new SR(); recognition.lang='id-ID'; recognition.interimResults=false; recognition.continuous=false;
-  recognition.onresult = function(e){
-    let teks = e.results[0][0].transcript;
-    document.getElementById('vnHasil').value = teks;
-    document.getElementById('micStatus').textContent = '✅ Suara berhasil diubah jadi teks: '+teks;
-  };
-  recognition.onerror = function(){ document.getElementById('micStatus').textContent='Mic error / belum izinkan mic. Ketik manual aja Bos, tetap jalan.'; };
-  recognition.start();
-  document.getElementById('btnMic').textContent='🔴 SEDANG NGEREKAM... NGOMONG SEKARANG';
+let SO=340, INv=0, OUTv=0, RET=0;
+let ASSEMBLY=[{nama:'Ayam 20 KG',naik:true,ket:'-'},{nama:'Premix 10 PACK',naik:true,ket:'-'},{nama:'Kemiri 5 KG',naik:false,ket:'Barang basah'}];
+let RETUR=[];
+function update(){
+  document.getElementById('kSO').textContent=SO;
+  document.getElementById('kIN').textContent=INv;
+  document.getElementById('kOUT').textContent=OUTv;
+  document.getElementById('kRetur').textContent=RET;
+  let akhir=SO+INv-OUTv+RET;
+  document.getElementById('stokLive').textContent=akhir+' KG';
+  document.getElementById('rumusAkhir').textContent=akhir;
+  renderAssembly();
 }
-function stopVoice(){
-  if(recognition) recognition.stop();
-  document.getElementById('btnMic').textContent='🎤 TAHAN UNTUK NGOMONG OUT PRODUKSI';
-  document.getElementById('micStatus').textContent='Stop. Cek teks di bawah, kalau salah edit manual lalu klik PROSES.';
+function simpanMaster(){ SO=parseInt(document.getElementById('masterSO').value)||340; update(); alert('Master + SO Awal tersimpan: '+document.getElementById('masterNama').value+' = '+SO+' KG'); }
+function kirimPerintah(){ document.getElementById('perintahOut').innerHTML='✅ Perintah terkirim ke Inbound / Assembly / Atasan: '+document.getElementById('perintahBos').value; alert('Perintah Voice Note terkirim!'); }
+function simpanPlanning(){ document.getElementById('planningOut').innerHTML='Planning tersimpan:<br>'+document.getElementById('planning').value.replace(/\n/g,'<br>'); alert('Planning tersimpan!'); }
+function prosesOUT(){
+  let t=document.getElementById('vnOut').value.toLowerCase();
+  let m=t.match(/(\d+)/); let qty=m?parseInt(m[1]):20;
+  OUTv+=qty; update();
+  document.getElementById('outList').innerHTML='✅ OUT berhasil: Ayam '+qty+' KG untuk Produksi - List Real-Time - Stok berkurang otomatis!';
+  alert('OUT '+qty+' KG berhasil! Stok sekarang '+(SO+INv-OUTv+RET)+' KG');
 }
-
-// ===== PROSES UTAMA: TEKS -> OUT PRODUKSI + GA NAIK =====
-function prosesVoice(){
-  let teks = document.getElementById('vnHasil').value.toLowerCase();
-  if(!teks) return alert('Ngomong dulu Bos atau ketik manual: contoh gula 5 kilo bawang 5 kilo tempe 5 kilo ayam goreng ga naik');
-  
-  // 1. DETEKSI GA NAIK - Kata kunci: ga naik, gak naik, tidak naik, batal naik, tidak jadi
-  let gaNaikKetemu = [];
-  let kataGaNaik = ['ga naik','gak naik','tidak naik','batal naik','tidak jadi','ga jadi','tidak naik'];
-  // Cari produk sebelum kata ga naik, contoh: "ayam goreng ga naik"
-  kataGaNaik.forEach(k=>{
-    if(teks.includes(k)){
-      // Ambil 2-3 kata sebelum "ga naik"
-      let idx = teks.indexOf(k);
-      let sebelum = teks.substring(Math.max(0,idx-30), idx).trim();
-      let kata = sebelum.split(' ').slice(-3).join(' ');
-      if(kata) gaNaikKetemu.push(cap(kata));
-    }
-  });
-
-  // 2. DETEKSI OUT PRODUKSI - Pola: [nama barang] [angka] kilo / kg / pcs
-  // Contoh: gula 5 kilo, bawang 5 kilo, tempe 5 kilo
-  let outBaru = [];
-  let regex = /([a-z\s]+?)\s*(\d+)\s*(kilo|kg|pcs|pack|liter|buah)/g;
-  let m;
-  while((m = regex.exec(teks)) !== null){
-    let nama = cap(m[1].trim().replace(/hari ini|barang keluar|untuk produksi|dan|,/g,'').trim());
-    // Bersihkan nama dari kata "ayam goreng ga naik" biar gak kehitung OUT
-    if(nama.toLowerCase().includes('ga naik') || nama.toLowerCase().includes('gak naik')) continue;
-    if(nama.length < 2) continue;
-    // Jangan hitung "ayam goreng" yang ga naik sebagai OUT
-    let isGaNaik = gaNaikKetemu.some(g=> g.toLowerCase().includes(nama.toLowerCase()) || nama.toLowerCase().includes(g.toLowerCase()));
-    if(isGaNaik) continue;
-    let qty = parseInt(m[2]);
-    outBaru.push({nama:nama, qty:qty});
-  }
-
-  // 3. TAMPILKAN HASIL PARSING
-  let html = '<div style="background:#dcfce7;padding:10px;border-radius:10px;margin-top:10px"><b>✅ Hasil Voice Note - OUT UNTUK PRODUKSI:</b><br>';
-  if(outBaru.length===0) html+='Tidak ada barang OUT terdeteksi. Coba format: gula 5 kilo<br>';
-  outBaru.forEach(o=>{ html+=`• ${o.nama} - ${o.qty} KG - OUT untuk Produksi<br>`; });
-  html+='</div>';
-  document.getElementById('vnParsed').innerHTML = html;
-
-  // 4. TAMPILKAN GA NAIK
-  let gaHtml='';
-  if(gaNaikKetemu.length>0){
-    gaHtml = '<div style="background:#fee2e2;padding:10px;border-radius:10px;margin-top:8px"><b>⚠️ KETERANGAN - PRODUK GA NAIK:</b><br>';
-    gaNaikKetemu.forEach(g=>{ gaHtml+=`• ${g} - <b>GA NAIK ❌ - Tidak diproses untuk produksi</b><br>`; });
-    gaHtml+='</div>';
-    document.getElementById('gaNaikBox').innerHTML = gaHtml;
-  } else {
-    document.getElementById('gaNaikBox').innerHTML='';
-  }
-
-  // 5. SIMPAN OTOMATIS KE DATA + TABEL OUT + STOK BERKURANG
-  outBaru.forEach(o=>{
-    if(!DATA[o.nama]) DATA[o.nama]={so:0,in:0,out:0,retur:0};
-    DATA[o.nama].out += o.qty;
-    OUT_LIST.push({nama:o.nama, qty:o.qty, waktu:new Date().toLocaleTimeString('id-ID')});
-  });
-  gaNaikKetemu.forEach(g=>{
-    if(!GANAik_LIST.includes(g)) GANAik_LIST.push(g);
-    if(!DATA[g]) DATA[g]={so:0,in:0,out:0,retur:0};
-    // Ga Naik = masuk Retur juga biar kehitung di Stok Akhir
-    DATA[g].retur += 0; // Stok tidak berkurang, hanya flag
-  });
-
-  renderOUT(); renderStok(); renderAssembly(); renderAtasanGaNaik();
-  alert(`Berhasil! ${outBaru.length} barang masuk OUT Produksi, ${gaNaikKetemu.length} produk Ga Naik. Stok otomatis berkurang!`);
-}
-
-function renderOUT(){
-  let tb=document.getElementById('tabelOUT'); tb.innerHTML='';
-  OUT_LIST.forEach(o=>{ tb.innerHTML+=`<tr><td>${o.nama}</td><td>${o.qty} KG</td><td>Produksi</td><td><span class="badge green">✅ Tercatat</span></td></tr>`; });
-  let ket=document.getElementById('keteranganGaNaik');
-  if(GANAik_LIST.length>0){
-    ket.innerHTML='<b>KETERANGAN:</b><br>'+GANAik_LIST.map(g=>`⚠️ ${g} - GA NAIK ❌`).join('<br>');
-  }
-}
-
-function renderAtasanGaNaik(){
-  let el=document.getElementById('atasanGaNaikList');
-  if(!el) return;
-  el.innerHTML = GANAik_LIST.length? '<b>Produk Ga Naik Hari Ini:</b><br>'+GANAik_LIST.map(g=>`🔴 ${g} - GA NAIK`).join('<br>') : 'Tidak ada produk Ga Naik hari ini.';
-}
-
-// ===== VOICE NOTE ASSEMBLY =====
-function prosesAssemblyVN(){
-  let teks=document.getElementById('vnAssembly').value.toLowerCase();
-  if(!teks) return alert('Assembly ngomong dulu: contoh ayam fillet mines 20 kilo');
-  let out=document.getElementById('assemblyVNOut');
-  if(teks.includes('mines') || teks.includes('minus')){
-    let mm=teks.match(/([a-z\s]+?)\s*(\d+)\s*(kilo|kg)/);
-    let nama = mm? cap(mm[1].trim()) : 'Barang';
-    let qty = mm? mm[2] : '';
-    out.innerHTML=`<div style="background:#fef9c3;padding:10px;border-radius:10px;margin-top:8px">⚠️ <b>${nama} MINES ${qty} KG</b> - Masuk MINES, langsung lapor ke Super Admin!</div>`;
-    alert('Mines tercatat!');
-  } else if(teks.includes('ga naik') || teks.includes('gak naik')){
-    out.innerHTML=`<div style="background:#fee2e2;padding:10px;border-radius:10px;margin-top:8px">❌ <b>${cap(teks)} - GA NAIK</b> - Flag merah ke Super Admin</div>`;
-    GANAik_LIST.push(cap(teks)); renderStok(); renderAtasanGaNaik();
-  } else {
-    out.innerHTML=`<div style="background:#dcfce7;padding:10px;border-radius:10px;margin-top:8px">✅ Voice Assembly: ${teks}</div>`;
-  }
-}
-
 function renderAssembly(){
-  let el=document.getElementById('assemblyList');
-  if(OUT_LIST.length===0){ el.innerHTML='Belum ada OUT Produksi masuk. Tunggu Voice Note dari Inbound.'; return; }
-  el.innerHTML='<b>OUT Produksi Masuk ke Assembly:</b><br>'+OUT_LIST.map(o=>`• ${o.nama} ${o.qty} KG - Siap Produksi ✅`).join('<br>')+'<br><br>'+(GANAik_LIST.length? '<b style="color:red">⚠️ Jangan produksi:</b><br>'+GANAik_LIST.map(g=>`• ${g} - GA NAIK ❌`).join('<br>') : '');
+  let tb=document.getElementById('assemblyTbl'); tb.innerHTML='';
+  ASSEMBLY.forEach((a,i)=>{ tb.innerHTML+=`<tr><td>${a.nama}</td><td>${a.naik?'<span class="badge naik">✅ NAIK</span>':'<span class="badge tidak">❌ TIDAK NAIK</span>'}</td><td>${a.ket}</td><td><button onclick="toggle(${i})">${a.naik?'Ubah jadi TIDAK':'Ubah jadi NAIK'}</button></td></tr>`; });
 }
-</script><!-- ============ AI, FILTER, LAPORAN ============ -->
-<div id="aiSection" class="card">
-<h2>🤖 ASISTEN AI - TINGGAL PERINTAH (V24)</h2>
-<p style="font-size:13px">Contoh ketik: <i>ayam CKDS ada berapa stoknya? / cari barang minus / ayam minus tanggal berapa hari apa? / buatkan ppt / buatkan laporan</i></p>
-<input id="aiInput" placeholder="Ketik perintah Bos di sini... Contoh: ayam CKDS ada berapa stoknya?">
-<button class="b-purple" onclick="tanyaAI()">🤖 TANYA AI</button>
-<div id="aiJawab" style="background:#f8f8f8;padding:10px;border-radius:10px;margin-top:8px;min-height:40px">Jawaban AI akan muncul di sini...</div>
-</div>
-
-<div class="card">
-<h2>🔍 FILTER DI SEMUA MENU (V26)</h2>
-<div class="grid">
-<div><input id="filterBarang" placeholder="Filter Barang: ketik Ayam / Gula / Bawang..." oninput="filterTabel()"><p style="font-size:12px">Filter Master, SO, IN/OUT, Pinjam, Assembly, Laporan</p></div>
-<div><select id="filterBrand" onchange="filterTabel()"><option value="">Semua Brand</option><option>CKDS Daging</option><option>CKDS Sayur</option><option>CKDS Bumbu</option></select>
-<select id="filterStatus" onchange="filterTabel()"><option value="">Semua Status</option><option value="GA NAIK">Ga Naik Saja</option><option value="AMAN">Aman Saja</option></select></div>
-</div>
-<div id="filterHasil" style="font-size:13px"></div>
-</div>
-
-<div class="card">
-<h2>📊 LAPORAN + PPT + SURAT JALAN + EXPORT 1 PDF</h2>
-<div class="grid3">
-<button class="b-blue" onclick="buatLaporan()">📄 BUATKAN LAPORAN</button>
-<button class="b-yellow" onclick="buatPPT()">📊 BUATKAN PPT</button>
-<button class="b-green" onclick="buatSuratJalan()">🚚 BUAT SURAT JALAN</button>
-</div>
-<div id="laporanOut" style="margin-top:10px;font-size:13px"></div>
-<button class="b-red" style="width:100%;margin-top:8px" onclick="window.print()">📄 EXPORT 1 PDF - LAPORAN + PPT + SURAT JALAN (CTRL+P)</button>
-<p style="font-size:12px">Notif HANYA DI APLIKASI, TIDAK ADA WA: Minus = Merah, Pinjam Menunggu = Kuning, Approve = Hijau. Super Admin kontrol semua, Atasan hanya lihat+approve, Gudang hanya brand sendiri, Assembly hanya line sendiri.</p>
-</div>
-
-<!-- KELOLA USER & TEMA -->
-<div class="card">
-<h2>👥 KELOLA USER + 🎨 UBAH LOGO & TEMA (6 Tema)</h2>
-<p style="font-size:13px">User Inbound: ARYA, MIRGA, HIBAN, YOGI, MARSEL, NURYANTO - Masing-masing hanya lihat Brand sendiri.</p>
-<div class="grid3">
-<button onclick="gantiTema('#1a1a4d')">Tema 1 - Ungu Tua</button>
-<button onclick="gantiTema('#0f766e')">Tema 2 - Hijau Tosca</button>
-<button onclick="gantiTema('#b91c1c')">Tema 3 - Merah</button>
-<button onclick="gantiTema('#1e40af')">Tema 4 - Biru</button>
-<button onclick="gantiTema('#854d0e')">Tema 5 - Coklat Emas</button>
-<button onclick="gantiTema('#111827')">Tema 6 - Hitam</button>
-</div>
-<input id="userBaru" placeholder="Tambah User Baru: Nama - Brand - Role (Contoh: BUDI - CKDS Daging - Inbound)">
-<button class="b-blue" onclick="alert('User baru tersimpan: '+document.getElementById('userBaru').value)">+ TAMBAH USER</button>
-</div>
-
-<div style="text-align:center;padding:20px;font-size:12px;color:#888">EATWELL V28 FINAL - Super Admin / Cost Control - Master → IN/OUT → SO → Stok Akhir - Voice Note Inbound = OUT Produksi + Ga Naik - Dashboard Dipisah: Super Admin / Atasan / Inbound / Assembly</div>
-</div><!-- tutup .wrap -->
-
-<script>
-// ===== AI SEDERHANA =====
-function tanyaAI(){
-  let q=document.getElementById('aiInput').value.toLowerCase();
-  let el=document.getElementById('aiJawab');
-  if(!q) return el.innerHTML='Ketik perintah dulu Bos. Contoh: ayam CKDS ada berapa stoknya?';
-  if(q.includes('ayam') && q.includes('berapa')){
-    let d=DATA['Ayam Fillet']||{so:0,in:0,out:0,retur:0};
-    let akhir=d.so+d.in-d.out+d.retur;
-    el.innerHTML=`🤖 Ayam Fillet CKDS: SO ${d.so} + IN ${d.in} - OUT ${d.out} = <b>Stok Akhir ${akhir} KG</b>. ${GANAik_LIST.length? '⚠️ Ga Naik: '+GANAik_LIST.join(', ') : 'Aman, tidak ada Ga Naik.'}`;
-  } else if(q.includes('minus') || q.includes('mines')){
-    let minus=Object.keys(DATA).filter(k=>{let d=DATA[k]; return (d.so+d.in-d.out+d.retur)<0});
-    el.innerHTML = minus.length? `🤖 Barang MINUS: ${minus.join(', ')}` : '🤖 Tidak ada barang minus. Semua aman Bos.';
-  } else if(q.includes('ga naik') || q.includes('tidak naik')){
-    el.innerHTML = GANAik_LIST.length? `🤖 Produk Ga Naik hari ini: ${GANAik_LIST.join(', ')} - Tidak diproses untuk produksi.` : '🤖 Tidak ada produk Ga Naik hari ini.';
-  } else if(q.includes('ppt')){
-    buatPPT(); el.innerHTML='🤖 PPT sudah dibuat di bawah Bos, tinggal Export PDF.';
-  } else if(q.includes('laporan')){
-    buatLaporan(); el.innerHTML='🤖 Laporan sudah dibuat di bawah Bos.';
-  } else if(q.includes('pinjam')){
-    el.innerHTML='🤖 Pinjam menunggu: YOGI pinjam dari MARSEL 10 KG - Menunggu Approve. Scan Barcode di Dashboard Inbound untuk pinjam.';
-  } else {
-    el.innerHTML=`🤖 Perintah Bos: "${q}" - Saya catat. Stok Akhir total sekarang ${document.getElementById('kAKHIR').textContent} KG. Coba tanya: ayam CKDS ada berapa? / cari minus / ga naik apa aja?`;
-  }
+function toggle(i){ ASSEMBLY[i].naik=!ASSEMBLY[i].naik; ASSEMBLY[i].ket=ASSEMBLY[i].naik?'-':'Barang basah'; renderAssembly(); }
+function simpanAssembly(){ let naik=ASSEMBLY.filter(a=>a.naik).length; let tidak=ASSEMBLY.length-naik; document.getElementById('assemblyOut').innerHTML=`✅ Tersimpan! <b>${naik} Naik • ${tidak} Tidak Naik</b> - Sudah jadi Laporan Otomatis!`; alert('Assembly tersimpan jadi laporan!'); }
+function prosesRetur(){
+  let t=document.getElementById('vnRetur').value.toLowerCase();
+  let m=t.match(/(\d+)/); let qty=m?parseInt(m[1]):5;
+  RET+=qty; RETUR.push({barang:'Ayam',jml:qty,tgl:'5-10',jam:'10:00',ket:'Tidak Jadi Produksi'}); update();
+  let tb=document.getElementById('returTbl'); tb.innerHTML=RETUR.map(r=>`<tr><td>${r.barang}</td><td>${r.jml} KG</td><td>${r.tgl}</td><td>${r.jam}</td><td>${r.ket}</td></tr>`).join('');
+  document.getElementById('returOut').innerHTML=`⚠️ Ayam ${qty} KG - GA NAIK - Masuk Barang Tidak Naik di Super Admin - Kembali ke Stok Awal +${qty} KG`;
+  alert('Retur '+qty+' KG berhasil! Stok Akhir sekarang '+(SO+INv-OUTv+RET)+' KG');
 }
-function filterTabel(){
-  let f=document.getElementById('filterBarang').value.toLowerCase();
-  let hasil=Object.keys(DATA).filter(k=>k.toLowerCase().includes(f));
-  document.getElementById('filterHasil').innerHTML = hasil.length? 'Hasil Filter: '+hasil.map(k=>{let d=DATA[k]; return `${k} - Stok Akhir ${d.so+d.in-d.out+d.retur}`}).join(' | ') : 'Tidak ketemu Bos.';
-}
-function gantiTema(c){ document.querySelector('header').style.background=c; document.querySelectorAll('.b-blue').forEach(b=>b.style.background=c); alert('Tema diubah jadi '+c); }
-function buatLaporan(){
-  let isi='<b>LAPORAN EATWELL - '+new Date().toLocaleDateString('id-ID')+'</b><br>SO Total: '+document.getElementById('kSO').textContent+' | IN: '+document.getElementById('kIN').textContent+' | OUT: '+document.getElementById('kOUT').textContent+' | Stok Akhir: '+document.getElementById('kAKHIR').textContent+'<br>OUT Produksi: '+(OUT_LIST.map(o=>o.nama+' '+o.qty+' KG').join(', ')||'-')+'<br>Ga Naik: '+(GANAik_LIST.join(', ')||'Tidak ada');
-  document.getElementById('laporanOut').innerHTML=isi; alert('Laporan dibuat!');
-}
-function buatPPT(){
-  document.getElementById('laporanOut').innerHTML='<b>PPT EATWELL - Slide 1:</b> Stok Akhir '+document.getElementById('kAKHIR').textContent+' KG<br><b>Slide 2:</b> OUT Produksi: '+(OUT_LIST.map(o=>o.nama+' '+o.qty+' KG').join(', ')||'-')+'<br><b>Slide 3:</b> Ga Naik: '+(GANAik_LIST.join(', ')||'Tidak ada')+'<br><b>Slide 4:</b> Pinjam: YOGI 10 KG Menunggu Approve';
-  alert('PPT dibuat!');
-}
-function buatSuratJalan(){
-  document.getElementById('laporanOut').innerHTML='<b>SURAT JALAN EATWELL</b><br>Tanggal: '+new Date().toLocaleDateString('id-ID')+'<br>Barang Keluar untuk Produksi:<br>'+(OUT_LIST.map(o=>`- ${o.nama} ${o.qty} KG`).join('<br>')||'-')+'<br><br>TTD Super Admin / Cost Control: __________';
-  alert('Surat Jalan dibuat!');
-}
-// JALANKAN AWAL
-renderStok(); renderOUT(); renderAssembly();
+function buatLaporan(jenis){ document.getElementById('laporanOut').innerHTML=`<b>${jenis}</b><br>SO Awal ${SO} + IN ${INv} - OUT ${OUTv} + RETUR ${RET} = Stok Akhir ${SO+INv-OUTv+RET}<br>Assembly: ${ASSEMBLY.filter(a=>a.naik).length} Naik • ${ASSEMBLY.filter(a=>!a.naik).length} Tidak Naik<br>Retur: ${RETUR.map(r=>r.barang+' '+r.jml+' KG').join(', ')||'Tidak ada'}`; }
+update();
 </script>
 </body></html>
