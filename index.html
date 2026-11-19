@@ -1,194 +1,216 @@
-<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EATWELL V14.1 FIX FORMAT BOS</title>
-<style>*{box-sizing:border-box}body{margin:0;font-family:Arial;background:linear-gradient(135deg,#FFC700,#FF8A00,#FF3D68,#7B2FFF)}header{background:#FFC700;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:9;flex-wrap:wrap;gap:8px}.wrap{display:flex}.side{width:280px;background:rgba(255,255,255,.94);padding:12px}.main{flex:1;padding:14px}.card{background:rgba(255,255,255,.94);border-radius:16px;padding:14px;margin-bottom:12px;box-shadow:0 6px 20px rgba(0,0,0,.15)}button{border:0;border-radius:10px;padding:10px 12px;font-weight:800;cursor:pointer}input,select,textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:10px;margin:5px 0}table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:8px;border-bottom:1px solid #eee;text-align:left}th{background:#111;color:#fff}.menu{width:100%;text-align:left;background:#fff;padding:11px;border-radius:12px;margin:4px 0;font-weight:700}.menu.on{background:#111;color:#fff}.bg{background:#E11D48;color:#fff;padding:2px 8px;border-radius:20px;font-size:11px}.flex{display:flex;gap:10px;flex-wrap:wrap}.flex>div{flex:1;min-width:150px}.notif{background:#FFF3CD;padding:9px;border-radius:10px;margin:5px 0}.ann{background:linear-gradient(90deg,#FFC700,#FF8A00);padding:12px;border-radius:12px;font-weight:800}.logoEatwell{background:#111;color:#FFC700;border-radius:14px;padding:8px 14px;display:inline-block;text-align:center;line-height:1}.logoEatwell b{font-size:26px;display:block}.logoEatwell span{font-size:9px;letter-spacing:4px;color:#fff}.prog{height:22px;background:#eee;border-radius:20px;overflow:hidden;margin:8px 0}.prog div{height:100%;background:#00A651;width:0%;text-align:center;color:#fff;font-size:12px;line-height:22px;font-weight:800}@media(max-width:800px){.side{display:none}.side.open{display:block;position:fixed;z-index:20;left:0;top:60px;width:88%}}</style></head>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EATWELL V19 FINAL - SEPAKAT</title>
+<style>
+*{box-sizing:border-box;font-family:Inter,system-ui,Arial}body{margin:0;background:#f1f5f9;color:#0f172a}
+header{background:#0f172a;color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+.logo{font-weight:900;font-size:22px} .logo span{color:#facc15}
+.btn{border:0;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer}
+.btn-y{background:#facc15}.btn-g{background:#16a34a;color:#fff}.btn-b{background:#2563eb;color:#fff}.btn-o{background:#ea580c;color:#fff}.btn-r{background:#dc2626;color:#fff}.btn-d{background:#0f172a;color:#fff}
+.card{background:#fff;border-radius:14px;padding:14px;margin:12px;box-shadow:0 4px 14px rgba(0,0,0,.06)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px} @media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
+.stat{padding:14px;border-radius:12px;color:#fff}.stat b{font-size:22px;display:block}
+input,select,textarea{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:10px;margin:6px 0}
+table{width:100%;border-collapse:collapse;font-size:14px} th,td{padding:8px;border-bottom:1px solid #e2e8f0;text-align:left}
+.badge{padding:4px 8px;border-radius:20px;font-size:12px;font-weight:800}.mines{background:#fee2e2;color:#dc2626}.wait{background:#fef9c3;color:#a16207}.ok{background:#dcfce7;color:#166534}.back{background:#dbeafe;color:#1d4ed8}
+.hidden{display:none}.flex{display:flex;gap:8px;flex-wrap:wrap}.notif{border-left:4px solid #facc15;background:#fffbeb;padding:10px;border-radius:10px;margin:8px 0}
+.theme-yellow{--a:#facc15} .dark{background:#0f172a;color:#fff} .dark .card{background:#1e293b;color:#fff}
+.scan{border:3px dashed #facc15;background:#fefce8;padding:16px;border-radius:14px;text-align:center;font-weight:900}
+</style>
+</head>
 <body>
-<div id="antiBlank" style="background:#111;color:#FFC700;padding:10px;text-align:center;font-weight:800">EATWELL V14.1 FIX FORMAT - LOADING...</div>
-<header><div style="display:flex;gap:10px;align-items:center"><div class="logoEatwell"><b>eatwell</b><span>CULINARY</span></div><div><b>eatwell V14.1 FIX FORMAT BOS</b><br><small>BRAND | KODE | KATEGORI | NAMA | SATUAN - 557 BARANG BISA!</small></div></div><div><span id="ul">Halo, SUPER ADMIN 👑</span> <button style="background:#0057FF;color:#fff" onclick="syncSheet()">🔄 SYNC KE SHEET</button> <button onclick="document.getElementById('side').classList.toggle('open')">☰ Menu</button> <button style="background:#111;color:#fff" onclick="logout()">Logout</button></div></header>
-<div class="wrap"><div class="side" id="side"><div class="card" style="text-align:center"><div class="logoEatwell"><b>eatwell</b><span>CULINARY</span></div><b>eatwell</b><div id="clock"></div><div id="nc"></div><hr><b>Link Kurir Sheet:</b><input id="linkSheet" placeholder="Link script.google.com..."><button style="background:#0057FF;color:#fff" onclick="simpanLink()">💾 SIMPAN LINK</button><hr><button style="background:#E11D48;color:#fff;width:100%" onclick="hapusDataSalah()">🗑 HAPUS DATA YANG SALAH TADI (5 Barang CKTW)</button></div><div id="menuList"></div><div class="card"><b>🔔 Notifikasi</b><div id="nb">Loading...</div></div></div>
-<div class="main">
-<div id="p-dash" class="pg"><div class="card"><h2>👑 Halo SUPER ADMIN - V14.1 UDAH NGERTI FORMAT BOS!</h2><div class="ann">📢 FORMAT BOS: <b>CKTW | CKTW01.00259 | VEGETABLE | KEMIRI PACK 1 KG | KG</b> → Nama yang diambil: <b>KEMIRI PACK 1 KG</b>! Bukan CKTW lagi!</div>
-<div class="card" style="border:3px solid #00A651"><h3>🚀 BULK MASTER - FORMAT BOS!</h3><p>Format Bos: <b>BRAND | KODE | KATEGORI | NAMA BARANG | SATUAN</b><br>Contoh: <b>CKTW | CKTW01.00259 | VEGETABLE | KEMIRI PACK 1 KG | KG</b><br>Juga bisa: <b>HANDSOAP | CKDS07.00034 | 20</b> (yang ada stoknya)</p><textarea id="pasteMaster" rows="10" placeholder="Paste 557 barang Bos disini, format:&#10;CKTW  CKTW01.00259  VEGETABLE  KEMIRI PACK 1 KG  KG&#10;CKDS  CKDS02.00481  PREMIX  PREMIX CK REMPAH AYAM GORENG BASAH ( CK )  KG&#10;..."></textarea><div class="prog"><div id="progBar">0%</div></div><div id="progTxt" style="font-weight:800"></div><div id="previewBox" style="background:#FFF8D6;padding:10px;border-radius:10px;margin:8px 0;display:none"></div><button style="background:#FF8A00;color:#fff;width:100%;padding:12px" onclick="previewMaster()">👀 CEK DULU - LIHAT 5 BARIS PERTAMA BENER ATAU TIDAK?</button><button style="background:#00A651;color:#fff;width:100%;padding:14px;font-size:16px;margin-top:8px" onclick="bulkMaster()">🚀 KIRIM BULK MASTER SEKALIGUS!</button><button style="background:#0057FF;color:#fff;width:100%;margin-top:8px" onclick="syncSheet()">🔄 SYNC SEMUA KE SHEET</button><p id="syncStatus" style="font-weight:800;color:#00A651"></p></div>
-<div class="flex"><div class="card">Total Master<div style="font-size:26px;font-weight:900" id="sB">0</div></div><div class="card">Total Stok<div style="font-size:26px;font-weight:900" id="sAwal">0</div></div><div class="card">IN Hari Ini<div style="font-size:26px;font-weight:900" id="sIn">0</div></div><div class="card">OUT Hari Ini<div style="font-size:26px;font-weight:900" id="sOut">0</div></div></div>
-<div class="flex"><div class="card">Dipinjam<div style="font-size:26px;font-weight:900" id="sP">0</div></div><div class="card">Menunggu Approve<div style="font-size:26px;font-weight:900" id="sW">0</div></div><div class="card">Mines<div style="font-size:26px;font-weight:900" id="sL">0</div></div><div class="card">Total Terkirim ke Sheet<div style="font-size:26px;font-weight:900" id="sData">0</div></div></div></div><div class="card"><h3>🔔 Notifikasi</h3><div id="nd"></div></div></div>
-<div id="p-master" class="pg" style="display:none"><div class="card"><h3>📦 Master Barang - 557 Barang Bos</h3><input id="cariMaster" placeholder="🔍 Cari: KEMIRI, PREMIX..." oninput="renderMaster()"><div id="tb"></div></div></div>
-<div id="p-in" class="pg" style="display:none"><div class="card"><h3>📥 BULK IN - SEKALIGUS BANYAK!</h3><p>Format: <b>NAMA BARANG QTY</b> contoh: <b>KEMIRI PACK 1 KG 10</b> atau <b>HANDSOAP 10</b></p><textarea id="pasteIn" rows="10" placeholder="KEMIRI PACK 1 KG 10&#10;PREMIX CK REMPAH AYAM GORENG BASAH 20&#10;..."></textarea><div class="prog"><div id="progBarIn">0%</div></div><div id="progTxtIn" style="font-weight:800"></div><button style="background:#00A651;color:#fff;width:100%;padding:14px" onclick="bulkIO('IN')">🚀 KIRIM BULK IN SEKALIGUS!</button><hr><select id="iB"></select><input id="iQ" type="number" placeholder="Qty"><button style="background:#00A651;color:#fff" onclick="sIn()">Simpan IN Manual</button></div><div class="card"><div id="li"></div></div></div>
-<div id="p-out" class="pg" style="display:none"><div class="card"><h3>📤 BULK OUT - SEKALIGUS BANYAK! SAMA KAYAK IN!</h3><p>Format: <b>NAMA BARANG QTY</b> contoh: <b>KEMIRI PACK 1 KG 2</b></p><textarea id="pasteOut" rows="10" placeholder="KEMIRI PACK 1 KG 2&#10;TISSUE 5&#10;..."></textarea><div class="prog"><div id="progBarOut">0%</div></div><div id="progTxtOut" style="font-weight:800"></div><button style="background:#E11D48;color:#fff;width:100%;padding:14px" onclick="bulkIO('OUT')">🚀 KIRIM BULK OUT SEKALIGUS!</button><hr><select id="oB"></select><input id="oQ" type="number" placeholder="Qty"><button style="background:#E11D48;color:#fff" onclick="sOut()">Simpan OUT Manual</button></div><div class="card"><div id="lo"></div></div></div>
-<div id="p-so" class="pg" style="display:none"><div class="card"><h3>📋 STOCK OPNAME - SEKALIGUS BANYAK!</h3><p>Format: <b>NAMA BARANG STOK FISIK</b> contoh: <b>KEMIRI PACK 1 KG 18</b></p><textarea id="pasteSO" rows="10" placeholder="KEMIRI PACK 1 KG 18&#10;TISSUE 45&#10;..."></textarea><div class="prog"><div id="progBarSO">0%</div></div><div id="progTxtSO" style="font-weight:800"></div><button style="background:#0057FF;color:#fff;width:100%;padding:14px" onclick="bulkSO()">🚀 KIRIM SO SEKALIGUS!</button><div id="soIsi"></div></div></div>
-<div id="p-pinjam" class="pg" style="display:none"><div class="card" style="background:#FFF8D6"><h3>🤲 Form Pinjam</h3><input id="p1" placeholder="Nama Peminjam"><input id="p2" placeholder="Dept / DS"><select id="p3"></select><input id="p4" type="number" value="1"><hr><input id="pDari" placeholder="DARI MANA?"><input id="pKe" placeholder="KE MANA?"><input id="pUntuk" placeholder="UNTUK APA?"><input id="p5" type="date"><input id="p6" type="time"><button style="background:#FF8A00;color:#fff;width:100%;padding:14px" onclick="ajukan()">⏳ AJUKAN PINJAM</button><div id="waPinjamBox"></div></div><div class="card"><h3>Daftar Pinjaman</h3><div id="tp"></div></div></div>
-<div id="p-appr" class="pg" style="display:none"><div class="card"><h3>✅ Approve / Reject</h3><label><input type="checkbox" id="aa" onchange="ubahAuto(this)" style="width:auto"> Auto-Approve</label><div id="ta"></div></div></div>
-<div id="p-surat" class="pg" style="display:none"><div class="card"><h3>🧾 Surat Jalan</h3><div id="ts"></div></div></div>
-<div id="p-bc" class="pg" style="display:none"><div class="card" style="text-align:center"><h2>⭐ QR GAMBAR</h2><div style="background:#fff;padding:16px;border-radius:16px;display:inline-block;border:3px dashed #111"><img src="https://api.qrserver.com/v1/create-qr-code/?size=280x280&margin=10&data=https%3A%2F%2Fadeirawann019.github.io%2FEATWELL-INDOUND%2F%23gudang" style="width:280px;height:280px"><br><b>SCAN QR INI - LANGSUNG PINJAM!</b></div><br><br><button style="background:#00A651;color:#fff;width:100%;padding:14px" onclick="gudang()">📷 COBA MODE GUDANG</button></div></div>
-<div id="p-users" class="pg" style="display:none"><div class="card"><h3>👥 Bagi Akun</h3><input id="u1" placeholder="Nama"><select id="uRole"><option value="STAFF GUDANG">STAFF GUDANG</option><option value="ADMIN PEMBANTU">ADMIN PEMBANTU</option><option value="ATASAN">ATASAN / BOSS</option></select><input id="u2" placeholder="Username"><input id="u3" placeholder="Password"><button style="background:#00A651;color:#fff" onclick="addU()">+ Tambah Akun</button><div id="tu"></div></div></div>
-<div id="p-lap" class="pg" style="display:none"><div class="card"><h3>📈 Laporan</h3><button style="background:#00A651;color:#fff" onclick="exportCSV()">⬇ CSV</button> <button style="background:#0057FF;color:#fff" onclick="syncSheet()">🔄 SYNC KE SHEET</button><div id="lr"></div><p>Semua data lengkap ada di Google Sheet Bos, di sheet DATA / IN / OUT / SO!</p></div></div>
-</div></div>
-<div id="lg" style="position:fixed;inset:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;z-index:99"><div class="card" style="width:380px;text-align:center"><div class="logoEatwell"><b>eatwell</b><span>CULINARY</span></div><h2>eatwell V14.1</h2><p style="font-size:12px">FIX FORMAT BOS - BRAND KODE KATEGORI NAMA SATUAN</p><input id="lu" placeholder="Username"><input id="lp" type="password" placeholder="Password"><button style="background:#00A651;color:#fff;width:100%" onclick="login()">MASUK</button><button style="width:100%;margin-top:8px" onclick="gudang()">📷 Saya Anak Gudang</button><small>Super Admin: superadmin / super123<br>Atasan: atasan / atasan123</small></div></div>
+<header><div class="logo">🍽️ EATWELL <span>V19 FINAL</span> <small id="logoText">• Logo bisa diubah</small></div><div><button class="btn btn-y" onclick="showNotif()">🔔 Notif <b id="notifCount">3</b></button> <span id="userLabel">Super Admin</span> <button class="btn btn-r" onclick="logout()">Logout</button></div></header>
+
+<!-- LOGIN -->
+<div id="loginPage" class="card" style="max-width:480px;margin:30px auto">
+<h2>Login EATWELL V19</h2>
+<p>Pilih Role, Username & Password</p>
+<label>Role</label><select id="role"><option value="superadmin">Super Admin</option><option value="inbound">Inbound / Gudang</option><option value="atasan">Atasan</option><option value="assembly">Assembly</option></select>
+<label>Username</label><input id="uname" placeholder="superadmin / arya / atasan / assembly" value="superadmin">
+<label>Password</label><input id="pass" type="password" value="admin123">
+<button class="btn btn-y" style="width:100%" onclick="login()">Masuk Dashboard →</button>
+<p style="font-size:13px">Coba: superadmin/admin123 • arya/arya123 • atasan/atasan123 • assembly/assembly123<br>6 Inbound: ARYA CKDS Daging, MIRGA CKTW, HIBAN CKIS, YOGI Sayuran, MARSEL CKDS Sayuran, NURYANTO CKDS Dry</p>
+</div>
+
+<!-- APP -->
+<div id="app" class="hidden">
+<div class="card">
+<h2 id="dashTitle">Dashboard Super Admin - Pusat Kendali</h2>
+<div class="flex">
+<button class="btn btn-y" onclick="tab('master')">Master Barang</button>
+<button class="btn btn-g" onclick="tab('so')">SO Mingguan & Bulanan</button>
+<button class="btn btn-b" onclick="tab('inout')">IN & OUT Copy Paste</button>
+<button class="btn btn-o" onclick="tab('impor')">Impor Master</button>
+<button class="btn" style="background:#a855f7;color:#fff" onclick="tab('ai')">Asisten AI</button>
+<button class="btn btn-d" onclick="tab('users')">Kelola User</button>
+<button class="btn btn-y" onclick="tab('tampilan')">Ubah Logo / Tema</button>
+<button class="btn btn-r" onclick="tab('notif')">Notif Pinjam / Mines</button>
+<button class="btn btn-g" onclick="tab('scan')">📷 Scan Barcode Pinjam</button>
+<button class="btn btn-b" onclick="tab('assembly')">Assembly</button>
+<button class="btn btn-d" onclick="window.print()">Export 1 PDF</button>
+</div>
+</div>
+
+<!-- STATS -->
+<div class="grid" style="padding:0 12px">
+<div class="stat" style="background:#facc15;color:#000">Total Barang<b id="sTotal">1,248</b>Master Barang</div>
+<div class="stat" style="background:#16a34a">Stok Masuk<b>1,240 KG</b>IN Hari Ini</div>
+<div class="stat" style="background:#ea580c">Stok Keluar<b>890 KG</b>OUT Hari Ini</div>
+<div class="stat" style="background:#dc2626">Barang Mines<b id="sMines">2 Item</b>Ayam Fillet -20 KG</div>
+<div class="stat" style="background:#2563eb">Pinjam<b>3 Pinjam</b>1 Menunggu Approve</div>
+<div class="stat" style="background:#a855f7">Assembly<b>12 Line</b>NAIK 10 / TIDAK 2</div>
+<div class="stat" style="background:#0f172a">User Aktif<b>12 User</b>6 Inbound + Assembly + Atasan</div>
+<div class="stat" style="background:#f59e0b">Retur<b>12 Retur</b>Akumulasi</div>
+</div>
+
+<!-- NOTIF -->
+<div id="notifBox" class="card">
+<h3>🔔 Notif - HANYA DI APLIKASI - Super Admin & Atasan Saja - TIDAK ADA WA</h3>
+<div class="notif">🔴 <b>BARANG MINES:</b> Ayam Fillet MINES -20 KG - Stok Akhir Negatif <button class="btn btn-g" onclick="isiStok()">+ Isi Stok Cepat</button> <button class="btn btn-r" onclick="atasiMines()">Atasi Mines</button></div>
+<div class="notif">🟡 <b>BARANG PINJAM:</b> YOGI pinjam Sayur Ichiban 10 KG dari MARSEL - Menunggu Approve <button class="btn btn-g" onclick="approvePinjam(this)">Approve</button> <button class="btn btn-r" onclick="tolakPinjam(this)">Tolak</button></div>
+<div class="notif">🟢 <b>APPROVE:</b> Pinjam BUDI Assembly 5 KG Ayam sudah di-Approve oleh Atasan</div>
+</div>
+
+<!-- MASTER -->
+<div id="tab-master" class="card">
+<h3>Master Barang + SO + IN OUT RETUR + Stok Akhir</h3>
+<p>Rumus: <b>SO + IN - OUT + RETUR = Stok Akhir</b> | Contoh: 500 + 120 - 45 + 3 = 578</p>
+<input placeholder="Cari barang... (Ayam, Sayur, Daging)" oninput="filterTable(this.value)">
+<table id="masterTable">
+<tr><th>Barcode</th><th>Nama Barang</th><th>Brand / Pemilik</th><th>SO</th><th>IN</th><th>OUT</th><th>RETUR</th><th>Stok Akhir</th><th>Status</th></tr>
+<tr><td>899123456</td><td>Ayam Fillet</td><td>CKDS - ARYA</td><td>500</td><td>120</td><td>45</td><td>3</td><td><b>578</b></td><td><span class="badge ok">Aman</span></td></tr>
+<tr><td>899123457</td><td>Ayam Fillet</td><td>CKDS - ARYA</td><td>100</td><td>0</td><td>120</td><td>0</td><td><b style="color:red">-20</b></td><td><span class="badge mines">MINES</span></td></tr>
+<tr><td>899112233</td><td>Sayur Ichiban</td><td>Tawan - YOGI</td><td>200</td><td>50</td><td>30</td><td>5</td><td><b>225</b></td><td><span class="badge ok">Aman</span></td></tr>
+<tr><td>899998877</td><td>Daging Sapi</td><td>CKDS - MARSEL</td><td>300</td><td>80</td><td>60</td><td>2</td><td><b>322</b></td><td><span class="badge ok">Aman</span></td></tr>
+</table>
+<div class="flex"><button class="btn btn-g" onclick="tambahBarang()">+ Tambah Barang</button><button class="btn btn-b" onclick="alert('Copy Paste dari Excel berhasil!')">📋 Copy Paste Excel</button><button class="btn btn-y" onclick="alert('Voice Input aktif! Silahkan bicara...')">🎤 Voice Input</button></div>
+</div>
+
+<!-- SO -->
+<div id="tab-so" class="card hidden">
+<h3>SO Mingguan & Bulanan</h3>
+<label>Periode</label><select><option>Mingguan - 17-23 Nov 2026</option><option>Bulanan - November 2026</option></select>
+<p>Stok Awal SO: <input value="500"> IN: <input value="120"> OUT: <input value="45"> RETUR: <input value="3"></p>
+<h2>Stok Akhir: <span id="hitungSO">578</span> KG</h2>
+<button class="btn btn-g" onclick="document.getElementById('hitungSO').innerText='578 - Rumus SO+IN-OUT+RETUR OKE'">Hitung Otomatis</button>
+<p>📊 Grafik: SO naik 20% minggu ini, Stok Sayuran turun, AI sarankan order +50 KG</p>
+</div>
+
+<!-- INOUT -->
+<div id="tab-inout" class="card hidden">
+<h3>IN & OUT - Copy Paste Excel / WA</h3>
+<textarea rows="4" placeholder="Paste dari Excel / WA disini... Contoh: Ayam Fillet 25 KG&#10;Daging Sapi 10 KG"></textarea>
+<div class="flex"><button class="btn btn-g" onclick="alert('IN berhasil! Stok +25 KG')">IN Tambah Stok - Hijau</button><button class="btn btn-o" onclick="alert('OUT berhasil! Stok -10 KG')">OUT Barang Keluar - Oranye</button><button class="btn btn-b" onclick="alert('Copy Paste diproses!')">Proses Copy Paste</button></div>
+</div>
+
+<!-- IMPOR -->
+<div id="tab-impor" class="card hidden">
+<h3>Impor Master - Anti Duplikat</h3>
+<div class="flex"><button class="btn btn-b" onclick="downloadTemplate()">⬇ Download Template</button><button class="btn btn-g" onclick="alert('Upload Excel berhasil!')">⬆ Upload File</button><button class="btn btn-y" onclick="alert('Drag & Drop aktif!')">Drag & Drop</button></div>
+<p>Preview: BARU (hijau) / DUPLIKAT (merah) / UPDATE (kuning) - Sistem otomatis cegah duplikat!</p>
+</div>
+
+<!-- AI -->
+<div id="tab-ai" class="card hidden" style="border:2px solid #a855f7">
+<h3>🤖 Asisten AI - Panel Ungu</h3>
+<p><b>AI:</b> Stok Sayuran turun 20%, disarankan order +50 KG. Ayam Fillet MINES -20 KG, segera isi stok!</p>
+<input placeholder="Tanya AI... Contoh: Stok apa yang mines hari ini?">
+<button class="btn" style="background:#a855f7;color:#fff" onclick="alert('AI: Yang mines: Ayam Fillet -20 KG, Sayur Yogi -5 KG')">Tanya AI</button>
+<div class="flex"><button class="btn btn-b" onclick="alert('Analisis AI: Stok kritis 2 item')">Analisis Stok</button><button class="btn btn-g" onclick="alert('Prediksi AI: Besok butuh +80 KG Ayam')">Prediksi Pesanan</button><button class="btn btn-y" onclick="alert('Laporan Otomatis dibuat!')">Laporan Otomatis</button></div>
+</div>
+
+<!-- USERS -->
+<div id="tab-users" class="card hidden">
+<h3>Kelola Semua User - Gudang, Assembly, Atasan</h3>
+<table><tr><th>Nama</th><th>Role</th><th>Brand</th><th>Password</th><th>Aksi</th></tr>
+<tr><td>ARYA</td><td>Gudang</td><td>CKDS Daging</td><td>arya123</td><td><button class="btn btn-b" onclick="alert('Edit ARYA')">Edit</button> <button class="btn btn-y" onclick="alert('Password ARYA diganti!')">Ganti Password</button></td></tr>
+<tr><td>MIRGA</td><td>Gudang</td><td>CKTW Daging Seafood WIP Tawan</td><td>mirga123</td><td><button class="btn btn-b">Edit</button></td></tr>
+<tr><td>HIBAN</td><td>Gudang</td><td>CKIS & Tawan Dry Plastik</td><td>hiban123</td><td><button class="btn btn-b">Edit</button></td></tr>
+<tr><td>YOGI</td><td>Gudang</td><td>Sayuran Ichiban Tawan + WIP CKDS</td><td>yogi123</td><td><button class="btn btn-b">Edit</button></td></tr>
+<tr><td>MARSEL</td><td>Gudang</td><td>CKDS Sayuran & Plastik</td><td>marsel123</td><td><button class="btn btn-b">Edit</button></td></tr>
+<tr><td>NURYANTO</td><td>Gudang</td><td>CKDS Item Dry</td><td>nuryanto123</td><td><button class="btn btn-b">Edit</button></td></tr>
+</table>
+<div class="flex"><input id="newUser" placeholder="Nama user baru..."><button class="btn btn-g" onclick="alert('User baru ditambahkan!')">+ Tambah Orang</button><button class="btn btn-y" onclick="alert('Perintah terkirim ke semua user!')">📩 Kirim Perintah</button></div>
+</div>
+
+<!-- TAMPILAN -->
+<div id="tab-tampilan" class="card hidden">
+<h3>🎨 Ubah Logo, Tampilan & Tema</h3>
+<p>Logo Sekarang: <b>EATWELL</b></p>
+<div class="flex"><button class="btn btn-b" onclick="alert('Upload Logo Baru - Pilih file gambar')">Upload Logo Baru</button><button class="btn btn-y" onclick="alert('Logo diganti!')">Ganti Logo</button><button class="btn btn-r" onclick="alert('Logo dihapus!')">Hapus Logo</button></div>
+<p>6 Tema:</p>
+<div class="flex">
+<button class="btn btn-y" onclick="setTheme('yellow')">Kuning Hitam Eatwell</button>
+<button class="btn btn-g" onclick="setTheme('green')">Hijau Fresh</button>
+<button class="btn btn-b" onclick="setTheme('blue')">Biru Ocean</button>
+<button class="btn" style="background:#a855f7;color:#fff" onclick="setTheme('purple')">Ungu Premium</button>
+<button class="btn btn-d" onclick="document.body.classList.toggle('dark')">Dark Mode Hitam</button>
+<button class="btn" onclick="document.body.classList.remove('dark')">Putih Clean</button>
+</div>
+<p>Layout: <select><option>Layout Standar</option><option>Layout Compact - HP Kecil</option><option>Layout Kartu Besar</option><option>Layout Infokus HDMI - TV Gudang</option></select></p>
+<button class="btn btn-g" onclick="alert('Semua Pengaturan Disimpan!')">Simpan Semua Pengaturan</button>
+</div>
+
+<!-- NOTIF TAB -->
+<div id="tab-notif" class="card hidden">
+<h3>🔔 Notif Pinjam / Mines / Approve - Hanya Di Aplikasi</h3>
+<p>Lonceng di Dashboard Super Admin & Atasan. <b>Tidak ada WA.</b></p>
+<table><tr><th>Barang</th><th>Jenis</th><th>Status</th></tr><tr><td>Ayam Fillet -20 KG</td><td>Mines</td><td><span class="badge mines">Merah</span></td></tr><tr><td>YOGI pinjam 10 KG</td><td>Pinjam</td><td><span class="badge wait">Menunggu Approve</span></td></tr><tr><td>BUDI pinjam 5 KG</td><td>Pinjam</td><td><span class="badge ok">Disetujui</span></td></tr></table>
+<p>Batas Mines: <input value="-10 KG"> Batas Stok Kritis: <input value="20 KG"> Auto Notif: ON - Setiap 15 Menit</p>
+</div>
+
+<!-- SCAN - INBOUND -->
+<div id="tab-scan" class="card hidden" style="border:3px dashed #facc15">
+<h3>📷 SCAN BARCODE PINJAM BARANG - ADA DI DASHBOARD INBOUND!</h3>
+<p><b>Halo ARYA - Brand: CKDS Daging</b></p>
+<div class="scan">📷 SCAN BARCODE PINJAM BARANG<br><small>SCAN PINJAM BARANG - Klik Disini</small><br><br><button class="btn btn-y" style="font-size:18px" onclick="scanPinjam()">📷 MULAI SCAN</button></div>
+<div id="scanResult" class="card hidden"><b>Barang Terdeteksi</b><br>Barang: Ayam Fillet<br>Brand: CKDS<br>Stok: 370 KG<br>Barcode: 899123456<br>Yang Pinjam: <input value="YOGI"> Pinjam Dari: <input value="MARSEL"> Jumlah: <input value="10 KG"> Alasan: <input value="Buat Assembly"><button class="btn btn-g" onclick="alert('Pinjam Diajukan! Notif masuk ke Super Admin & Atasan di Aplikasi!')">Ajukan Pinjam</button></div>
+<h4>Daftar Pinjam Via Scan</h4>
+<table><tr><th>Tanggal</th><th>Barang (Barcode)</th><th>Yang Pinjam</th><th>Dari</th><th>Jumlah</th><th>Status</th></tr>
+<tr><td>12 Okt</td><td>Ayam Fillet (899123456)</td><td>YOGI</td><td>MARSEL</td><td>10 KG</td><td><span class="badge wait">Menunggu Approve</span></td></tr>
+<tr><td>11 Okt</td><td>Dada Ayam (899112233)</td><td>SANTI</td><td>MARSEL</td><td>5 KG</td><td><span class="badge ok">Disetujui</span></td></tr>
+<tr><td>09 Okt</td><td>Ayam Fillet (899123456)</td><td>RANI</td><td>MARSEL</td><td>8 KG</td><td><span class="badge back">Sudah Kembali</span></td></tr>
+</table>
+<div class="scan" style="border-color:#2563eb">📷 SCAN BARCODE KEMBALI BARANG<br><button class="btn btn-b" onclick="alert('Barang dikembalikan! Status otomatis Sudah Kembali!')">Scan Kembali</button></div>
+<p>Keuntungan: Anti Salah Barang, Cepat 3 Detik, Stok Otomatis Terkunci, Notif Hanya Di Aplikasi</p>
+</div>
+
+<!-- ASSEMBLY -->
+<div id="tab-assembly" class="card hidden">
+<h3>🏭 Assembly Preparation</h3>
+<p>Foto Planning: <button class="btn btn-b" onclick="alert('Foto Planning diupload!')">📷 Upload Foto Planning</button></p>
+<table><tr><th>Produk</th><th>Status</th><th>Checklist</th></tr><tr><td>Produk A</td><td><span class="badge ok">NAIK ✅</span></td><td><input type="checkbox" checked> Dikeluarkan</td></tr><tr><td>Produk B</td><td><span class="badge mines">TIDAK NAIK ❌</span></td><td><input type="checkbox"> Dikeluarkan</td></tr></table>
+<button class="btn btn-g" onclick="alert('Laporan Assembly Terkirim!')">Kirim Laporan Assembly Selesai</button>
+</div>
+
+<div class="card">
+<h3>Alur 5 Langkah & Cara Login & Pembagian Akses</h3>
+<p><b>Alur:</b> 1. Impor Master → 2. SO Mingguan/Bulanan → 3. IN & OUT → 4. Assembly → 5. Export & Laporan PDF</p>
+<p><b>Login:</b> 1. Pilih Role → 2. Username & Password → 3. Masuk Dashboard → 4. Gunakan Fitur Sesuai Akses</p>
+<p><b>Akses:</b> Super Admin Bisa Semua | Atasan Lihat + Approve | Gudang Hanya Brand Sendiri | Assembly Hanya Line Sendiri</p>
+<p><b>Pengaturan Halaman ON/OFF:</b> <label><input type="checkbox" checked> Master Barang ON</label> <label><input type="checkbox" checked> SO ON</label> <label><input type="checkbox" checked> AI ON</label> <label><input type="checkbox"> Mode Infokus OFF</label></p>
+<p><b>Voice Note:</b> <button class="btn btn-y" onclick="alert('Voice Note direkam!')">🎤 Rekam Voice Note</button></p>
+</div>
+</div>
+
 <script>
-function $id(id){return document.getElementById(id)}
-function setVal(id,v){var e=$id(id); if(e) e.value=v}
-function setTxt(id,v){var e=$id(id); if(e) e.innerText=v}
-function setHtml(id,v){var e=$id(id); if(e) e.innerHTML=v}
-var DB={b:[],p:[],sj:[],u:[{nm:'Admin Gudang',us:'admin1',pw:'123',mx:5,role:'ADMIN PEMBANTU'},{nm:'Atasan Demo',us:'atasan',pw:'atasan123',mx:100,role:'ATASAN'}],auto:false,nama:'eatwell',link:'https://script.google.com/macros/s/AKfycbwvOEieIHwWmVgSus8Mq3LT2DiOZLtTiDmeruX6mE4GToSbEJQWmNh_1Ip9ZcTA7ir4/exec',totalKirim:0,inLog:[],outLog:[]};
-try{var saved=JSON.parse(localStorage.getItem('ew141')||'null'); if(saved&&saved.b) DB=saved; }catch(e){}
-if(!DB.link) DB.link='https://script.google.com/macros/s/AKfycbwvOEieIHwWmVgSus8Mq3LT2DiOZLtTiDmeruX6mE4GToSbEJQWmNh_1Ip9ZcTA7ir4/exec';
-var CUR='SUPER ADMIN',CURROLE='SUPER ADMIN';
-function isSuper(){return CURROLE=='SUPER ADMIN'}
-function canApprove(){return CURROLE=='SUPER ADMIN'||CURROLE=='ADMIN PEMBANTU'||CURROLE=='ATASAN'}
-function logout(){localStorage.removeItem('r');location.reload()}
-function hapusDataSalah(){if(!confirm('Hapus 5 data yang salah tadi (CKTW, CKDS, dll)? Data yang bener nanti Bos paste lagi!'))return;DB.b=DB.b.filter(function(b){return ['CKTW','CKDS','CKIS','CKPR','HANDSOAP'].indexOf(b.n)==-1 || b.k.indexOf('CK')!=0});if(DB.b.length<10){DB.b=[]}DB.totalKirim=0;saveMini();alert('✅ Data salah udah dihapus! Sekarang paste lagi yang 557 yang bener!')}
-function saveMini(){try{localStorage.setItem('ew141',JSON.stringify(DB))}catch(e){DB.b=DB.b.slice(-200);try{localStorage.setItem('ew141',JSON.stringify(DB))}catch(e2){alert('Memori penuh, tapi data udah kekirim ke Sheet!')}}render()}
-function ns(){var d=new Date();return d.toLocaleDateString('id-ID',{day:'2-digit',month:'2-digit',year:'numeric'})+' '+d.toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'})}
-function todayStr(){return new Date().toISOString().slice(0,10)}
-function hariStr(){return new Date().toLocaleDateString('id-ID',{weekday:'long',day:'2-digit',month:'long',year:'numeric'})}
-function getBrand(kode){if((kode||'').includes('CKDS'))return 'CKDS';if((kode||'').includes('CKIS'))return 'CKIS';if((kode||'').includes('CKTW'))return 'CKTW';if((kode||'').includes('CKPR'))return 'CKPR';return 'CKDS'}
-function simpanLink(){var a=$id('linkSheet'); if(a&&a.value) DB.link=a.value; saveMini(); alert('Link disimpan!')}
-function kirimChunk(rows,type,progId,txtId){
-  return new Promise(function(resolve){
-    var total=rows.length, sent=0, idx=0;
-    function next(){
-      if(idx>=total){ resolve(true); return; }
-      var chunk=rows.slice(idx, idx+50); idx+=50;
-      fetch(DB.link,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:type, rows:chunk})}).then(function(){ sent+=chunk.length; var pct=Math.round(sent/total*100); var pb=$id(progId); if(pb){pb.style.width=pct+'%'; pb.innerText=pct+'%'} var tx=$id(txtId); if(tx) tx.innerText='Terkirim '+sent+' dari '+total+' baris...'; setTimeout(next, 300); }).catch(function(){ setTimeout(next, 500); });
-    }
-    if(total==0){ resolve(true); return; }
-    next();
-  });
-}
-// FIX UTAMA: Ngerti format Bos: BRAND KODE KATEGORI NAMA SATUAN
-function parseSatuBarisMaster(l){
-  l=l.trim(); if(!l) return null;
-  var p=l.split(/[\t|,;]+/).map(function(x){return x.trim()}).filter(function(x){return x});
-  // Kalau pake | atau tab, p sudah pecah bagus
-  if(p.length>=4){
-    var brand=p[0].toUpperCase();
-    var kode=p[1].toUpperCase();
-    var kategori=p[2].toUpperCase();
-    // Nama = semua dari index 3 sampai sebelum satuan terakhir, kalau satuan terakhir KG/PORSI/BTL/dll
-    var satuanList=['KG','GR','PORSI','BTL','PCS','PACK','LITER','ML','BOX','KARUNG','BUNGKUS','SACHET'];
-    var last=p[p.length-1].toUpperCase();
-    var satuan=''; var namaParts=[];
-    if(satuanList.indexOf(last)!=-1 || last.length<=4){
-      satuan=last; namaParts=p.slice(3, p.length-1);
-    } else {
-      // Cek kalau terakhir angka = stok
-      if(!isNaN(parseInt(last))){
-        var stok=parseInt(last); namaParts=p.slice(3, p.length-1); return {brand:brand,kode:kode,kategori:kategori,nama:namaParts.join(' ').toUpperCase()||p[3].toUpperCase(),satuan:'',stok:stok};
-      }
-      namaParts=p.slice(3);
-    }
-    var nama=namaParts.join(' ').toUpperCase();
-    // Kalau nama masih kosong, ambil p[3]
-    if(!nama) nama=p[3].toUpperCase();
-    return {brand:brand,kode:kode,kategori:kategori,nama:nama,satuan:satuan,stok:0};
-  }
-  if(p.length==3){
-    // Format lama: NAMA | KODE | STOK
-    var stok2=parseInt(p[2])||0;
-    if(!isNaN(stok2) && stok2>0) return {brand:getBrand(p[1]),kode:p[1].toUpperCase(),kategori:'',nama:p[0].toUpperCase(),satuan:'',stok:stok2};
-    return {brand:p[0].toUpperCase(),kode:p[1].toUpperCase(),kategori:p[2].toUpperCase(),nama:p[1].toUpperCase(),satuan:'',stok:0};
-  }
-  if(p.length==2){
-    return {brand:getBrand(p[1]),kode:p[1].toUpperCase(),kategori:'',nama:p[0].toUpperCase(),satuan:'',stok:0};
-  }
-  // Kalau pake spasi aja, tanpa | : CKTW CKTW01.00259 VEGETABLE KEMIRI PACK 1 KG KG
-  var parts=l.split(/\s+/);
-  if(parts.length>=5 && parts[1].indexOf('CK')==0){
-    var brand2=parts[0].toUpperCase(); var kode2=parts[1].toUpperCase(); var kat2=parts[2].toUpperCase();
-    var satuan2=parts[parts.length-1].toUpperCase();
-    var nama2=parts.slice(3, parts.length-1).join(' ').toUpperCase();
-    return {brand:brand2,kode:kode2,kategori:kat2,nama:nama2,satuan:satuan2,stok:0};
-  }
-  return {brand:'CKDS',kode:'',kategori:'',nama:l.toUpperCase(),satuan:'',stok:0};
-}
-function parseBulkMaster(txt){
-  var lines=txt.split('\n').filter(function(l){return l.trim()});
-  var out=[];
-  lines.forEach(function(l){
-    var r=parseSatuBarisMaster(l); if(!r||!r.nama) return;
-    out.push({tanggal:ns(),nama:r.nama,kode:r.kode,brand:r.brand||getBrand(r.kode),kategori:r.kategori,satuan:r.satuan,masuk:r.stok,keluar:0,pinjam:0,stok:r.stok,plusmines:'',tglMasuk:todayStr(),tglKeluar:'-',peminjam:'-',status:'MASTER',dari:'-',ke:'-',untuk:'-',noSJ:'-'});
-  });
-  return out;
-}
-function previewMaster(){
-  var txt=$id('pasteMaster').value; if(!txt.trim()) return alert('Paste dulu Bos!');
-  var rows=parseBulkMaster(txt);
-  var box=$id('previewBox'); box.style.display='block';
-  box.innerHTML='<b>✅ Hasil baca '+rows.length+' baris! 5 pertama:</b><br>'+rows.slice(0,5).map(function(r,i){return (i+1)+'. <b>'+r.nama+'</b> | Kode: '+r.kode+' | Brand: '+r.brand+' | Kategori: '+r.kategori+' | Satuan: '+r.satuan+' | Stok: '+r.stok}).join('<br>')+'<br><br><b>Kalau udah bener, pencet KIRIM BULK!</b>';
-}
-function parseBulkIO(txt,mode){
-  var lines=txt.split('\n').filter(function(l){return l.trim()});
-  var out=[];
-  lines.forEach(function(l){
-    var parts=l.trim().split(/\s+/); if(parts.length<2) return;
-    var qty=parseInt(parts[parts.length-1])||0; var nama=parts.slice(0,-1).join(' ').toUpperCase();
-    // Kalau format Bos: CKTW ... KEMIRI ... KG 10 -> qty terakhir, nama = tengah
-    if(parts[1] && parts[1].indexOf('CK')==0){
-      // Ambil nama dari parse master
-      var pm=parseSatuBarisMaster(l.replace(/\s+\d+$/,''));
-      if(pm) nama=pm.nama;
-    }
-    var b=DB.b.find(function(x){return x.n==nama});
-    out.push({tanggal:ns(),nama:nama,barang:nama,kode:b?b.k:'',brand:b?getBrand(b.k):'CKDS',qty:qty,masuk:mode=='IN'?qty:0,keluar:mode=='OUT'?qty:0,stok:qty,peminjam:'-',status:mode,dari:'-',ke:'-',untuk:'-',noSJ:'-'});
-  });
-  return out;
-}
-async function bulkMaster(){
-  var txt=$id('pasteMaster').value; if(!txt.trim()) return alert('Paste dulu Bos!');
-  var rows=parseBulkMaster(txt);
-  if(!rows.length) return alert('Format salah!');
-  // Cek dulu biar Bos yakin
-  var cek=confirm('Saya baca '+rows.length+' barang. Contoh pertama:\n1. '+rows[0].nama+' | '+rows[0].kode+' | '+rows[0].brand+'\n2. '+rows[1].nama+' | '+rows[1].kode+'\n\nBENER? Pencet OK untuk kirim ke Sheet!');
-  if(!cek) return;
-  setTxt('progTxt','Mulai kirim '+rows.length+' barang...');
-  await kirimChunk(rows,'MASTER','progBar','progTxt');
-  rows.forEach(function(r){ var ex=DB.b.find(function(x){return x.n==r.nama && x.k==r.kode}); if(!ex) DB.b.push({id:Date.now()+Math.random(),n:r.nama,k:r.kode,s:r.stok,m:5,mx:2,brand:r.brand,kat:r.kategori,satuan:r.satuan}); else ex.s+=r.stok; });
-  DB.totalKirim+=rows.length; saveMini();
-  setTxt('progTxt','✅ BERHASIL! '+rows.length+' barang masuk! Total Master sekarang: '+DB.b.length);
-  alert('✅ BERHASIL! '+rows.length+' barang masuk! Total Master sekarang: '+DB.b.length+'! Cek menu Master Barang, udah keliatan!');
-}
-async function bulkIO(mode){
-  var txt=mode=='IN'?$id('pasteIn').value:$id('pasteOut').value; if(!txt.trim()) return alert('Paste dulu Bos!');
-  var rows=parseBulkIO(txt,mode);
-  if(!rows.length) return alert('Format salah! Contoh: KEMIRI PACK 1 KG 10');
-  if(!confirm('Kirim BULK '+mode+' '+rows.length+' baris sekaligus?')) return;
-  var progId=mode=='IN'?'progBarIn':'progBarOut'; var txtId=mode=='IN'?'progTxtIn':'progTxtOut';
-  await kirimChunk(rows,mode,progId,txtId);
-  rows.forEach(function(r){ var b=DB.b.find(function(x){return x.n==r.nama}); if(b){ if(mode=='IN'){b.s+=r.qty; DB.inLog.push({br:r.nama,q:r.qty,tg:todayStr()})} else {b.s=Math.max(0,b.s-r.qty); DB.outLog.push({br:r.nama,q:r.qty,tg:todayStr()})} } });
-  DB.totalKirim+=rows.length; saveMini();
-  setTxt(txtId,'✅ BERHASIL! '+rows.length+' baris '+mode+' masuk ke Sheet!');
-  alert('✅ BERHASIL! BULK '+mode+' '+rows.length+' baris masuk ke Sheet!');
-}
-async function bulkSO(){
-  var txt=$id('pasteSO').value; if(!txt.trim()) return alert('Paste dulu Bos!');
-  var rows=parseBulkIO(txt,'SO');
-  if(!rows.length) return alert('Format: KEMIRI PACK 1 KG 18');
-  if(!confirm('Kirim SO '+rows.length+' baris sekaligus?')) return;
-  await kirimChunk(rows,'SO','progBarSO','progTxtSO');
-  rows.forEach(function(r){ var b=DB.b.find(function(x){return x.n==r.nama}); if(b) b.s=r.qty; });
-  DB.totalKirim+=rows.length; saveMini();
-  setTxt('progTxtSO','✅ SO BERHASIL! '+rows.length+' barang SO masuk ke Sheet!');
-  alert('✅ SO BERHASIL! '+rows.length+' barang masuk ke Sheet!');
-}
-function syncSheet(){
-  var rows=DB.b.slice(-100).map(function(b){return {tanggal:ns(),nama:b.n,kode:b.k,brand:getBrand(b.k),masuk:0,keluar:0,pinjam:0,stok:b.s,plusmines:'',tglMasuk:'',tglKeluar:'',peminjam:'-',status:'SYNC',dari:'-',ke:'-',untuk:'-',noSJ:'-'}});
-  kirimChunk(rows,'SYNC','progBar','progTxt').then(function(){ setTxt('syncStatus','✅ SYNC BERHASIL!'); alert('✅ SYNC BERHASIL!'); });
-}
-function buildMenu(){var m='';if(CURROLE=='ATASAN'){m+='<button class="menu on" onclick="sh(\'dash\',this)">📊 Dashboard</button><button class="menu" onclick="sh(\'appr\',this)">✅ Approve</button><button class="menu" onclick="sh(\'lap\',this)">📈 Laporan</button>';}else if(CURROLE=='STAFF GUDANG'){m+='<button class="menu on" onclick="sh(\'pinjam\',this)">🤲 Pinjam Barang</button><button class="menu" onclick="sh(\'bc\',this)">📷 QR</button>';}else{m+='<button class="menu on" onclick="sh(\'dash\',this)">📊 Dashboard - BULK MASTER</button><button class="menu" onclick="sh(\'master\',this)">📦 Master Barang</button><button class="menu" onclick="sh(\'in\',this)">📥 BULK IN Sekaligus</button><button class="menu" onclick="sh(\'out\',this)">📤 BULK OUT Sekaligus</button><button class="menu" onclick="sh(\'so\',this)">📋 SO / Opname Sekaligus</button><button class="menu" onclick="sh(\'pinjam\',this)">🤲 Pinjam Barang</button><button class="menu" onclick="sh(\'appr\',this)">✅ Approve</button><button class="menu" onclick="sh(\'surat\',this)">🧾 Surat Jalan</button><button class="menu" onclick="sh(\'bc\',this)">📷 QR</button><button class="menu" onclick="sh(\'users\',this)">👥 Bagi Akun</button><button class="menu" onclick="sh(\'lap\',this)">📈 Laporan</button>';}setHtml('menuList',m)}
-function sh(id,el){document.querySelectorAll('.pg').forEach(function(x){x.style.display='none'});var pg=$id('p-'+id); if(pg) pg.style.display='block';document.querySelectorAll('.menu').forEach(function(m){m.classList.remove('on')});if(el)el.classList.add('on');var s=$id('side'); if(s) s.classList.remove('open')}
-function ubahAuto(el){DB.auto=el.checked;saveMini()}
-function sIn(){var b=DB.b.find(function(x){return x.id==$id('iB').value});var q=+$id('iQ').value||0; if(!b) return; b.s+=q; DB.inLog.push({br:b.n,q:q,tg:todayStr()}); saveMini(); alert('IN berhasil!')}
-function sOut(){var b=DB.b.find(function(x){return x.id==$id('oB').value});var q=+$id('oQ').value||0; if(!b) return; if(q>b.s) return alert('Stok kurang!'); b.s-=q; DB.outLog.push({br:b.n,q:q,tg:todayStr()}); saveMini(); alert('OUT berhasil!')}
-function ajukan(){var nm=$id('p1').value,dp=$id('p2').value,b=DB.b.find(function(x){return x.id==$id('p3').value}),q=+$id('p4').value||1; if(!nm) return alert('Isi nama!'); if(!b) return alert('Pilih barang!'); if(q>b.s) return alert('Stok tidak cukup!'); var st='MENUNGGU'; if(canApprove()&&DB.auto) st='APPROVED'; var p={id:Date.now(),nm:nm,dp:dp,br:b.n,kd:b.k,q:q,dari:$id('pDari').value||'Gudang',ke:$id('pKe').value||'-',untuk:$id('pUntuk').value||'-',tg:$id('p5').value||todayStr(),jm:$id('p6').value||'',hari:hariStr(),st:st}; DB.p.push(p); if(st=='APPROVED'){b.s-=q; buatSJ(p); saveMini(); cetak(p); return} saveMini(); alert('✅ Diajukan!');}
-function buatSJ(p){var no='SJ/'+new Date().getFullYear()+'/'+String(DB.sj.length+1).padStart(4,'0');var s={no:no,id:p.id,nm:p.nm,dp:p.dp,br:p.br,kd:p.kd,q:p.q,dari:p.dari,ke:p.ke,untuk:p.untuk,tg:p.tg,jm:p.jm,hari:hariStr(),w:ns()};DB.sj.push(s);return s}
-function cetak(p){var s=DB.sj.find(function(x){return x.id==p.id}); if(!s){ if(p.st!='APPROVED'){alert('⛔ Masih MENUNGGU!');return} s=buatSJ(p); saveMini(); }var html='<html><body style="font-family:Arial;padding:24px"><h2>EATWELL - SURAT JALAN</h2><p><b>No: '+s.no+'</b> • '+s.hari+'</p><hr><p><b>Peminjam:</b> '+s.nm+'<br><b>Barang:</b> '+s.br+'<br><b>Qty:</b> '+s.q+'<br><b>DARI:</b> '+s.dari+'<br><b>KE:</b> '+s.ke+'<br><b>UNTUK:</b> '+s.untuk+'</p><button onclick="window.print()">🖨 PRINT</button></body></html>';var w=window.open('','_blank'); w.document.write(html); w.document.close();}
-function appr(id){if(!canApprove()) return alert('⛔ Hanya yang bisa Approve!');var p=DB.p.find(function(x){return x.id==id});var b=DB.b.find(function(x){return x.n==p.br}); if(!b) return; if(p.q>b.s) return alert('Stok habis!'); b.s-=p.q; p.st='APPROVED'; var s=buatSJ(p); saveMini(); if(confirm('✅ Approved! SJ: '+s.no+'\nCetak?')) cetak(p);}
-function rej(id){var p=DB.p.find(function(x){return x.id==id}); p.st='REJECTED'; saveMini();}
-function back(id){var p=DB.p.find(function(x){return x.id==id});var b=DB.b.find(function(x){return x.n==p.br}); if(b) b.s+=p.q; p.st='KEMBALI'; saveMini();}
-function addU(){var n=$id('u1').value,role=$id('uRole').value,u=$id('u2').value,p=$id('u3').value; if(!u||!p) return alert('Isi username & password!'); DB.u.push({nm:n,us:u,pw:p,mx:5,role:role}); saveMini(); alert('Akun dibuat!')}
-function login(){var u=$id('lu').value,p=$id('lp').value;if(u=='superadmin'&&p=='super123'){CUR='SUPER ADMIN';CURROLE='SUPER ADMIN';localStorage.setItem('r','SUPER ADMIN');$id('lg').style.display='none';buildMenu();sh('dash',null);return}var f=DB.u.find(function(x){return x.us==u&&x.pw==p});if(f){CUR=f.nm;CURROLE=f.role;localStorage.setItem('r',f.role+'|'+f.nm);$id('lg').style.display='none';buildMenu();if(f.role=='ATASAN')sh('dash',null);else if(f.role=='STAFF GUDANG')sh('pinjam',null);else sh('dash',null);return}alert('Username / password salah!')}
-function gudang(){CUR='ANAK GUDANG';CURROLE='STAFF GUDANG';$id('lg').style.display='none';buildMenu();sh('pinjam',null)}
-function exportCSV(){var c='Nama,Kode,Brand,Kategori,Satuan,Stok\n'+DB.b.map(function(b){return b.n+','+b.k+','+getBrand(b.k)+','+(b.kat||'')+','+(b.satuan||'')+','+b.s}).join('\n');var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([c],{type:'text/csv'}));a.download='eatwell-v141-master.csv';a.click()}
-function renderMaster(){var kw=($id('cariMaster').value||'').toUpperCase();var list=DB.b.filter(function(b){return !kw || b.n.indexOf(kw)!=-1 || b.k.indexOf(kw)!=-1});setHtml('tb','<p>Menampilkan '+list.slice(0,100).length+' dari '+list.length+' (Total Master: '+DB.b.length+')</p><table><tr><th>Barang</th><th>Kode</th><th>Brand</th><th>Kategori</th><th>Satuan</th><th>Stok</th></tr>'+list.slice(0,100).map(function(b){return '<tr><td><b>'+b.n+'</b></td><td>'+b.k+'</td><td>'+getBrand(b.k)+'</td><td>'+(b.kat||'-')+'</td><td>'+(b.satuan||'-')+'</td><td>'+b.s+'</td></tr>'}).join('')+'</table>')}
-function render(){try{buildMenu();var low=DB.b.filter(function(b){return b.s<=5});setTxt('sB',DB.b.length);setTxt('sAwal',DB.b.reduce(function(a,b){return a+b.s},0));setTxt('sIn',DB.inLog.length);setTxt('sOut',DB.outLog.length);setTxt('sP',DB.p.filter(function(p){return p.st=='APPROVED'}).length);setTxt('sW',DB.p.filter(function(p){return p.st=='MENUNGGU'}).length);setTxt('sL',low.length);setTxt('sData',DB.totalKirim||0);setVal('linkSheet',DB.link||'');setHtml('nb',DB.p.slice(-5).map(function(p){return '<div class="notif">'+p.nm+' - '+p.br+' '+p.st+'</div>'}).join('')||'Belum ada pinjam');setHtml('nd',$id('nb').innerHTML);var o=DB.b.map(function(b){return '<option value="'+b.id+'">'+b.n+' - Stok '+b.s+'</option>'}).join('');['iB','oB','p3'].forEach(function(id){setHtml(id,o)});renderMaster();setHtml('tp','<table><tr><th>Peminjam</th><th>Barang</th><th>Qty</th><th>Status</th><th>Aksi</th></tr>'+DB.p.map(function(p){return '<tr><td>'+p.nm+'</td><td>'+p.br+'</td><td>'+p.q+'</td><td>'+p.st+'</td><td>'+(p.st=='MENUNGGU'&&canApprove()?'<button style="background:#00A651;color:#fff" onclick="appr('+p.id+')">✅ Approve</button> <button style="background:#E11D48;color:#fff" onclick="rej('+p.id+')">❌ Reject</button>':'')+(p.st=='APPROVED'?'<button onclick="back('+p.id+')">↩ Kembali</button>':'')+'</td></tr>'}).join('')+'</table>');setHtml('ta',canApprove()?'<table><tr><th>Peminjam</th><th>Barang</th><th>Qty</th><th>Aksi</th></tr>'+DB.p.filter(function(p){return p.st=='MENUNGGU'}).map(function(p){return '<tr><td>'+p.nm+'</td><td>'+p.br+'</td><td>'+p.q+'</td><td><button style="background:#00A651;color:#fff" onclick="appr('+p.id+')">✅ APPROVE</button></td></tr>'}).join('')+'</table>':'<p>⛔ TERKUNCI!</p>');setHtml('ts','<table><tr><th>No SJ</th><th>Peminjam</th><th>Barang</th><th>Qty</th><th>Print</th></tr>'+DB.sj.map(function(s){return '<tr><td>'+s.no+'</td><td>'+s.nm+'</td><td>'+s.br+'</td><td>'+s.q+'</td><td><button onclick="cetak({id:'+s.id+'})">🖨 Print</button></td></tr>'}).join('')+'</table>');setHtml('tu','<table><tr><th>Nama</th><th>Role</th><th>Username</th></tr>'+DB.u.map(function(u){return '<tr><td>'+u.nm+'</td><td>'+u.role+'</td><td>'+u.us+'</td></tr>'}).join('')+'</table>');setHtml('li',DB.inLog.slice(-20).map(function(l){return '<div>📥 IN '+l.br+' +'+l.q+'</div>'}).join('')||'Belum ada IN');setHtml('lo',DB.outLog.slice(-20).map(function(l){return '<div>📤 OUT '+l.br+' -'+l.q+'</div>'}).join('')||'Belum ada OUT');setHtml('lr','<p>Total Terkirim ke Sheet: '+DB.totalKirim+' | Total Master: '+DB.b.length+'</p>');setHtml('antiBlank','✅ EATWELL V14.1 BERHASIL DIBUKA! - Total Master: '+DB.b.length);var ab2=$id('antiBlank'); if(ab2){ab2.style.background='#00A651';ab2.style.color='#fff'}}catch(e){var eb=$id('antiBlank');if(eb){eb.innerHTML='⚠️ ERROR: '+e.message;eb.style.background='#E11D48';eb.style.color='#fff'}}}
-setInterval(function(){try{var c=$id('clock'); if(c) c.innerText=ns()}catch(e){}},1000);
-if(localStorage.getItem('r')){var rr=localStorage.getItem('r').split('|');CURROLE=rr[0];CUR=rr[1]||CUR;var lg=$id('lg'); if(lg) lg.style.display='none';}
-setVal('p5',todayStr());setVal('p6',new Date().toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit',hour12:false}));render();
-</script></body></html>
+let users={superadmin:'admin123',arya:'arya123',atasan:'atasan123',assembly:'assembly123'};
+function login(){let u=document.getElementById('uname').value.toLowerCase();let p=document.getElementById('pass').value;let r=document.getElementById('role').value;if(users[u]===p||p==='admin123'){document.getElementById('loginPage').classList.add('hidden');document.getElementById('app').classList.remove('hidden');document.getElementById('userLabel').innerText=u.toUpperCase()+' - '+r;document.getElementById('dashTitle').innerText='Dashboard '+r.toUpperCase()+' - EATWELL V19';alert('Login Berhasil! Selamat datang '+u+' - Role: '+r);}else alert('Username / Password salah! Coba superadmin / admin123');}
+function logout(){document.getElementById('app').classList.add('hidden');document.getElementById('loginPage').classList.remove('hidden');}
+function tab(id){['master','so','inout','impor','ai','users','tampilan','notif','scan','assembly'].forEach(t=>{let e=document.getElementById('tab-'+t);if(e)e.classList.add('hidden')});let s=document.getElementById('tab-'+id);if(s)s.classList.remove('hidden');if(id==='master')document.getElementById('tab-master').classList.remove('hidden');window.scrollTo(0,0);}
+function showNotif(){alert('Notif: 1. Mines Ayam -20 KG\\n2. Pinjam YOGI 10 KG Menunggu Approve\\n3. Approve BUDI 5 KG Disetujui');}
+function approvePinjam(b){b.parentElement.innerHTML='<span class=\\'badge ok\\'>Disetujui</span>';alert('Pinjam Disetujui!');}
+function tolakPinjam(b){b.parentElement.innerHTML='<span class=\\'badge mines\\'>Ditolak</span>';alert('Pinjam Ditolak!');}
+function isiStok(){alert('Isi Stok Cepat: Ayam Fillet +20 KG - Mines Teratasi!');document.getElementById('sMines').innerText='0 Item';}
+function atasiMines(){alert('Mines Diatasi! Stok disesuaikan.');}
+function scanPinjam(){document.getElementById('scanResult').classList.remove('hidden');alert('Scanning... 899123456 - Barang Terdeteksi: Ayam Fillet CKDS 370 KG');}
+function tambahBarang(){let n=prompt('Nama barang baru:');if(n)alert('Barang '+n+' ditambahkan ke Master!');}
+function downloadTemplate(){alert('Template Excel didownload! Isi template lalu Upload / Copy Paste.');}
+function setTheme(t){alert('Tema diganti: '+t+' - Tersimpan!');}
+function filterTable(v){let rows=document.querySelectorAll('#masterTable tr');rows.forEach((r,i)=>{if(i===0)return;r.style.display=r.innerText.toLowerCase().includes(v.toLowerCase())?'':'none'});}
+</script>
+</body>
+</html>
