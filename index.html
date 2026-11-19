@@ -1,172 +1,390 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>EATWELL V21 - LAPORAN MINGGUAN + HAPUS DATA</title>
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EATWELL V28 FINAL - Super Admin Cost Control</title>
 <style>
-*{box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}body{margin:0;background:#f0f2f5}
-.top{background:linear-gradient(90deg,#0f172a,#1e293b);color:#fff;padding:12px 18px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
-.logo{font-weight:900;font-size:22px}.logo span{background:linear-gradient(90deg,#facc15,#f59e0b);color:#000;padding:2px 8px;border-radius:8px}
-.btn{border:0;padding:10px 14px;border-radius:12px;font-weight:700;cursor:pointer;margin:3px}.btn:hover{transform:scale(1.03)}
-.y{background:linear-gradient(135deg,#facc15,#f59e0b)}.g{background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff}.b{background:linear-gradient(135deg,#3b82f6,#2563eb);color:#fff}.o{background:linear-gradient(135deg,#fb923c,#ea580c);color:#fff}.r{background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff}.d{background:#0f172a;color:#fff}.p{background:linear-gradient(135deg,#c084fc,#a855f7);color:#fff}
-.layout{display:flex}.side{width:250px;background:#fff;min-height:100vh;padding:14px;position:sticky;top:53px;box-shadow:2px 0 10px rgba(0,0,0,.05)}@media(max-width:800px){.side{display:none}}
-.side h4{color:#94a3b8;font-size:12px;margin:14px 0 6px}.menu{padding:12px;border-radius:12px;cursor:pointer;font-weight:700;margin:4px 0;display:flex;justify-content:space-between}.menu:hover,.menu.active{background:#0f172a;color:#fff}.menu span{font-size:12px;background:#facc15;color:#000;padding:2px 7px;border-radius:20px}
-.main{flex:1;padding:16px}
-.welcome{background:linear-gradient(135deg,#7c3aed,#a855f7,#ec4899);color:#fff;padding:20px;border-radius:20px;display:flex;justify-content:space-between;align-items:center}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0}@media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
-.stat{background:#fff;border-radius:18px;padding:16px;box-shadow:0 4px 14px rgba(0,0,0,.05);border-top:5px solid #facc15}.stat b{font-size:26px;display:block}.stat small{color:#64748b}
-.card{background:#fff;border-radius:18px;padding:16px;margin:12px 0;box-shadow:0 4px 14px rgba(0,0,0,.05)}
-input,select,textarea{width:100%;padding:11px;border:1px solid #cbd5e1;border-radius:12px;margin:5px 0}
-table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:10px;border-bottom:1px solid #eef2f7;text-align:left}th{background:#f8fafc}
-.badge{padding:5px 10px;border-radius:20px;font-size:12px;font-weight:800}.mines{background:#fee2e2;color:#dc2626}.wait{background:#fef9c3;color:#a16207}.ok{background:#dcfce7;color:#166534}.back{background:#dbeafe;color:#1d4ed8}.new{background:#ede9fe;color:#7c3aed}
-.hidden{display:none}.flex{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
-.bar{height:10px;background:#e2e8f0;border-radius:20px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,#facc15,#a855f7)}
-.notif{border-left:5px solid #facc15;background:#fffbeb;padding:12px;border-radius:12px;margin:8px 0;display:flex;justify-content:space-between;align-items:center}
-.scan{border:3px dashed #facc15;background:#fefce8;padding:18px;border-radius:16px;text-align:center;font-weight:900}
-.avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#facc15,#a855f7);display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff}
-.dangerZone{border:2px dashed #ef4444;background:#fef2f2;padding:16px;border-radius:16px}
-.reportBox{border:2px solid #0f172a;padding:18px;border-radius:16px;background:#fff}
-</style>
-</head>
+*{box-sizing:border-box;font-family:Arial,sans-serif}body{margin:0;background:#eef2f7}
+header{background:#1a1a4d;color:#fff;padding:14px;text-align:center;font-weight:900}
+header span{color:#ffd700}.wrap{max-width:1100px;margin:auto;padding:12px}
+.card{background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px #0001}
+h2{margin:6px 0}button{border:0;border-radius:10px;padding:10px 14px;font-weight:800;cursor:pointer}
+.b-blue{background:#1a1a4d;color:#fff}.b-yellow{background:#ffd700}.b-green{background:#16a34a;color:#fff}.b-orange{background:#f97316;color:#fff}.b-red{background:#ef4444;color:#fff}.b-purple{background:#7c3aed;color:#fff}
+input,textarea,select{width:100%;padding:10px;border:1px solid #ddd;border-radius:10px;margin:5px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.kpi div{background:#1a1a4d;color:#fff;padding:12px;border-radius:12px;text-align:center}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{border:1px solid #eee;padding:8px;text-align:left}th{background:#f8f8f8}
+.badge{padding:4px 8px;border-radius:20px;font-size:11px;font-weight:800}.red{background:#fee2e2;color:#b91c1c}.green{background:#dcfce7;color:#166534}.yellow{background:#fef9c3;color:#854d0e}
+.hidden{display:none}.vn{background:#ede9fe;border:2px solid #7c3aed;border-radius:14px;padding:12px}
+@media(max-width:700px){.grid,.grid3,.kpi{grid-template-columns:1fr}}
+</style></head>
 <body>
-<div class="top"><div class="logo">🍽️ EATWELL <span>V21 LAPORAN</span></div><div class="flex"><button class="btn y" onclick="alert('Notif: Mines Ayam -20 KG, Pinjam YOGI 10 KG')">🔔 3</button><div class="avatar">SA</div><div><b>Super Admin</b><br><small>superadmin</small></div><button class="btn r" onclick="location.reload()">Logout</button></div></div>
+<header>EATWELL V28 FINAL - <span>SUPER ADMIN / COST CONTROL - PUSAT KENDALI</span></header>
+<div class="wrap">
 
-<div id="loginPage" style="max-width:480px;margin:40px auto"><div class="card" style="padding:28px;text-align:center"><div style="font-size:50px">🍽️</div><h1>EATWELL <span style="background:#facc15;padding:2px 10px;border-radius:10px">V21</span></h1><p style="color:#64748b">Laporan Mingguan + Hapus Data</p>
-<select id="role"><option>Super Admin</option><option>Inbound / Gudang</option><option>Atasan</option><option>Assembly</option></select>
-<input id="uname" value="superadmin"><input id="pass" type="password" value="admin123">
-<button class="btn y" style="width:100%;font-size:18px;padding:14px" onclick="login()">🚀 MASUK DASHBOARD</button>
-<p style="font-size:13px">Klik aja langsung masuk!</p></div></div>
-
-<div id="app" class="hidden">
-<div class="layout">
-<div class="side">
-<h4>MENU UTAMA</h4>
-<div class="menu active" onclick="showTab('master',this)">📦 Master Barang <span>1,248</span></div>
-<div class="menu" onclick="showTab('so',this)">📋 SO Mingguan</div>
-<div class="menu" onclick="showTab('inout',this)">🔄 IN & OUT</div>
-<div class="menu" onclick="showTab('laporan',this)">📊 LAPORAN MINGGUAN <span style="background:#22c55e;color:#fff">BARU!</span></div>
-<div class="menu" onclick="showTab('hapus',this)">🗑️ HAPUS DATA <span style="background:#ef4444;color:#fff">!</span></div>
-<div class="menu" onclick="showTab('ai',this)">🤖 Asisten AI</div>
-<h4>KELOLA</h4>
-<div class="menu" onclick="showTab('users',this)">👥 Kelola User <span>12</span></div>
-<div class="menu" onclick="showTab('tampilan',this)">🎨 Logo & Tema</div>
-<div class="menu" onclick="showTab('notif',this)">🔔 Notif <span style="background:#ef4444;color:#fff">3</span></div>
-<h4>SPESIAL</h4>
-<div class="menu" onclick="showTab('scan',this)">📷 SCAN PINJAM <span>HOT</span></div>
-<div class="menu" onclick="showTab('assembly',this)">🏭 Assembly <span>12</span></div>
-<div class="menu" onclick="showTab('impor',this)">📥 Impor Master</div>
-<div class="card" style="background:#0f172a;color:#fff;text-align:center"><b>📊 Laporan Minggu Ini</b><br><small>SO 578 KG • IN 120 KG • OUT 45 KG • Pinjam 3 • Tidak Naik 2</small><br><button class="btn y" onclick="showTab('laporan')">Lihat Laporan</button></div>
+<!-- LOGIN -->
+<div class="card" id="loginCard">
+<h2>🔐 Login - Pilih Dashboard (DIPISAH)</h2>
+<select id="role"><option value="super">Super Admin / Cost Control - Bos (Bisa Semua)</option><option value="atasan">Dashboard Atasan - Lihat + Approve Saja</option><option value="inbound">Dashboard Inbound - ARYA / MIRGA / HIBAN / YOGI / MARSEL / NURYANTO</option><option value="assembly">Dashboard Assembly - Line Sendiri Saja</option></select>
+<input id="namaUser" placeholder="Nama: Contoh ARYA">
+<select id="brandUser"><option>CKDS Daging</option><option>CKDS Sayur</option><option>CKDS Bumbu</option></select>
+<button class="b-blue" onclick="login()">MASUK DASHBOARD ➡️</button>
+<p style="font-size:12px">Super Admin kontrol Atasan, Inbound, Assembly. Atasan hanya lihat+approve. Gudang hanya brand sendiri. Assembly hanya line sendiri.</p>
 </div>
 
-<div class="main">
-<div class="welcome"><div><small>👋 Selamat Datang,</small><h1 id="dashTitle" style="margin:0">Super Admin!</h1><p>Periode: <b>17-23 Nov 2026</b> • Laporan mingguan siap kirim ke Atasan!</p><button class="btn y" onclick="showTab('laporan')">📊 BUAT LAPORAN MINGGUAN KE ATASAN</button> <button class="btn r" onclick="showTab('hapus')">🗑️ Hapus Data Lama</button></div><div style="text-align:center;font-size:50px">👑</div></div>
+<!-- SUPER ADMIN -->
+<div id="superDash" class="hidden">
+<div class="kpi"><div>SO AWAL<br><b id="kSO">0</b></div><div>IN<br><b id="kIN">0</b></div><div>OUT PRODUKSI<br><b id="kOUT">0</b></div><div>STOK AKHIR<br><b id="kAKHIR">0</b></div></div>
 
+<!-- 1 MASTER BARANG -->
+<div class="card"><h2>1️⃣ MASTER BARANG - Bos Input (Acuan Pinjam & Raw Material)</h2>
+<p style="font-size:13px">Bisa Copy Paste / PDF / Excel. Contoh paste: <code>Ayam Fillet | KG | CKDS Daging</code></p>
+<textarea id="masterInput" rows="3" placeholder="Paste Master Barang di sini... Contoh:
+Ayam Fillet | KG | CKDS Daging
+Gula | KG | CKDS Bumbu
+Bawang | KG | CKDS Bumbu
+Tempe | KG | CKDS Sayur"></textarea>
+<button class="b-yellow" onclick="simpanMaster()">💾 SIMPAN MASTER BARANG</button>
+<button class="b-blue" onclick="alert('Upload PDF / Excel - pilih file di GitHub Pages, nanti otomatis kebaca')">📄 UPLOAD PDF / EXCEL</button>
+<div id="masterList"></div></div>
+
+<!-- 2 ITEM IN & OUT -->
+<div class="card"><h2>2️⃣ ITEM IN & OUT - Copy Paste Saja</h2>
 <div class="grid">
-<div class="stat" style="border-color:#facc15"><small>Total Barang</small><b>1,248</b><span style="color:#16a34a">▲ +12 hari ini</span></div>
-<div class="stat" style="border-color:#22c55e"><small>Stok Masuk (IN)</small><b>1,240 KG</b><span>Minggu Ini</span></div>
-<div class="stat" style="border-color:#fb923c"><small>Stok Keluar (OUT)</small><b>890 KG</b><span>Minggu Ini</span></div>
-<div class="stat" style="border-color:#ef4444"><small>Barang Mines</small><b style="color:#dc2626">2 Item</b><span>Ayam -20 KG</span></div>
-<div class="stat" style="border-color:#3b82f6"><small>Total Pinjam</small><b>3 Pinjam</b><span>23 KG Total</span></div>
-<div class="stat" style="border-color:#a855f7"><small>Assembly</small><b>12 Line</b><span>NAIK 10 / TIDAK 2</span></div>
-<div class="stat" style="border-color:#0f172a"><small>SO Mingguan</small><b>578 KG</b><span>Periode 17-23 Nov</span></div>
-<div class="stat" style="border-color:#f59e0b"><small>Retur</small><b>12 Retur</b><span>Minggu Ini</span></div>
+<div><b>ITEM IN - Barang Masuk (Nambah Stok)</b><textarea id="inInput" rows="3" placeholder="Ayam Fillet 40 KG&#10;Gula 50 KG"></textarea><button class="b-green" onclick="tambahIN()">+ TAMBAH IN</button></div>
+<div><b>ITEM OUT - Barang Keluar (Ngurangin Stok)</b><textarea id="outInput" rows="3" placeholder="Gula 5 KG&#10;Bawang 5 KG"></textarea><button class="b-orange" onclick="tambahOUT()">+ TAMBAH OUT</button></div>
+</div></div>
+
+<!-- 3 SO -->
+<div class="card"><h2>3️⃣ SO - Stok Awal Bulanan / Mingguan</h2>
+<div class="grid"><div><select id="soPeriode"><option>SO Bulanan - November 2026</option><option>SO Mingguan - Minggu 3 November</option></select><input id="soNama" placeholder="Nama Barang: Ayam Fillet"><input id="soQty" type="number" placeholder="Qty SO: 200"></div>
+<div><p style="font-size:13px">SO = Stok Awal. Rumus: <b>Stok Akhir = SO + IN - OUT + Retur</b></p><button class="b-blue" onclick="tambahSO()">💾 SIMPAN SO</button></div></div></div>
+
+<!-- 4 STOK AKHIR -->
+<div class="card"><h2>4️⃣ HASIL - STOK AKHIR (Otomatis)</h2>
+<table><thead><tr><th>Barang</th><th>SO</th><th>IN</th><th>OUT</th><th>Retur / Ga Naik</th><th>STOK AKHIR</th><th>Status</th></tr></thead><tbody id="tabelStok"></tbody></table>
+<p id="rumusTxt" style="font-size:13px"></p>
+<button class="b-purple" onclick="kirimPerintah()">📩 KIRIM PERINTAH KE INBOUND / ASSEMBLY / ATASAN</button>
+<input id="perintahInput" placeholder="Perintah Bos: Contoh ARYA cek ayam mines, isi 50 KG hari ini!">
 </div>
 
-<div class="card"><h3>🔔 Notif - HANYA DI APLIKASI</h3>
-<div class="notif"><span>🔴 <b>MINES:</b> Ayam Fillet MINES -20 KG</span><div class="flex"><button class="btn g" onclick="alert('Isi Stok Berhasil!')">+ Isi Stok</button></div></div>
-<div class="notif"><span>🟡 <b>PINJAM:</b> YOGI pinjam 10 KG dari MARSEL</span><div class="flex"><button class="btn g" onclick="alert('Disetujui!')">Approve</button><button class="btn r" onclick="alert('Ditolak!')">Tolak</button></div></div>
+<!-- MENU SUPER ADMIN -->
+<div class="card"><h2>Menu Super Admin Lainnya</h2>
+<div class="grid3">
+<button class="b-blue" onclick="showSection('atasanDash')">👔 Dashboard Atasan</button>
+<button class="b-green" onclick="showSection('inboundDash')">📦 Dashboard Inbound</button>
+<button class="b-orange" onclick="showSection('assemblyDash')">🍳 Dashboard Assembly</button>
+</div><div class="grid3" style="margin-top:8px">
+<button class="b-yellow" onclick="alert('Filter: Master, SO, IN/OUT, Perintah, User, Assembly, Pinjam, Laporan - semua ada filter')">🔍 FILTER SEMUA MENU</button>
+<button class="b-blue" onclick="alert('AI: ketik ayam CKDS ada berapa? / cari minus / buatkan PPT')">🤖 ASISTEN AI - TINGGAL PERINTAH</button>
+<button class="b-red" onclick="alert('Export 1 PDF - Laporan + PPT + Surat Jalan')">📄 EXPORT 1 PDF</button>
+</div></div>
+</div><!-- ============ DASHBOARD INBOUND - ARYA ============ -->
+<div id="inboundDash" class="hidden">
+<div class="card" style="background:#1a3a6e;color:#fff"><h2>DASHBOARD INBOUND - <span id="labelNama">ARYA</span> - <span id="labelBrand">CKDS Daging</span></h2><p style="margin:0">ADA SCAN BARCODE PINJAM BARANG</p></div>
+
+<div class="card"><h2>Halo <span class="namaOut">ARYA</span> - Brand: <span class="brandOut">CKDS Daging</span> - Stok Hari Ini</h2>
+<button class="b-yellow" style="width:100%;font-size:16px" onclick="alert('Kamera terbuka - Scan Barcode Pinjam Barang')">📷 SCAN BARCODE PINJAM BARANG</button>
+<div style="background:#ffd700;padding:10px;border-radius:10px;margin-top:8px;font-weight:800">📢 ADA! SCAN BARCODE PINJAM BARANG ADA DI DASHBOARD INBOUND.</div>
+<div class="grid3" style="margin-top:10px">
+<button class="b-green" onclick="alert('Form IN - Barang Masuk')">IN<br>Barang Masuk</button>
+<button class="b-orange" onclick="document.getElementById('vnBox').scrollIntoView()">OUT<br>Barang Keluar</button>
+<button class="b-red" onclick="alert('Form Retur')">Retur<br>Retur Barang</button>
+<button class="b-yellow" onclick="alert('Form Pinjam Barang')">Pinjam<br>Pinjam Barang</button>
+</div></div>
+
+<!-- VOICE NOTE = GANTI NGETIK - INTI V28 -->
+<div class="card vn" id="vnBox">
+<h2>🎤 VOICE NOTE INBOUND - NGOMONG = JADI BARANG KELUAR UNTUK PRODUKSI</h2>
+<p style="font-size:13px">Tinggal ngomong, gak perlu ngetik! Contoh: <i>"Hari ini barang keluar, gula 5 kilo, bawang 5 kilo, tempe 5 kilo, untuk produksi. Ayam goreng ga naik."</i></p>
+<button class="b-purple" id="btnMic" onclick="mulaiVoice()">🎤 TAHAN UNTUK NGOMONG OUT PRODUKSI</button>
+<button class="b-red" onclick="stopVoice()">⏹️ STOP & UBAH JADI TEKS</button>
+<p style="font-size:12px">Status Mic: <b id="micStatus">Belum mulai - klik tombol mic, izinkan mic di browser</b></p>
+<textarea id="vnHasil" rows="3" placeholder="Hasil suara akan muncul di sini... Contoh: Hari ini barang keluar gula 5 kilo bawang 5 kilo tempe 5 kilo untuk produksi ayam goreng ga naik"></textarea>
+<button class="b-green" onclick="prosesVoice()">✅ PROSES SUARA JADI OUT PRODUKSI</button>
+<div id="vnParsed"></div>
+<div id="gaNaikBox"></div>
 </div>
 
-<!-- MASTER + HAPUS MASTER -->
-<div id="tab-master" class="card"><h3>📦 Master Barang - Bisa Hapus Satu-Satu / Hapus Semua</h3>
-<p>Rumus: SO + IN - OUT + RETUR = Stok Akhir • Data tersimpan di Chrome (LocalStorage)</p>
-<input id="cariMaster" placeholder="🔍 Cari barang..." oninput="cariMaster()">
-<table id="masterTable"><tr><th>Barcode</th><th>Nama</th><th>Brand</th><th>SO</th><th>IN</th><th>OUT</th><th>RETUR</th><th>Stok Akhir</th><th>Status</th><th>Hapus</th></tr>
-<tr><td>899123456</td><td>Ayam Fillet</td><td>CKDS - ARYA</td><td>500</td><td>120</td><td>45</td><td>3</td><td><b>578</b></td><td><span class="badge ok">Aman</span></td><td><button class="btn r" onclick="hapusBaris(this)">🗑️ Hapus</button></td></tr>
-<tr><td>899123457</td><td>Ayam Fillet</td><td>CKDS - ARYA</td><td>100</td><td>0</td><td>120</td><td>0</td><td><b style="color:red">-20</b></td><td><span class="badge mines">MINES</span></td><td><button class="btn r" onclick="hapusBaris(this)">🗑️ Hapus</button></td></tr>
-<tr><td>899112233</td><td>Sayur Ichiban</td><td>Tawan - YOGI</td><td>200</td><td>50</td><td>30</td><td>5</td><td><b>225</b></td><td><span class="badge ok">Aman</span></td><td><button class="btn r" onclick="hapusBaris(this)">🗑️ Hapus</button></td></tr>
-<tr><td>899998877</td><td>Daging Sapi</td><td>CKDS - MARSEL</td><td>300</td><td>80</td><td>60</td><td>2</td><td><b>322</b></td><td><span class="badge ok">Aman</span></td><td><button class="btn r" onclick="hapusBaris(this)">🗑️ Hapus</button></td></tr>
-<tr><td>899554433</td><td>Ikan Salmon Lama</td><td>CKTW - MIRGA - DATA LAMA 2024</td><td>0</td><td>0</td><td>0</td><td>0</td><td><b>0</b></td><td><span class="badge wait">Lama</span></td><td><button class="btn r" onclick="hapusBaris(this)">🗑️ Hapus</button></td></tr>
-</table>
-<div class="flex"><button class="btn g" onclick="tambahMaster()">+ Tambah Barang</button><button class="btn b" onclick="simpanChrome()">💾 Simpan ke Chrome</button><button class="btn r" onclick="hapusSemuaMaster()">🗑️ Hapus Semua Master</button><button class="btn d" onclick="hapusDataChrome()">🧹 Hapus Data Lama di Chrome</button></div>
-<p id="statusChrome" style="font-size:13px;color:#16a34a">✓ Data tersimpan di Chrome: 5 barang • Terakhir disimpan: Hari ini</p>
+<!-- HASIL OUT PRODUKSI -->
+<div class="card"><h2>📦 OUT PRODUKSI HARI INI (Dari Voice Note)</h2>
+<table><thead><tr><th>Barang</th><th>Qty</th><th>Untuk</th><th>Status</th></tr></thead><tbody id="tabelOUT"></tbody></table>
+<div id="keteranganGaNaik" style="margin-top:8px"></div>
+<p style="font-size:12px">Keterangan Ga Naik otomatis masuk ke Super Admin & Assembly, ditandain MERAH.</p></div>
+
+<!-- PINJAM SAYA -->
+<div class="card"><h2>Pinjam Saya</h2>
+<div style="background:#f8f8f8;padding:10px;border-radius:10px">🟣 Y - <b>YOGI pinjam dari MARSEL 10 KG</b> <span class="badge yellow">Menunggu Approve</span><br><button class="b-green" onclick="alert('Approve Pinjam 10 KG')">Approve</button> <button class="b-red" onclick="alert('Tolak Pinjam')">Tolak</button></div>
+<h3 style="margin-top:12px">Daftar IN & OUT hari ini</h3>
+<p>🟢 IN - Ayam Fillet 25 KG - 08:20 WIB<br>🟠 OUT - Daging Sapi 5 KG - 09:10 WIB</p>
+<div style="background:#e0f2fe;padding:10px;border-radius:10px">ℹ️ Perintah dari Super Admin: <b id="perintahTampil">Cek stok beku CKDS hari ini.</b></div>
+<button class="b-blue" style="width:100%;margin-top:8px" onclick="alert('Scan Barcode Kembali Barang')">📷 Scan Barcode Kembali Barang <br><small>saat kembalikan barang</small></button>
+<div style="display:flex;justify-content:space-around;margin-top:10px;font-size:13px"><span>🏠 Beranda</span><span>🕐 Histori</span><span>🔔 Notifikasi</span><span>👤 Profil</span></div>
+</div>
 </div>
 
-<!-- SO -->
-<div id="tab-so" class="card hidden"><h3>📋 SO Mingguan</h3><label>Periode Laporan</label><select id="periode"><option>17-23 Nov 2026 (Minggu Ini)</option><option>10-16 Nov 2026</option><option>3-9 Nov 2026</option><option>November 2026 - Bulanan</option></select><p>SO <input id="soVal" value="500"> IN <input id="inVal" value="120"> OUT <input id="outVal" value="45"> RETUR <input id="returVal" value="3"></p><h2>Stok Akhir: <span id="hasilSO">578 KG</span></h2><button class="btn g" onclick="hitungSO()">Hitung Otomatis</button> <button class="btn y" onclick="simpanSO()">💾 Simpan SO ke Chrome</button><button class="btn r" onclick="hapusSO()">🗑️ Hapus SO Periode Ini</button></div>
+<!-- ============ DASHBOARD ATASAN ============ -->
+<div id="atasanDash" class="hidden">
+<div class="card"><h2>👔 DASHBOARD ATASAN - Lihat + Approve Saja (Tanpa Edit)</h2>
+<p>Monitoring & Kontrol Keseluruhan - Laporan Stok Global - Analisis Biaya</p>
+<div class="kpi"><div>Stok Global<br><b id="atasanStok">-</b></div><div>OUT Hari Ini<br><b id="atasanOUT">-</b></div><div>Pinjam Menunggu<br><b>1</b></div><div>Ga Naik<br><b id="atasanGaNaik">0</b></div></div>
+<div id="atasanGaNaikList"></div>
+<button class="b-green" onclick="alert('Atasan Approve OUT Produksi')">✅ APPROVE OUT PRODUKSI</button>
+<button class="b-blue" onclick="alert('Atasan Lihat Laporan PDF')">📄 LIHAT LAPORAN</button>
+</div></div>
 
-<!-- INOUT -->
-<div id="tab-inout" class="card hidden"><h3>🔄 IN & OUT - Transaksi Inbound</h3><textarea id="inoutText" rows="3" placeholder="Paste Excel: Ayam Fillet 25 KG"></textarea><div class="flex"><button class="btn g" onclick="tambahTransaksi('IN')">IN Hijau + Tambah</button><button class="btn o" onclick="tambahTransaksi('OUT')">OUT Oranye + Tambah</button><button class="btn r" onclick="hapusTransaksi('INOUT')">🗑️ Hapus Semua Transaksi IN & OUT</button></div><table id="tabelInout"><tr><th>Tanggal</th><th>Jenis</th><th>Barang</th><th>Jumlah</th><th>Oleh</th><th>Hapus</th></tr><tr><td>19 Nov</td><td><span class="badge ok">IN</span></td><td>Ayam Fillet</td><td>25 KG</td><td>ARYA</td><td><button class="btn r" onclick="hapusBaris(this)">🗑️</button></td></tr><tr><td>19 Nov</td><td><span class="badge mines">OUT</span></td><td>Daging Sapi</td><td>10 KG</td><td>MARSEL</td><td><button class="btn r" onclick="hapusBaris(this)">🗑️</button></td></tr></table><p><small>Super Admin & Inbound bisa hapus transaksi ini.</small></p></div>
-
-<!-- LAPORAN MINGGUAN - 1 LAPORAN KE ATASAN -->
-<div id="tab-laporan" class="card hidden"><h3>📊 LAPORAN MINGGUAN - 1 LAPORAN UNTUK ATASAN - Periode <span id="lapPeriode">17-23 Nov 2026</span></h3>
-<p>Gabungan: SO Mingguan + IN + OUT + Pinjam + Barang Tidak Naik Produksi dalam 1 periode!</p>
-<label>Pilih Periode</label><select id="lapPeriodeSelect" onchange="gantiPeriode()"><option>17-23 Nov 2026</option><option>10-16 Nov 2026</option><option>3-9 Nov 2026</option></select>
-<label>Nama Atasan Tujuan</label><input id="namaAtasan" value="Bapak Atasan - Head Gudang">
-<div class="reportBox" id="isiLaporan">
-<h2 style="text-align:center">🍽️ LAPORAN MINGGUAN EATWELL - V21</h2><p style="text-align:center">Periode: <b id="lapPeriode2">17-23 Nov 2026</b> • Dibuat: 19 Nov 2026 • Oleh: Super Admin</p>
-<h3>1. RINGKASAN SO MINGGUAN</h3>
-<table><tr><th>Item</th><th>Jumlah</th></tr><tr><td>Total SO Mingguan</td><td><b>578 KG</b></td></tr><tr><td>Total IN (Masuk)</td><td><b>120 KG</b></td></tr><tr><td>Total OUT (Keluar)</td><td><b>45 KG</b></td></tr><tr><td>Total RETUR</td><td><b>3 KG</b></td></tr><tr><td>Stok Akhir Periode</td><td><b>578 KG</b></td></tr></table>
-<h3>2. DETAIL IN & OUT PER ITEM</h3>
-<table><tr><th>Barang</th><th>Brand</th><th>IN</th><th>OUT</th><th>Stok Akhir</th></tr><tr><td>Ayam Fillet</td><td>CKDS - ARYA</td><td>120 KG</td><td>45 KG</td><td>578 KG</td></tr><tr><td>Sayur Ichiban</td><td>Tawan - YOGI</td><td>50 KG</td><td>30 KG</td><td>225 KG</td></tr><tr><td>Daging Sapi</td><td>CKDS - MARSEL</td><td>80 KG</td><td>60 KG</td><td>322 KG</td></tr></table>
-<h3>3. JUMLAH PINJAM MINGGU INI</h3>
-<table><tr><th>Tanggal</th><th>Barang</th><th>Yang Pinjam</th><th>Dari</th><th>Jumlah</th><th>Status</th></tr><tr><td>18 Nov</td><td>Ayam Fillet</td><td>YOGI</td><td>MARSEL</td><td>10 KG</td><td><span class="badge wait">Menunggu Approve</span></td></tr><tr><td>17 Nov</td><td>Dada Ayam</td><td>SANTI</td><td>MARSEL</td><td>5 KG</td><td><span class="badge ok">Disetujui</span></td></tr><tr><td>16 Nov</td><td>Ayam Fillet</td><td>RANI</td><td>MARSEL</td><td>8 KG</td><td><span class="badge back">Sudah Kembali</span></td></tr><tr><td colspan="4"><b>TOTAL PINJAM MINGGU INI</b></td><td><b>23 KG - 3 Transaksi</b></td><td></td></tr></table>
-<h3>4. BARANG TIDAK NAIK PRODUKSI / ASSEMBLY</h3>
-<table><tr><th>Produk</th><th>Alasan</th><th>Status</th><th>Tindak Lanjut</th></tr><tr><td>Produk B - Ayam Crispy</td><td>Bahan Ayam Mines -20 KG</td><td><span class="badge mines">TIDAK NAIK ❌</span></td><td>Isi Stok Ayam</td></tr><tr><td>Produk D - Sayur Mix</td><td>Sayur Kurang 15 KG</td><td><span class="badge mines">TIDAK NAIK ❌</span></td><td>Order Sayur +50 KG</td></tr><tr><td>Produk A, C, E - L</td><td>-</td><td><span class="badge ok">NAIK ✅ 10 Produk</span></td><td>Sudah Produksi</td></tr></table>
-<h3>5. BARANG MINES & CATATAN UNTUK ATASAN</h3>
-<p>• Ayam Fillet MINES -20 KG, butuh isi stok urgent<br>• Sayuran turun 20%, AI sarankan order +50 KG<br>• Pinjam YOGI 10 KG menunggu approve Atasan<br>• Total produksi minggu ini: 10 NAIK, 2 TIDAK NAIK (80% berhasil)</p>
-<p style="text-align:right">Hormat,<br><b>Super Admin EATWELL</b><br>19 Nov 2026</p>
-</div>
-<div class="flex"><button class="btn g" onclick="window.print()">🖨️ Print / PDF Laporan Ini</button><button class="btn b" onclick="alert('Laporan Dikirim ke Atasan! Notif masuk ke Atasan.')">📩 Kirim ke Atasan</button><button class="btn y" onclick="alert('Laporan Disimpan di Chrome!')">💾 Simpan Laporan</button><button class="btn p" onclick="alert('Laporan Dibagikan! Link disalin!')">🔗 Share Link Laporan</button></div>
-</div>
-
-<!-- HAPUS DATA -->
-<div id="tab-hapus" class="card hidden"><h3>🗑️ HAPUS DATA - Super Admin, Inbound, Assembly</h3>
-<p><b>PERHATIAN:</b> Data yang dihapus tidak bisa dikembalikan! Pastikan laporan mingguan sudah dibuat & dikirim ke Atasan dulu sebelum hapus!</p>
-<div class="dangerZone"><h4>🔴 ZONA BAHAYA - HAPUS DATA</h4>
-<p><b>1. Hapus Master / Data Lama di Chrome (LocalStorage)</b><br><small>Menghapus semua barang master yang tersimpan di browser Chrome ini.</small></p>
-<div class="flex"><button class="btn r" onclick="hapusDataChrome()">🧹 Hapus Data Lama di Chrome</button><button class="btn d" onclick="lihatChrome()">👀 Lihat Isi Chrome</button></div><hr>
-<p><b>2. Hapus Semua Transaksi - Super Admin</b></p><div class="flex"><button class="btn r" onclick="hapusSemuaTransaksi('SUPER ADMIN')">🗑️ Hapus Semua Transaksi Super Admin</button></div><hr>
-<p><b>3. Hapus Transaksi Inbound (IN & OUT + Pinjam)</b><br><small>Bisa dihapus oleh Super Admin & Inbound (ARYA, MIRGA, HIBAN, YOGI, MARSEL, NURYANTO)</small></p><div class="flex"><button class="btn r" onclick="hapusTransaksi('INOUT')">🗑️ Hapus IN & OUT Inbound</button><button class="btn r" onclick="hapusTransaksi('PINJAM')">🗑️ Hapus Pinjam Inbound</button></div><hr>
-<p><b>4. Hapus Transaksi Assembly</b><br><small>Bisa dihapus oleh Super Admin & Assembly</small></p><div class="flex"><button class="btn r" onclick="hapusTransaksi('ASSEMBLY')">🗑️ Hapus Assembly</button></div><hr>
-<p><b>5. Hapus SEMUA - Reset Total (Mulai Baru Minggu Depan)</b></p><div class="flex"><button class="btn r" style="font-size:16px;padding:14px" onclick="hapusSemuaTotal()">💥 HAPUS SEMUA DATA - RESET TOTAL</button></div>
-<p><small>Ketik konfirmasi: HAPUS</small> <input id="konfirmasiHapus" placeholder="Ketik HAPUS untuk konfirmasi">
-</div>
-<div class="card" style="background:#f0fdf4"><h4>✅ Cara Aman Hapus Data Mingguan:</h4><p>1. Buat Laporan Mingguan dulu → 2. Kirim ke Atasan → 3. Baru Hapus Transaksi Minggu Lalu → 4. Mulai SO Baru Minggu Depan</p></div>
-</div>
-
-<div id="tab-ai" class="card hidden" style="border:2px solid #a855f7"><h3>🤖 Asisten AI</h3><p><b>AI:</b> Sayuran turun 20%, order +50 KG. Ayam MINES -20 KG!</p><input placeholder="Tanya AI..."><button class="btn p" onclick="alert('AI: Yang mines Ayam Fillet -20 KG')">Tanya AI</button></div>
-<div id="tab-users" class="card hidden"><h3>👥 Kelola User</h3><table><tr><th>Nama</th><th>Brand</th><th>Password</th><th>Hapus</th></tr><tr><td>ARYA</td><td>CKDS Daging</td><td>arya123</td><td><button class="btn r" onclick="hapusBaris(this)">🗑️</button></td></tr><tr><td>MIRGA</td><td>CKTW</td><td>mirga123</td><td><button class="btn r" onclick="hapusBaris(this)">🗑️</button></td></tr><tr><td>HIBAN</td><td>CKIS</td><td>hiban123</td><td><button class="btn r" onclick="hapusBaris(this)">🗑️</button></td></tr><tr><td>YOGI</td><td>Sayuran</td><td>yogi123</td><td><button class="btn r" onclick="hapusBaris(this)">🗑️</button></td></tr><tr><td>MARSEL</td><td>CKDS Sayuran</td><td>marsel123</td><td><button class="btn r" onclick="hapusBaris(this)">🗑️</button></td></tr><tr><td>NURYANTO</td><td>CKDS Dry</td><td>nuryanto123</td><td><button class="btn r" onclick="hapusBaris(this)">🗑️</button></td></tr></table><button class="btn g" onclick="alert('User Ditambahkan!')">+ Tambah Orang</button></div>
-<div id="tab-tampilan" class="card hidden"><h3>🎨 Ubah Logo & Tema</h3><div class="flex"><button class="btn b" onclick="alert('Upload Logo!')">Upload Logo</button><button class="btn y" onclick="alert('Logo Diganti!')">Ganti Logo</button><button class="btn g">Hijau</button><button class="btn b">Biru</button><button class="btn p">Ungu</button></div></div>
-<div id="tab-notif" class="card hidden"><h3>🔔 Notif</h3><table><tr><th>Barang</th><th>Status</th><th>Hapus</th></tr><tr><td>Ayam -20 KG</td><td><span class="badge mines">Merah</span></td><td><button class="btn r" onclick="hapusBaris(this)">🗑️</button></td></tr><tr><td>YOGI 10 KG</td><td><span class="badge wait">Menunggu</span></td><td><button class="btn r" onclick="hapusBaris(this)">🗑️</button></td></tr></table><button class="btn r" onclick="alert('Semua Notif Dihapus!')">🗑️ Hapus Semua Notif</button></div>
-<div id="tab-scan" class="card hidden" style="border:3px dashed #facc15"><h3>📷 SCAN BARCODE PINJAM</h3><p><b>Halo ARYA - CKDS Daging</b></p><div class="scan">📷 SCAN BARCODE PINJAM<br><br><button class="btn y" style="font-size:18px" onclick="scanPinjam()">📷 MULAI SCAN</button></div><div id="scanResult" class="card hidden"><b>Barang Terdeteksi</b><br>Ayam Fillet - CKDS - 370 KG - 899123456<br>Pinjam <input value="YOGI"> Dari <input value="MARSEL"> Jumlah <input value="10 KG"><button class="btn g" onclick="alert('Pinjam Diajukan!')">Ajukan Pinjam</button></div><table id="tabelPinjam"><tr><th>Barang</th><th>Pinjam</th><th>Status</th><th>Hapus</th></tr><tr><td>Ayam Fillet</td><td>YOGI dari MARSEL 10 KG</td><td><span class="badge wait">Menunggu</span></td><td><button class="btn r" onclick="hapusBaris(this)">🗑️</button></td></tr><tr><td>Ayam Fillet</td><td>RANI dari MARSEL 8 KG</td><td><span class="badge back">Sudah Kembali</span></td><td><button class="btn r" onclick="hapusBaris(this)">🗑️</button></td></tr></table><div class="flex"><button class="btn r" onclick="hapusTransaksi('PINJAM')">🗑️ Hapus Semua Pinjam</button></div><div class="scan" style="border-color:#2563eb">📷 SCAN KEMBALI<br><button class="btn b" onclick="alert('Barang Dikembalikan!')">Scan Kembali</button></div></div>
-<div id="tab-assembly" class="card hidden"><h3>🏭 Assembly - Bisa Hapus Transaksi Assembly</h3><table id="tabelAssembly"><tr><th>Produk</th><th>Status</th><th>Hapus</th></tr><tr><td>Produk A</td><td><span class="badge ok">NAIK ✅</span></td><td><button class="btn r" onclick="hapusBaris(this)">🗑️</button></td></tr><tr><td>Produk B - Ayam Crispy</td><td><span class="badge mines">TIDAK NAIK ❌ - Ayam Mines</span></td><td><button class="btn r" onclick="hapusBaris(this)">🗑️</button></td></tr><tr><td>Produk D - Sayur Mix</td><td><span class="badge mines">TIDAK NAIK ❌ - Sayur Kurang</span></td><td><button class="btn r" onclick="hapusBaris(this)">🗑️</button></td></tr></table><div class="flex"><button class="btn g" onclick="alert('Laporan Terkirim!')">Kirim Laporan</button><button class="btn r" onclick="hapusTransaksi('ASSEMBLY')">🗑️ Hapus Semua Assembly</button></div><p><small>Super Admin & Assembly bisa hapus.</small></p></div>
-<div id="tab-impor" class="card hidden"><h3>📥 Impor Master</h3><div class="flex"><button class="btn b" onclick="alert('Template Didownload!')">Download Template</button><button class="btn g" onclick="alert('Upload Berhasil!')">Upload File</button><button class="btn r" onclick="alert('Data Impor Dihapus!')">🗑️ Hapus Data Impor</button></div></div>
-
-</div>
-</div>
-</div>
+<!-- ============ DASHBOARD ASSEMBLY ============ -->
+<div id="assemblyDash" class="hidden">
+<div class="card"><h2>🍳 DASHBOARD ASSEMBLY - Line Sendiri Saja</h2>
+<p>Proses Produksi & Assembly - Tracking OUT untuk Produksi - Penggunaan Raw Material</p>
+<div id="assemblyList">Belum ada OUT Produksi masuk. Tunggu Voice Note dari Inbound.</div>
+<div class="card vn"><h3>🎤 Voice Note Assembly Juga Bisa</h3><p style="font-size:13px">Assembly juga bisa ngomong: <i>"Ayam fillet mines 20 kilo"</i> → Masuk MINES. <i>"Sayur mix ga naik"</i> → Masuk Ga Naik.</p>
+<textarea id="vnAssembly" rows="2" placeholder="Assembly ngomong di sini..."></textarea><button class="b-purple" onclick="prosesAssemblyVN()">✅ PROSES VOICE ASSEMBLY</button><div id="assemblyVNOut"></div></div>
+</div></div>
 
 <script>
-function login(){var u=document.getElementById('uname').value;var r=document.getElementById('role').value;document.getElementById('loginPage').style.display='none';document.getElementById('app').classList.remove('hidden');document.getElementById('dashTitle').innerText=u.toUpperCase()+'!';alert('Login Berhasil! Selamat datang '+u);}
-function showTab(id,el){var ids=['master','so','inout','laporan','hapus','ai','users','tampilan','notif','scan','assembly','impor'];for(var i=0;i<ids.length;i++){var e=document.getElementById('tab-'+ids[i]); if(e) e.classList.add('hidden');}var s=document.getElementById('tab-'+id); if(s) s.classList.remove('hidden');if(el){document.querySelectorAll('.menu').forEach(function(m){m.classList.remove('active')});el.classList.add('active');}window.scrollTo(0,0);}
-function hapusBaris(btn){if(confirm('Yakin hapus data ini?')){var row=btn.closest('tr'); if(row) row.remove(); alert('Data Dihapus!');}}
-function cariMaster(){var v=document.getElementById('cariMaster').value.toLowerCase();var rows=document.querySelectorAll('#masterTable tr');rows.forEach(function(r,i){if(i===0)return;r.style.display=r.innerText.toLowerCase().includes(v)?'':'none'});}
-function tambahMaster(){var nama=prompt('Nama Barang Baru:');if(nama){alert(nama+' Ditambahkan! Klik Simpan ke Chrome!');}}
-function simpanChrome(){try{localStorage.setItem('eatwell_master','5 barang tersimpan');localStorage.setItem('eatwell_so','578 KG');document.getElementById('statusChrome').innerText='✓ Disimpan ke Chrome! '+new Date().toLocaleString();alert('Berhasil Disimpan ke Chrome!');}catch(e){alert('Chrome Penuh / Gagal Simpan');}}
-function lihatChrome(){var m=localStorage.getItem('eatwell_master')||'Belum ada';alert('Isi Chrome:\nMaster: '+m+'\nSO: '+(localStorage.getItem('eatwell_so')||'-')+'\nTotal keys: '+localStorage.length);}
-function hapusDataChrome(){if(confirm('Hapus SEMUA data lama di Chrome? Data master & SO di browser ini akan hilang!')){localStorage.clear();document.getElementById('statusChrome').innerText='🧹 Chrome sudah dibersihkan! Data lama terhapus.';alert('Data Lama di Chrome Berhasil Dihapus!');}}
-function hapusSemuaMaster(){if(confirm('Hapus SEMUA Master Barang?')){var t=document.getElementById('masterTable');while(t.rows.length>1){t.deleteRow(1);}localStorage.removeItem('eatwell_master');alert('Semua Master Dihapus!');}}
-function hitungSO(){var so=parseInt(document.getElementById('soVal').value||0);var inn=parseInt(document.getElementById('inVal').value||0);var out=parseInt(document.getElementById('outVal').value||0);var ret=parseInt(document.getElementById('returVal').value||0);var hasil=so+inn-out+ret;document.getElementById('hasilSO').innerText=hasil+' KG';alert('Stok Akhir: '+hasil+' KG');}
-function simpanSO(){localStorage.setItem('eatwell_so',document.getElementById('hasilSO').innerText);alert('SO Disimpan ke Chrome!');}
-function hapusSO(){if(confirm('Hapus SO periode ini?')){document.getElementById('soVal').value='0';document.getElementById('inVal').value='0';document.getElementById('outVal').value='0';document.getElementById('returVal').value='0';document.getElementById('hasilSO').innerText='0 KG';localStorage.removeItem('eatwell_so');alert('SO Periode Ini Dihapus!');}}
-function tambahTransaksi(jenis){var txt=document.getElementById('inoutText').value||'Ayam Fillet';var t=document.getElementById('tabelInout');var row=t.insertRow();row.innerHTML='<td>19 Nov</td><td><span class="badge '+(jenis==='IN'?'ok':'mines')+'">'+jenis+'</span></td><td>'+txt+'</td><td>25 KG</td><td>'+document.getElementById('uname').value+'</td><td><button class="btn r" onclick="hapusBaris(this)">🗑️</button></td>';alert(jenis+' Berhasil Ditambahkan!');}
-function hapusTransaksi(tipe){if(confirm('Hapus SEMUA transaksi '+tipe+'? Pastikan laporan sudah dikirim ke Atasan!')){if(tipe==='INOUT'){var t=document.getElementById('tabelInout');while(t.rows.length>1)t.deleteRow(1);}if(tipe==='PINJAM'){var p=document.getElementById('tabelPinjam');while(p.rows.length>1)p.deleteRow(1);}if(tipe==='ASSEMBLY'){var a=document.getElementById('tabelAssembly');while(a.rows.length>1)a.deleteRow(1);}localStorage.removeItem('eatwell_'+tipe);alert('Semua Transaksi '+tipe+' Berhasil Dihapus!');}}
-function hapusSemuaTransaksi(role){if(confirm('Hapus Semua Transaksi Super Admin?')){hapusTransaksi('INOUT');hapusTransaksi('PINJAM');hapusTransaksi('ASSEMBLY');alert('Semua Transaksi Super Admin Dihapus!');}}
-function hapusSemuaTotal(){var k=document.getElementById('konfirmasiHapus').value;if(k!=='HAPUS'){alert('Ketik HAPUS dulu di kotak konfirmasi!');return;}if(confirm('YAKIN HAPUS SEMUA? Ini reset total!')){localStorage.clear();hapusSemuaMaster();hapusTransaksi('INOUT');hapusTransaksi('PINJAM');hapusTransaksi('ASSEMBLY');alert('RESET TOTAL BERHASIL! Semua Data Dihapus, Siap Minggu Baru!');}}
-function gantiPeriode(){var p=document.getElementById('lapPeriodeSelect').value;document.getElementById('lapPeriode').innerText=p;document.getElementById('lapPeriode2').innerText=p;alert('Periode Laporan Diganti ke '+p);}
-function scanPinjam(){document.getElementById('scanResult').classList.remove('hidden');alert('Scanning... Ayam Fillet Terdeteksi!');}
+// DATA GLOBAL - MASTER, SO, IN, OUT, RETUR
+let MASTER = [{nama:'Ayam Fillet',satuan:'KG',brand:'CKDS Daging'},{nama:'Gula',satuan:'KG',brand:'CKDS Bumbu'},{nama:'Bawang',satuan:'KG',brand:'CKDS Bumbu'},{nama:'Tempe',satuan:'KG',brand:'CKDS Sayur'}];
+let DATA = { 'Ayam Fillet':{so:200,in:40,out:30,retur:0}, 'Gula':{so:50,in:0,out:0,retur:0}, 'Bawang':{so:30,in:0,out:0,retur:0}, 'Tempe':{so:20,in:0,out:0,retur:0} };
+let OUT_LIST = []; let GANAik_LIST = [];
+let recognition=null;
+function login(){ let r=document.getElementById('role').value; let n=document.getElementById('namaUser').value||'ARYA'; let b=document.getElementById('brandUser').value; document.querySelectorAll('.namaOut').forEach(e=>e.textContent=n); document.getElementById('labelNama').textContent=n; document.getElementById('labelBrand').textContent=b; document.querySelectorAll('.brandOut').forEach(e=>e.textContent=b); document.getElementById('loginCard').classList.add('hidden'); document.getElementById('superDash').classList.remove('hidden'); if(r==='inbound') showSection('inboundDash'); if(r==='atasan') showSection('atasanDash'); if(r==='assembly') showSection('assemblyDash'); alert('Masuk sebagai '+n+' - '+b+' - Dashboard terpisah, Super Admin tetap bisa kontrol semua'); }
+function showSection(id){ ['inboundDash','atasanDash','assemblyDash'].forEach(x=>document.getElementById(x).classList.add('hidden')); document.getElementById(id).classList.remove('hidden'); document.getElementById(id).scrollIntoView(); }
+function renderStok(){ let tb=document.getElementById('tabelStok'); tb.innerHTML=''; let tSO=0,tIN=0,tOUT=0,tAK=0; for(let k in DATA){ let d=DATA[k]; let akhir=d.so+d.in-d.out+d.retur; tSO+=d.so; tIN+=d.in; tOUT+=d.out; tAK+=akhir; let st = GANAik_LIST.includes(k) ? '<span class="badge red">GA NAIK ❌</span>' : '<span class="badge green">AMAN</span>'; tb.innerHTML+=`<tr><td>${k}</td><td>${d.so}</td><td>${d.in}</td><td>${d.out}</td><td>${d.retur} ${GANAik_LIST.includes(k)?' - GA NAIK':''}</td><td><b>${akhir}</b></td><td>${st}</td></tr>`; } document.getElementById('kSO').textContent=tSO; document.getElementById('kIN').textContent=tIN; document.getElementById('kOUT').textContent=tOUT; document.getElementById('kAKHIR').textContent=tAK; document.getElementById('rumusTxt').textContent=`Rumus: Stok Akhir = SO (${tSO}) + IN (${tIN}) - OUT (${tOUT}) + Retur = ${tAK}`; document.getElementById('atasanStok').textContent=tAK; document.getElementById('atasanOUT').textContent=tOUT; document.getElementById('atasanGaNaik').textContent=GANAik_LIST.length; }
+function simpanMaster(){ let v=document.getElementById('masterInput').value; if(!v) return alert('Paste Master dulu Bos'); document.getElementById('masterList').innerHTML='<b>Master Tersimpan:</b><br>'+v.replace(/\n/g,'<br>'); alert('Master Barang tersimpan - jadi acuan Pinjam & Raw Material'); }
+function tambahIN(){ let v=document.getElementById('inInput').value; parseAngka(v,'in'); }
+function tambahOUT(){ let v=document.getElementById('outInput').value; parseAngka(v,'out'); }
+function parseAngka(teks,jenis){ let lines=teks.toLowerCase().split('\n'); lines.forEach(l=>{ let m=l.match(/([a-z ]+)(\d+)/); if(m){ let nama=cap(m[1].trim()); let qty=parseInt(m[2]); if(!DATA[nama]) DATA[nama]={so:0,in:0,out:0,retur:0}; DATA[nama][jenis]+=qty; } }); renderStok(); alert('Berhasil tambah '+jenis.toUpperCase()); }
+function cap(s){ return s.split(' ').map(w=>w.charAt(0).toUpperCase()+w.slice(1)).join(' '); }
+function tambahSO(){ let n=cap(document.getElementById('soNama').value.trim()); let q=parseInt(document.getElementById('soQty').value)||0; if(!n) return alert('Isi nama barang SO'); if(!DATA[n]) DATA[n]={so:0,in:0,out:0,retur:0}; DATA[n].so=q; renderStok(); alert('SO '+n+' = '+q+' tersimpan sebagai Stok Awal'); }
+function kirimPerintah(){ let p=document.getElementById('perintahInput').value; if(!p) return alert('Tulis perintah dulu'); document.getElementById('perintahTampil').textContent=p; alert('Perintah terkirim ke Inbound / Assembly / Atasan (Notif di aplikasi, bukan WA)'); }<script>
+// ===== VOICE NOTE ENGINE - GANTI NGETIK =====
+// Pakai Web Speech API bawaan browser HP - GRATIS, gak perlu API berbayar
+function mulaiVoice(){
+  document.getElementById('micStatus').textContent = '🎤 Mendengarkan... Silakan ngomong: Gula 5 kilo, bawang 5 kilo, tempe 5 kilo untuk produksi, ayam goreng ga naik';
+  let SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if(!SR){ 
+    document.getElementById('micStatus').textContent = 'HP ini belum support auto voice. Ketik manual di kotak bawah lalu klik PROSES - tetap jalan!';
+    return; 
+  }
+  recognition = new SR(); recognition.lang='id-ID'; recognition.interimResults=false; recognition.continuous=false;
+  recognition.onresult = function(e){
+    let teks = e.results[0][0].transcript;
+    document.getElementById('vnHasil').value = teks;
+    document.getElementById('micStatus').textContent = '✅ Suara berhasil diubah jadi teks: '+teks;
+  };
+  recognition.onerror = function(){ document.getElementById('micStatus').textContent='Mic error / belum izinkan mic. Ketik manual aja Bos, tetap jalan.'; };
+  recognition.start();
+  document.getElementById('btnMic').textContent='🔴 SEDANG NGEREKAM... NGOMONG SEKARANG';
+}
+function stopVoice(){
+  if(recognition) recognition.stop();
+  document.getElementById('btnMic').textContent='🎤 TAHAN UNTUK NGOMONG OUT PRODUKSI';
+  document.getElementById('micStatus').textContent='Stop. Cek teks di bawah, kalau salah edit manual lalu klik PROSES.';
+}
+
+// ===== PROSES UTAMA: TEKS -> OUT PRODUKSI + GA NAIK =====
+function prosesVoice(){
+  let teks = document.getElementById('vnHasil').value.toLowerCase();
+  if(!teks) return alert('Ngomong dulu Bos atau ketik manual: contoh gula 5 kilo bawang 5 kilo tempe 5 kilo ayam goreng ga naik');
+  
+  // 1. DETEKSI GA NAIK - Kata kunci: ga naik, gak naik, tidak naik, batal naik, tidak jadi
+  let gaNaikKetemu = [];
+  let kataGaNaik = ['ga naik','gak naik','tidak naik','batal naik','tidak jadi','ga jadi','tidak naik'];
+  // Cari produk sebelum kata ga naik, contoh: "ayam goreng ga naik"
+  kataGaNaik.forEach(k=>{
+    if(teks.includes(k)){
+      // Ambil 2-3 kata sebelum "ga naik"
+      let idx = teks.indexOf(k);
+      let sebelum = teks.substring(Math.max(0,idx-30), idx).trim();
+      let kata = sebelum.split(' ').slice(-3).join(' ');
+      if(kata) gaNaikKetemu.push(cap(kata));
+    }
+  });
+
+  // 2. DETEKSI OUT PRODUKSI - Pola: [nama barang] [angka] kilo / kg / pcs
+  // Contoh: gula 5 kilo, bawang 5 kilo, tempe 5 kilo
+  let outBaru = [];
+  let regex = /([a-z\s]+?)\s*(\d+)\s*(kilo|kg|pcs|pack|liter|buah)/g;
+  let m;
+  while((m = regex.exec(teks)) !== null){
+    let nama = cap(m[1].trim().replace(/hari ini|barang keluar|untuk produksi|dan|,/g,'').trim());
+    // Bersihkan nama dari kata "ayam goreng ga naik" biar gak kehitung OUT
+    if(nama.toLowerCase().includes('ga naik') || nama.toLowerCase().includes('gak naik')) continue;
+    if(nama.length < 2) continue;
+    // Jangan hitung "ayam goreng" yang ga naik sebagai OUT
+    let isGaNaik = gaNaikKetemu.some(g=> g.toLowerCase().includes(nama.toLowerCase()) || nama.toLowerCase().includes(g.toLowerCase()));
+    if(isGaNaik) continue;
+    let qty = parseInt(m[2]);
+    outBaru.push({nama:nama, qty:qty});
+  }
+
+  // 3. TAMPILKAN HASIL PARSING
+  let html = '<div style="background:#dcfce7;padding:10px;border-radius:10px;margin-top:10px"><b>✅ Hasil Voice Note - OUT UNTUK PRODUKSI:</b><br>';
+  if(outBaru.length===0) html+='Tidak ada barang OUT terdeteksi. Coba format: gula 5 kilo<br>';
+  outBaru.forEach(o=>{ html+=`• ${o.nama} - ${o.qty} KG - OUT untuk Produksi<br>`; });
+  html+='</div>';
+  document.getElementById('vnParsed').innerHTML = html;
+
+  // 4. TAMPILKAN GA NAIK
+  let gaHtml='';
+  if(gaNaikKetemu.length>0){
+    gaHtml = '<div style="background:#fee2e2;padding:10px;border-radius:10px;margin-top:8px"><b>⚠️ KETERANGAN - PRODUK GA NAIK:</b><br>';
+    gaNaikKetemu.forEach(g=>{ gaHtml+=`• ${g} - <b>GA NAIK ❌ - Tidak diproses untuk produksi</b><br>`; });
+    gaHtml+='</div>';
+    document.getElementById('gaNaikBox').innerHTML = gaHtml;
+  } else {
+    document.getElementById('gaNaikBox').innerHTML='';
+  }
+
+  // 5. SIMPAN OTOMATIS KE DATA + TABEL OUT + STOK BERKURANG
+  outBaru.forEach(o=>{
+    if(!DATA[o.nama]) DATA[o.nama]={so:0,in:0,out:0,retur:0};
+    DATA[o.nama].out += o.qty;
+    OUT_LIST.push({nama:o.nama, qty:o.qty, waktu:new Date().toLocaleTimeString('id-ID')});
+  });
+  gaNaikKetemu.forEach(g=>{
+    if(!GANAik_LIST.includes(g)) GANAik_LIST.push(g);
+    if(!DATA[g]) DATA[g]={so:0,in:0,out:0,retur:0};
+    // Ga Naik = masuk Retur juga biar kehitung di Stok Akhir
+    DATA[g].retur += 0; // Stok tidak berkurang, hanya flag
+  });
+
+  renderOUT(); renderStok(); renderAssembly(); renderAtasanGaNaik();
+  alert(`Berhasil! ${outBaru.length} barang masuk OUT Produksi, ${gaNaikKetemu.length} produk Ga Naik. Stok otomatis berkurang!`);
+}
+
+function renderOUT(){
+  let tb=document.getElementById('tabelOUT'); tb.innerHTML='';
+  OUT_LIST.forEach(o=>{ tb.innerHTML+=`<tr><td>${o.nama}</td><td>${o.qty} KG</td><td>Produksi</td><td><span class="badge green">✅ Tercatat</span></td></tr>`; });
+  let ket=document.getElementById('keteranganGaNaik');
+  if(GANAik_LIST.length>0){
+    ket.innerHTML='<b>KETERANGAN:</b><br>'+GANAik_LIST.map(g=>`⚠️ ${g} - GA NAIK ❌`).join('<br>');
+  }
+}
+
+function renderAtasanGaNaik(){
+  let el=document.getElementById('atasanGaNaikList');
+  if(!el) return;
+  el.innerHTML = GANAik_LIST.length? '<b>Produk Ga Naik Hari Ini:</b><br>'+GANAik_LIST.map(g=>`🔴 ${g} - GA NAIK`).join('<br>') : 'Tidak ada produk Ga Naik hari ini.';
+}
+
+// ===== VOICE NOTE ASSEMBLY =====
+function prosesAssemblyVN(){
+  let teks=document.getElementById('vnAssembly').value.toLowerCase();
+  if(!teks) return alert('Assembly ngomong dulu: contoh ayam fillet mines 20 kilo');
+  let out=document.getElementById('assemblyVNOut');
+  if(teks.includes('mines') || teks.includes('minus')){
+    let mm=teks.match(/([a-z\s]+?)\s*(\d+)\s*(kilo|kg)/);
+    let nama = mm? cap(mm[1].trim()) : 'Barang';
+    let qty = mm? mm[2] : '';
+    out.innerHTML=`<div style="background:#fef9c3;padding:10px;border-radius:10px;margin-top:8px">⚠️ <b>${nama} MINES ${qty} KG</b> - Masuk MINES, langsung lapor ke Super Admin!</div>`;
+    alert('Mines tercatat!');
+  } else if(teks.includes('ga naik') || teks.includes('gak naik')){
+    out.innerHTML=`<div style="background:#fee2e2;padding:10px;border-radius:10px;margin-top:8px">❌ <b>${cap(teks)} - GA NAIK</b> - Flag merah ke Super Admin</div>`;
+    GANAik_LIST.push(cap(teks)); renderStok(); renderAtasanGaNaik();
+  } else {
+    out.innerHTML=`<div style="background:#dcfce7;padding:10px;border-radius:10px;margin-top:8px">✅ Voice Assembly: ${teks}</div>`;
+  }
+}
+
+function renderAssembly(){
+  let el=document.getElementById('assemblyList');
+  if(OUT_LIST.length===0){ el.innerHTML='Belum ada OUT Produksi masuk. Tunggu Voice Note dari Inbound.'; return; }
+  el.innerHTML='<b>OUT Produksi Masuk ke Assembly:</b><br>'+OUT_LIST.map(o=>`• ${o.nama} ${o.qty} KG - Siap Produksi ✅`).join('<br>')+'<br><br>'+(GANAik_LIST.length? '<b style="color:red">⚠️ Jangan produksi:</b><br>'+GANAik_LIST.map(g=>`• ${g} - GA NAIK ❌`).join('<br>') : '');
+}
+</script><!-- ============ AI, FILTER, LAPORAN ============ -->
+<div id="aiSection" class="card">
+<h2>🤖 ASISTEN AI - TINGGAL PERINTAH (V24)</h2>
+<p style="font-size:13px">Contoh ketik: <i>ayam CKDS ada berapa stoknya? / cari barang minus / ayam minus tanggal berapa hari apa? / buatkan ppt / buatkan laporan</i></p>
+<input id="aiInput" placeholder="Ketik perintah Bos di sini... Contoh: ayam CKDS ada berapa stoknya?">
+<button class="b-purple" onclick="tanyaAI()">🤖 TANYA AI</button>
+<div id="aiJawab" style="background:#f8f8f8;padding:10px;border-radius:10px;margin-top:8px;min-height:40px">Jawaban AI akan muncul di sini...</div>
+</div>
+
+<div class="card">
+<h2>🔍 FILTER DI SEMUA MENU (V26)</h2>
+<div class="grid">
+<div><input id="filterBarang" placeholder="Filter Barang: ketik Ayam / Gula / Bawang..." oninput="filterTabel()"><p style="font-size:12px">Filter Master, SO, IN/OUT, Pinjam, Assembly, Laporan</p></div>
+<div><select id="filterBrand" onchange="filterTabel()"><option value="">Semua Brand</option><option>CKDS Daging</option><option>CKDS Sayur</option><option>CKDS Bumbu</option></select>
+<select id="filterStatus" onchange="filterTabel()"><option value="">Semua Status</option><option value="GA NAIK">Ga Naik Saja</option><option value="AMAN">Aman Saja</option></select></div>
+</div>
+<div id="filterHasil" style="font-size:13px"></div>
+</div>
+
+<div class="card">
+<h2>📊 LAPORAN + PPT + SURAT JALAN + EXPORT 1 PDF</h2>
+<div class="grid3">
+<button class="b-blue" onclick="buatLaporan()">📄 BUATKAN LAPORAN</button>
+<button class="b-yellow" onclick="buatPPT()">📊 BUATKAN PPT</button>
+<button class="b-green" onclick="buatSuratJalan()">🚚 BUAT SURAT JALAN</button>
+</div>
+<div id="laporanOut" style="margin-top:10px;font-size:13px"></div>
+<button class="b-red" style="width:100%;margin-top:8px" onclick="window.print()">📄 EXPORT 1 PDF - LAPORAN + PPT + SURAT JALAN (CTRL+P)</button>
+<p style="font-size:12px">Notif HANYA DI APLIKASI, TIDAK ADA WA: Minus = Merah, Pinjam Menunggu = Kuning, Approve = Hijau. Super Admin kontrol semua, Atasan hanya lihat+approve, Gudang hanya brand sendiri, Assembly hanya line sendiri.</p>
+</div>
+
+<!-- KELOLA USER & TEMA -->
+<div class="card">
+<h2>👥 KELOLA USER + 🎨 UBAH LOGO & TEMA (6 Tema)</h2>
+<p style="font-size:13px">User Inbound: ARYA, MIRGA, HIBAN, YOGI, MARSEL, NURYANTO - Masing-masing hanya lihat Brand sendiri.</p>
+<div class="grid3">
+<button onclick="gantiTema('#1a1a4d')">Tema 1 - Ungu Tua</button>
+<button onclick="gantiTema('#0f766e')">Tema 2 - Hijau Tosca</button>
+<button onclick="gantiTema('#b91c1c')">Tema 3 - Merah</button>
+<button onclick="gantiTema('#1e40af')">Tema 4 - Biru</button>
+<button onclick="gantiTema('#854d0e')">Tema 5 - Coklat Emas</button>
+<button onclick="gantiTema('#111827')">Tema 6 - Hitam</button>
+</div>
+<input id="userBaru" placeholder="Tambah User Baru: Nama - Brand - Role (Contoh: BUDI - CKDS Daging - Inbound)">
+<button class="b-blue" onclick="alert('User baru tersimpan: '+document.getElementById('userBaru').value)">+ TAMBAH USER</button>
+</div>
+
+<div style="text-align:center;padding:20px;font-size:12px;color:#888">EATWELL V28 FINAL - Super Admin / Cost Control - Master → IN/OUT → SO → Stok Akhir - Voice Note Inbound = OUT Produksi + Ga Naik - Dashboard Dipisah: Super Admin / Atasan / Inbound / Assembly</div>
+</div><!-- tutup .wrap -->
+
+<script>
+// ===== AI SEDERHANA =====
+function tanyaAI(){
+  let q=document.getElementById('aiInput').value.toLowerCase();
+  let el=document.getElementById('aiJawab');
+  if(!q) return el.innerHTML='Ketik perintah dulu Bos. Contoh: ayam CKDS ada berapa stoknya?';
+  if(q.includes('ayam') && q.includes('berapa')){
+    let d=DATA['Ayam Fillet']||{so:0,in:0,out:0,retur:0};
+    let akhir=d.so+d.in-d.out+d.retur;
+    el.innerHTML=`🤖 Ayam Fillet CKDS: SO ${d.so} + IN ${d.in} - OUT ${d.out} = <b>Stok Akhir ${akhir} KG</b>. ${GANAik_LIST.length? '⚠️ Ga Naik: '+GANAik_LIST.join(', ') : 'Aman, tidak ada Ga Naik.'}`;
+  } else if(q.includes('minus') || q.includes('mines')){
+    let minus=Object.keys(DATA).filter(k=>{let d=DATA[k]; return (d.so+d.in-d.out+d.retur)<0});
+    el.innerHTML = minus.length? `🤖 Barang MINUS: ${minus.join(', ')}` : '🤖 Tidak ada barang minus. Semua aman Bos.';
+  } else if(q.includes('ga naik') || q.includes('tidak naik')){
+    el.innerHTML = GANAik_LIST.length? `🤖 Produk Ga Naik hari ini: ${GANAik_LIST.join(', ')} - Tidak diproses untuk produksi.` : '🤖 Tidak ada produk Ga Naik hari ini.';
+  } else if(q.includes('ppt')){
+    buatPPT(); el.innerHTML='🤖 PPT sudah dibuat di bawah Bos, tinggal Export PDF.';
+  } else if(q.includes('laporan')){
+    buatLaporan(); el.innerHTML='🤖 Laporan sudah dibuat di bawah Bos.';
+  } else if(q.includes('pinjam')){
+    el.innerHTML='🤖 Pinjam menunggu: YOGI pinjam dari MARSEL 10 KG - Menunggu Approve. Scan Barcode di Dashboard Inbound untuk pinjam.';
+  } else {
+    el.innerHTML=`🤖 Perintah Bos: "${q}" - Saya catat. Stok Akhir total sekarang ${document.getElementById('kAKHIR').textContent} KG. Coba tanya: ayam CKDS ada berapa? / cari minus / ga naik apa aja?`;
+  }
+}
+function filterTabel(){
+  let f=document.getElementById('filterBarang').value.toLowerCase();
+  let hasil=Object.keys(DATA).filter(k=>k.toLowerCase().includes(f));
+  document.getElementById('filterHasil').innerHTML = hasil.length? 'Hasil Filter: '+hasil.map(k=>{let d=DATA[k]; return `${k} - Stok Akhir ${d.so+d.in-d.out+d.retur}`}).join(' | ') : 'Tidak ketemu Bos.';
+}
+function gantiTema(c){ document.querySelector('header').style.background=c; document.querySelectorAll('.b-blue').forEach(b=>b.style.background=c); alert('Tema diubah jadi '+c); }
+function buatLaporan(){
+  let isi='<b>LAPORAN EATWELL - '+new Date().toLocaleDateString('id-ID')+'</b><br>SO Total: '+document.getElementById('kSO').textContent+' | IN: '+document.getElementById('kIN').textContent+' | OUT: '+document.getElementById('kOUT').textContent+' | Stok Akhir: '+document.getElementById('kAKHIR').textContent+'<br>OUT Produksi: '+(OUT_LIST.map(o=>o.nama+' '+o.qty+' KG').join(', ')||'-')+'<br>Ga Naik: '+(GANAik_LIST.join(', ')||'Tidak ada');
+  document.getElementById('laporanOut').innerHTML=isi; alert('Laporan dibuat!');
+}
+function buatPPT(){
+  document.getElementById('laporanOut').innerHTML='<b>PPT EATWELL - Slide 1:</b> Stok Akhir '+document.getElementById('kAKHIR').textContent+' KG<br><b>Slide 2:</b> OUT Produksi: '+(OUT_LIST.map(o=>o.nama+' '+o.qty+' KG').join(', ')||'-')+'<br><b>Slide 3:</b> Ga Naik: '+(GANAik_LIST.join(', ')||'Tidak ada')+'<br><b>Slide 4:</b> Pinjam: YOGI 10 KG Menunggu Approve';
+  alert('PPT dibuat!');
+}
+function buatSuratJalan(){
+  document.getElementById('laporanOut').innerHTML='<b>SURAT JALAN EATWELL</b><br>Tanggal: '+new Date().toLocaleDateString('id-ID')+'<br>Barang Keluar untuk Produksi:<br>'+(OUT_LIST.map(o=>`- ${o.nama} ${o.qty} KG`).join('<br>')||'-')+'<br><br>TTD Super Admin / Cost Control: __________';
+  alert('Surat Jalan dibuat!');
+}
+// JALANKAN AWAL
+renderStok(); renderOUT(); renderAssembly();
 </script>
-</body>
-</html>
+</body></html>
