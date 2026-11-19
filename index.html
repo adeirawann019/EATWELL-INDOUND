@@ -1,18 +1,18 @@
-<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EATWELL V14 BULK SEKALIGUS</title>
+<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EATWELL V14.1 FIX FORMAT BOS</title>
 <style>*{box-sizing:border-box}body{margin:0;font-family:Arial;background:linear-gradient(135deg,#FFC700,#FF8A00,#FF3D68,#7B2FFF)}header{background:#FFC700;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:9;flex-wrap:wrap;gap:8px}.wrap{display:flex}.side{width:280px;background:rgba(255,255,255,.94);padding:12px}.main{flex:1;padding:14px}.card{background:rgba(255,255,255,.94);border-radius:16px;padding:14px;margin-bottom:12px;box-shadow:0 6px 20px rgba(0,0,0,.15)}button{border:0;border-radius:10px;padding:10px 12px;font-weight:800;cursor:pointer}input,select,textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:10px;margin:5px 0}table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:8px;border-bottom:1px solid #eee;text-align:left}th{background:#111;color:#fff}.menu{width:100%;text-align:left;background:#fff;padding:11px;border-radius:12px;margin:4px 0;font-weight:700}.menu.on{background:#111;color:#fff}.bg{background:#E11D48;color:#fff;padding:2px 8px;border-radius:20px;font-size:11px}.flex{display:flex;gap:10px;flex-wrap:wrap}.flex>div{flex:1;min-width:150px}.notif{background:#FFF3CD;padding:9px;border-radius:10px;margin:5px 0}.ann{background:linear-gradient(90deg,#FFC700,#FF8A00);padding:12px;border-radius:12px;font-weight:800}.logoEatwell{background:#111;color:#FFC700;border-radius:14px;padding:8px 14px;display:inline-block;text-align:center;line-height:1}.logoEatwell b{font-size:26px;display:block}.logoEatwell span{font-size:9px;letter-spacing:4px;color:#fff}.prog{height:22px;background:#eee;border-radius:20px;overflow:hidden;margin:8px 0}.prog div{height:100%;background:#00A651;width:0%;text-align:center;color:#fff;font-size:12px;line-height:22px;font-weight:800}@media(max-width:800px){.side{display:none}.side.open{display:block;position:fixed;z-index:20;left:0;top:60px;width:88%}}</style></head>
 <body>
-<div id="antiBlank" style="background:#111;color:#FFC700;padding:10px;text-align:center;font-weight:800">EATWELL V14 BULK - LOADING...</div>
-<header><div style="display:flex;gap:10px;align-items:center"><div class="logoEatwell"><b>eatwell</b><span>CULINARY</span></div><div><b>eatwell V14 BULK SEKALIGUS</b><br><small>CKDS • CKIS • CKTW • CKPR | 500 BARANG SEKALIGUS BISA!</small></div></div><div><span id="ul">Halo, SUPER ADMIN 👑</span> <button style="background:#0057FF;color:#fff" onclick="syncSheet()">🔄 SYNC KE SHEET</button> <button onclick="document.getElementById('side').classList.toggle('open')">☰ Menu</button> <button style="background:#111;color:#fff" onclick="logout()">Logout</button></div></header>
-<div class="wrap"><div class="side" id="side"><div class="card" style="text-align:center"><div class="logoEatwell"><b>eatwell</b><span>CULINARY</span></div><b>eatwell</b><div id="clock"></div><div id="nc"></div><hr><b>Link Kurir Sheet:</b><input id="linkSheet" placeholder="Link script.google.com..."><button style="background:#0057FF;color:#fff" onclick="simpanLink()">💾 SIMPAN LINK</button></div><div id="menuList"></div><div class="card"><b>🔔 Notifikasi</b><div id="nb">Loading...</div></div></div>
+<div id="antiBlank" style="background:#111;color:#FFC700;padding:10px;text-align:center;font-weight:800">EATWELL V14.1 FIX FORMAT - LOADING...</div>
+<header><div style="display:flex;gap:10px;align-items:center"><div class="logoEatwell"><b>eatwell</b><span>CULINARY</span></div><div><b>eatwell V14.1 FIX FORMAT BOS</b><br><small>BRAND | KODE | KATEGORI | NAMA | SATUAN - 557 BARANG BISA!</small></div></div><div><span id="ul">Halo, SUPER ADMIN 👑</span> <button style="background:#0057FF;color:#fff" onclick="syncSheet()">🔄 SYNC KE SHEET</button> <button onclick="document.getElementById('side').classList.toggle('open')">☰ Menu</button> <button style="background:#111;color:#fff" onclick="logout()">Logout</button></div></header>
+<div class="wrap"><div class="side" id="side"><div class="card" style="text-align:center"><div class="logoEatwell"><b>eatwell</b><span>CULINARY</span></div><b>eatwell</b><div id="clock"></div><div id="nc"></div><hr><b>Link Kurir Sheet:</b><input id="linkSheet" placeholder="Link script.google.com..."><button style="background:#0057FF;color:#fff" onclick="simpanLink()">💾 SIMPAN LINK</button><hr><button style="background:#E11D48;color:#fff;width:100%" onclick="hapusDataSalah()">🗑 HAPUS DATA YANG SALAH TADI (5 Barang CKTW)</button></div><div id="menuList"></div><div class="card"><b>🔔 Notifikasi</b><div id="nb">Loading...</div></div></div>
 <div class="main">
-<div id="p-dash" class="pg"><div class="card"><h2>👑 Halo SUPER ADMIN - V14 BULK!</h2><div class="ann">📢 BOS BISA PASTE 500 BARANG SEKALIGUS! Sistem kirim cicil 50-50 ke Sheet, jadi gak hang!</div>
-<div class="card" style="border:3px solid #00A651"><h3>🚀 BULK MASTER - SEKALIGUS BANYAK!</h3><p>Format: <b>NAMA | KODE | STOK</b> atau <b>NAMA KODE STOK</b> atau <b>NAMA, KODE, STOK</b></p><textarea id="pasteMaster" rows="10" placeholder="Contoh paste 500 barang sekaligus:&#10;HANDSOAP | CKDS07.00034 | 20&#10;TISSUE | CKIS01.00001 | 50&#10;SABUN CUCI PIRING | CKTW02.00012 | 15&#10;... paste sampai 500 baris!"></textarea><div class="prog"><div id="progBar">0%</div></div><div id="progTxt" style="font-weight:800"></div><button style="background:#00A651;color:#fff;width:100%;padding:14px;font-size:16px" onclick="bulkMaster()">🚀 KIRIM BULK MASTER SEKALIGUS - 500 BARANG!</button><button style="background:#0057FF;color:#fff;width:100%;margin-top:8px" onclick="syncSheet()">🔄 SYNC SEMUA KE SHEET</button><p id="syncStatus" style="font-weight:800;color:#00A651"></p></div>
+<div id="p-dash" class="pg"><div class="card"><h2>👑 Halo SUPER ADMIN - V14.1 UDAH NGERTI FORMAT BOS!</h2><div class="ann">📢 FORMAT BOS: <b>CKTW | CKTW01.00259 | VEGETABLE | KEMIRI PACK 1 KG | KG</b> → Nama yang diambil: <b>KEMIRI PACK 1 KG</b>! Bukan CKTW lagi!</div>
+<div class="card" style="border:3px solid #00A651"><h3>🚀 BULK MASTER - FORMAT BOS!</h3><p>Format Bos: <b>BRAND | KODE | KATEGORI | NAMA BARANG | SATUAN</b><br>Contoh: <b>CKTW | CKTW01.00259 | VEGETABLE | KEMIRI PACK 1 KG | KG</b><br>Juga bisa: <b>HANDSOAP | CKDS07.00034 | 20</b> (yang ada stoknya)</p><textarea id="pasteMaster" rows="10" placeholder="Paste 557 barang Bos disini, format:&#10;CKTW  CKTW01.00259  VEGETABLE  KEMIRI PACK 1 KG  KG&#10;CKDS  CKDS02.00481  PREMIX  PREMIX CK REMPAH AYAM GORENG BASAH ( CK )  KG&#10;..."></textarea><div class="prog"><div id="progBar">0%</div></div><div id="progTxt" style="font-weight:800"></div><div id="previewBox" style="background:#FFF8D6;padding:10px;border-radius:10px;margin:8px 0;display:none"></div><button style="background:#FF8A00;color:#fff;width:100%;padding:12px" onclick="previewMaster()">👀 CEK DULU - LIHAT 5 BARIS PERTAMA BENER ATAU TIDAK?</button><button style="background:#00A651;color:#fff;width:100%;padding:14px;font-size:16px;margin-top:8px" onclick="bulkMaster()">🚀 KIRIM BULK MASTER SEKALIGUS!</button><button style="background:#0057FF;color:#fff;width:100%;margin-top:8px" onclick="syncSheet()">🔄 SYNC SEMUA KE SHEET</button><p id="syncStatus" style="font-weight:800;color:#00A651"></p></div>
 <div class="flex"><div class="card">Total Master<div style="font-size:26px;font-weight:900" id="sB">0</div></div><div class="card">Total Stok<div style="font-size:26px;font-weight:900" id="sAwal">0</div></div><div class="card">IN Hari Ini<div style="font-size:26px;font-weight:900" id="sIn">0</div></div><div class="card">OUT Hari Ini<div style="font-size:26px;font-weight:900" id="sOut">0</div></div></div>
 <div class="flex"><div class="card">Dipinjam<div style="font-size:26px;font-weight:900" id="sP">0</div></div><div class="card">Menunggu Approve<div style="font-size:26px;font-weight:900" id="sW">0</div></div><div class="card">Mines<div style="font-size:26px;font-weight:900" id="sL">0</div></div><div class="card">Total Terkirim ke Sheet<div style="font-size:26px;font-weight:900" id="sData">0</div></div></div></div><div class="card"><h3>🔔 Notifikasi</h3><div id="nd"></div></div></div>
-<div id="p-master" class="pg" style="display:none"><div class="card"><h3>📦 Master Barang - Lihat 100 Terakhir (Sisanya di Sheet!)</h3><div id="tb"></div></div></div>
-<div id="p-in" class="pg" style="display:none"><div class="card"><h3>📥 BULK IN - SEKALIGUS BANYAK!</h3><p>Format: <b>NAMA QTY</b> contoh: HANDSOAP 10</p><textarea id="pasteIn" rows="10" placeholder="HANDSOAP 10&#10;TISSUE 20&#10;... paste 500 baris sekaligus!"></textarea><div class="prog"><div id="progBarIn">0%</div></div><div id="progTxtIn" style="font-weight:800"></div><button style="background:#00A651;color:#fff;width:100%;padding:14px" onclick="bulkIO('IN')">🚀 KIRIM BULK IN SEKALIGUS!</button><hr><select id="iB"></select><input id="iQ" type="number" placeholder="Qty"><button style="background:#00A651;color:#fff" onclick="sIn()">Simpan IN Manual</button></div><div class="card"><div id="li"></div></div></div>
-<div id="p-out" class="pg" style="display:none"><div class="card"><h3>📤 BULK OUT - SEKALIGUS BANYAK!</h3><textarea id="pasteOut" rows="10" placeholder="HANDSOAP 2&#10;TISSUE 5&#10;... paste 500 baris!"></textarea><div class="prog"><div id="progBarOut">0%</div></div><div id="progTxtOut" style="font-weight:800"></div><button style="background:#E11D48;color:#fff;width:100%;padding:14px" onclick="bulkIO('OUT')">🚀 KIRIM BULK OUT SEKALIGUS!</button><hr><select id="oB"></select><input id="oQ" type="number" placeholder="Qty"><button style="background:#E11D48;color:#fff" onclick="sOut()">Simpan OUT Manual</button></div><div class="card"><div id="lo"></div></div></div>
-<div id="p-so" class="pg" style="display:none"><div class="card"><h3>📋 STOCK OPNAME - SEKALIGUS BANYAK!</h3><p>Format: <b>NAMA STOK FISIK</b> contoh: HANDSOAP 18 (artinya di gudang tinggal 18)</p><textarea id="pasteSO" rows="10" placeholder="HANDSOAP 18&#10;TISSUE 45&#10;... paste 500 baris!"></textarea><div class="prog"><div id="progBarSO">0%</div></div><div id="progTxtSO" style="font-weight:800"></div><button style="background:#0057FF;color:#fff;width:100%;padding:14px" onclick="bulkSO()">🚀 KIRIM SO SEKALIGUS!</button><div id="soIsi"></div></div></div>
+<div id="p-master" class="pg" style="display:none"><div class="card"><h3>📦 Master Barang - 557 Barang Bos</h3><input id="cariMaster" placeholder="🔍 Cari: KEMIRI, PREMIX..." oninput="renderMaster()"><div id="tb"></div></div></div>
+<div id="p-in" class="pg" style="display:none"><div class="card"><h3>📥 BULK IN - SEKALIGUS BANYAK!</h3><p>Format: <b>NAMA BARANG QTY</b> contoh: <b>KEMIRI PACK 1 KG 10</b> atau <b>HANDSOAP 10</b></p><textarea id="pasteIn" rows="10" placeholder="KEMIRI PACK 1 KG 10&#10;PREMIX CK REMPAH AYAM GORENG BASAH 20&#10;..."></textarea><div class="prog"><div id="progBarIn">0%</div></div><div id="progTxtIn" style="font-weight:800"></div><button style="background:#00A651;color:#fff;width:100%;padding:14px" onclick="bulkIO('IN')">🚀 KIRIM BULK IN SEKALIGUS!</button><hr><select id="iB"></select><input id="iQ" type="number" placeholder="Qty"><button style="background:#00A651;color:#fff" onclick="sIn()">Simpan IN Manual</button></div><div class="card"><div id="li"></div></div></div>
+<div id="p-out" class="pg" style="display:none"><div class="card"><h3>📤 BULK OUT - SEKALIGUS BANYAK! SAMA KAYAK IN!</h3><p>Format: <b>NAMA BARANG QTY</b> contoh: <b>KEMIRI PACK 1 KG 2</b></p><textarea id="pasteOut" rows="10" placeholder="KEMIRI PACK 1 KG 2&#10;TISSUE 5&#10;..."></textarea><div class="prog"><div id="progBarOut">0%</div></div><div id="progTxtOut" style="font-weight:800"></div><button style="background:#E11D48;color:#fff;width:100%;padding:14px" onclick="bulkIO('OUT')">🚀 KIRIM BULK OUT SEKALIGUS!</button><hr><select id="oB"></select><input id="oQ" type="number" placeholder="Qty"><button style="background:#E11D48;color:#fff" onclick="sOut()">Simpan OUT Manual</button></div><div class="card"><div id="lo"></div></div></div>
+<div id="p-so" class="pg" style="display:none"><div class="card"><h3>📋 STOCK OPNAME - SEKALIGUS BANYAK!</h3><p>Format: <b>NAMA BARANG STOK FISIK</b> contoh: <b>KEMIRI PACK 1 KG 18</b></p><textarea id="pasteSO" rows="10" placeholder="KEMIRI PACK 1 KG 18&#10;TISSUE 45&#10;..."></textarea><div class="prog"><div id="progBarSO">0%</div></div><div id="progTxtSO" style="font-weight:800"></div><button style="background:#0057FF;color:#fff;width:100%;padding:14px" onclick="bulkSO()">🚀 KIRIM SO SEKALIGUS!</button><div id="soIsi"></div></div></div>
 <div id="p-pinjam" class="pg" style="display:none"><div class="card" style="background:#FFF8D6"><h3>🤲 Form Pinjam</h3><input id="p1" placeholder="Nama Peminjam"><input id="p2" placeholder="Dept / DS"><select id="p3"></select><input id="p4" type="number" value="1"><hr><input id="pDari" placeholder="DARI MANA?"><input id="pKe" placeholder="KE MANA?"><input id="pUntuk" placeholder="UNTUK APA?"><input id="p5" type="date"><input id="p6" type="time"><button style="background:#FF8A00;color:#fff;width:100%;padding:14px" onclick="ajukan()">⏳ AJUKAN PINJAM</button><div id="waPinjamBox"></div></div><div class="card"><h3>Daftar Pinjaman</h3><div id="tp"></div></div></div>
 <div id="p-appr" class="pg" style="display:none"><div class="card"><h3>✅ Approve / Reject</h3><label><input type="checkbox" id="aa" onchange="ubahAuto(this)" style="width:auto"> Auto-Approve</label><div id="ta"></div></div></div>
 <div id="p-surat" class="pg" style="display:none"><div class="card"><h3>🧾 Surat Jalan</h3><div id="ts"></div></div></div>
@@ -20,21 +20,21 @@
 <div id="p-users" class="pg" style="display:none"><div class="card"><h3>👥 Bagi Akun</h3><input id="u1" placeholder="Nama"><select id="uRole"><option value="STAFF GUDANG">STAFF GUDANG</option><option value="ADMIN PEMBANTU">ADMIN PEMBANTU</option><option value="ATASAN">ATASAN / BOSS</option></select><input id="u2" placeholder="Username"><input id="u3" placeholder="Password"><button style="background:#00A651;color:#fff" onclick="addU()">+ Tambah Akun</button><div id="tu"></div></div></div>
 <div id="p-lap" class="pg" style="display:none"><div class="card"><h3>📈 Laporan</h3><button style="background:#00A651;color:#fff" onclick="exportCSV()">⬇ CSV</button> <button style="background:#0057FF;color:#fff" onclick="syncSheet()">🔄 SYNC KE SHEET</button><div id="lr"></div><p>Semua data lengkap ada di Google Sheet Bos, di sheet DATA / IN / OUT / SO!</p></div></div>
 </div></div>
-<div id="lg" style="position:fixed;inset:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;z-index:99"><div class="card" style="width:380px;text-align:center"><div class="logoEatwell"><b>eatwell</b><span>CULINARY</span></div><h2>eatwell V14 BULK</h2><p style="font-size:12px">Paste 500 barang sekaligus bisa!</p><input id="lu" placeholder="Username"><input id="lp" type="password" placeholder="Password"><button style="background:#00A651;color:#fff;width:100%" onclick="login()">MASUK</button><button style="width:100%;margin-top:8px" onclick="gudang()">📷 Saya Anak Gudang</button><small>Super Admin: superadmin / super123<br>Atasan: atasan / atasan123</small></div></div>
+<div id="lg" style="position:fixed;inset:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;z-index:99"><div class="card" style="width:380px;text-align:center"><div class="logoEatwell"><b>eatwell</b><span>CULINARY</span></div><h2>eatwell V14.1</h2><p style="font-size:12px">FIX FORMAT BOS - BRAND KODE KATEGORI NAMA SATUAN</p><input id="lu" placeholder="Username"><input id="lp" type="password" placeholder="Password"><button style="background:#00A651;color:#fff;width:100%" onclick="login()">MASUK</button><button style="width:100%;margin-top:8px" onclick="gudang()">📷 Saya Anak Gudang</button><small>Super Admin: superadmin / super123<br>Atasan: atasan / atasan123</small></div></div>
 <script>
 function $id(id){return document.getElementById(id)}
 function setVal(id,v){var e=$id(id); if(e) e.value=v}
 function setTxt(id,v){var e=$id(id); if(e) e.innerText=v}
 function setHtml(id,v){var e=$id(id); if(e) e.innerHTML=v}
-var DB={b:[{id:1,n:'HANDSOAP',k:'CKDS07.00034',s:20,m:5,mx:2,brand:'CKDS'}],p:[],sj:[],u:[{nm:'Admin Gudang',us:'admin1',pw:'123',mx:5,role:'ADMIN PEMBANTU'},{nm:'Atasan Demo',us:'atasan',pw:'atasan123',mx:100,role:'ATASAN'}],auto:false,ann:'Hari ini fokus cek CKDS & restock yang MINES!',nama:'eatwell',link:'https://script.google.com/macros/s/AKfycbwvOEieIHwWmVgSus8Mq3LT2DiOZLtTiDmeruX6mE4GToSbEJQWmNh_1Ip9ZcTA7ir4/exec',totalKirim:0,inLog:[],outLog:[]};
-try{var saved=JSON.parse(localStorage.getItem('ew14mini')||'null'); if(saved&&saved.b) DB=saved; }catch(e){}
+var DB={b:[],p:[],sj:[],u:[{nm:'Admin Gudang',us:'admin1',pw:'123',mx:5,role:'ADMIN PEMBANTU'},{nm:'Atasan Demo',us:'atasan',pw:'atasan123',mx:100,role:'ATASAN'}],auto:false,nama:'eatwell',link:'https://script.google.com/macros/s/AKfycbwvOEieIHwWmVgSus8Mq3LT2DiOZLtTiDmeruX6mE4GToSbEJQWmNh_1Ip9ZcTA7ir4/exec',totalKirim:0,inLog:[],outLog:[]};
+try{var saved=JSON.parse(localStorage.getItem('ew141')||'null'); if(saved&&saved.b) DB=saved; }catch(e){}
 if(!DB.link) DB.link='https://script.google.com/macros/s/AKfycbwvOEieIHwWmVgSus8Mq3LT2DiOZLtTiDmeruX6mE4GToSbEJQWmNh_1Ip9ZcTA7ir4/exec';
 var CUR='SUPER ADMIN',CURROLE='SUPER ADMIN';
 function isSuper(){return CURROLE=='SUPER ADMIN'}
 function canApprove(){return CURROLE=='SUPER ADMIN'||CURROLE=='ADMIN PEMBANTU'||CURROLE=='ATASAN'}
 function logout(){localStorage.removeItem('r');location.reload()}
-function resetTotal(){if(!confirm('Reset?'))return;localStorage.removeItem('ew14mini');localStorage.removeItem('r');location.reload()}
-function saveMini(){try{var mini={b:DB.b.slice(-100),p:DB.p.slice(-30),sj:DB.sj.slice(-20),u:DB.u,link:DB.link,totalKirim:DB.totalKirim,inLog:DB.inLog.slice(-20),outLog:DB.outLog.slice(-20)};localStorage.setItem('ew14mini',JSON.stringify(mini))}catch(e){}render()}
+function hapusDataSalah(){if(!confirm('Hapus 5 data yang salah tadi (CKTW, CKDS, dll)? Data yang bener nanti Bos paste lagi!'))return;DB.b=DB.b.filter(function(b){return ['CKTW','CKDS','CKIS','CKPR','HANDSOAP'].indexOf(b.n)==-1 || b.k.indexOf('CK')!=0});if(DB.b.length<10){DB.b=[]}DB.totalKirim=0;saveMini();alert('✅ Data salah udah dihapus! Sekarang paste lagi yang 557 yang bener!')}
+function saveMini(){try{localStorage.setItem('ew141',JSON.stringify(DB))}catch(e){DB.b=DB.b.slice(-200);try{localStorage.setItem('ew141',JSON.stringify(DB))}catch(e2){alert('Memori penuh, tapi data udah kekirim ke Sheet!')}}render()}
 function ns(){var d=new Date();return d.toLocaleDateString('id-ID',{day:'2-digit',month:'2-digit',year:'numeric'})+' '+d.toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'})}
 function todayStr(){return new Date().toISOString().slice(0,10)}
 function hariStr(){return new Date().toLocaleDateString('id-ID',{weekday:'long',day:'2-digit',month:'long',year:'numeric'})}
@@ -52,17 +52,66 @@ function kirimChunk(rows,type,progId,txtId){
     next();
   });
 }
+// FIX UTAMA: Ngerti format Bos: BRAND KODE KATEGORI NAMA SATUAN
+function parseSatuBarisMaster(l){
+  l=l.trim(); if(!l) return null;
+  var p=l.split(/[\t|,;]+/).map(function(x){return x.trim()}).filter(function(x){return x});
+  // Kalau pake | atau tab, p sudah pecah bagus
+  if(p.length>=4){
+    var brand=p[0].toUpperCase();
+    var kode=p[1].toUpperCase();
+    var kategori=p[2].toUpperCase();
+    // Nama = semua dari index 3 sampai sebelum satuan terakhir, kalau satuan terakhir KG/PORSI/BTL/dll
+    var satuanList=['KG','GR','PORSI','BTL','PCS','PACK','LITER','ML','BOX','KARUNG','BUNGKUS','SACHET'];
+    var last=p[p.length-1].toUpperCase();
+    var satuan=''; var namaParts=[];
+    if(satuanList.indexOf(last)!=-1 || last.length<=4){
+      satuan=last; namaParts=p.slice(3, p.length-1);
+    } else {
+      // Cek kalau terakhir angka = stok
+      if(!isNaN(parseInt(last))){
+        var stok=parseInt(last); namaParts=p.slice(3, p.length-1); return {brand:brand,kode:kode,kategori:kategori,nama:namaParts.join(' ').toUpperCase()||p[3].toUpperCase(),satuan:'',stok:stok};
+      }
+      namaParts=p.slice(3);
+    }
+    var nama=namaParts.join(' ').toUpperCase();
+    // Kalau nama masih kosong, ambil p[3]
+    if(!nama) nama=p[3].toUpperCase();
+    return {brand:brand,kode:kode,kategori:kategori,nama:nama,satuan:satuan,stok:0};
+  }
+  if(p.length==3){
+    // Format lama: NAMA | KODE | STOK
+    var stok2=parseInt(p[2])||0;
+    if(!isNaN(stok2) && stok2>0) return {brand:getBrand(p[1]),kode:p[1].toUpperCase(),kategori:'',nama:p[0].toUpperCase(),satuan:'',stok:stok2};
+    return {brand:p[0].toUpperCase(),kode:p[1].toUpperCase(),kategori:p[2].toUpperCase(),nama:p[1].toUpperCase(),satuan:'',stok:0};
+  }
+  if(p.length==2){
+    return {brand:getBrand(p[1]),kode:p[1].toUpperCase(),kategori:'',nama:p[0].toUpperCase(),satuan:'',stok:0};
+  }
+  // Kalau pake spasi aja, tanpa | : CKTW CKTW01.00259 VEGETABLE KEMIRI PACK 1 KG KG
+  var parts=l.split(/\s+/);
+  if(parts.length>=5 && parts[1].indexOf('CK')==0){
+    var brand2=parts[0].toUpperCase(); var kode2=parts[1].toUpperCase(); var kat2=parts[2].toUpperCase();
+    var satuan2=parts[parts.length-1].toUpperCase();
+    var nama2=parts.slice(3, parts.length-1).join(' ').toUpperCase();
+    return {brand:brand2,kode:kode2,kategori:kat2,nama:nama2,satuan:satuan2,stok:0};
+  }
+  return {brand:'CKDS',kode:'',kategori:'',nama:l.toUpperCase(),satuan:'',stok:0};
+}
 function parseBulkMaster(txt){
   var lines=txt.split('\n').filter(function(l){return l.trim()});
   var out=[];
   lines.forEach(function(l){
-    var p=l.split(/[,|\t;]/).map(function(x){return x.trim()}).filter(function(x){return x});
-    if(p.length<2) return;
-    var nama=p[0].toUpperCase(); var qty=parseInt(p[p.length-1])||0; var kode=p.length>=3?p[1]:'';
-    if(isNaN(parseInt(p[p.length-1]))){ qty=0; kode=p[1]||''; }
-    out.push({tanggal:ns(),nama:nama,kode:kode,brand:getBrand(kode),masuk:qty,keluar:0,pinjam:0,stok:qty,plusmines:'',tglMasuk:todayStr(),tglKeluar:'-',peminjam:'-',status:'MASTER',dari:'-',ke:'-',untuk:'-',noSJ:'-'});
+    var r=parseSatuBarisMaster(l); if(!r||!r.nama) return;
+    out.push({tanggal:ns(),nama:r.nama,kode:r.kode,brand:r.brand||getBrand(r.kode),kategori:r.kategori,satuan:r.satuan,masuk:r.stok,keluar:0,pinjam:0,stok:r.stok,plusmines:'',tglMasuk:todayStr(),tglKeluar:'-',peminjam:'-',status:'MASTER',dari:'-',ke:'-',untuk:'-',noSJ:'-'});
   });
   return out;
+}
+function previewMaster(){
+  var txt=$id('pasteMaster').value; if(!txt.trim()) return alert('Paste dulu Bos!');
+  var rows=parseBulkMaster(txt);
+  var box=$id('previewBox'); box.style.display='block';
+  box.innerHTML='<b>✅ Hasil baca '+rows.length+' baris! 5 pertama:</b><br>'+rows.slice(0,5).map(function(r,i){return (i+1)+'. <b>'+r.nama+'</b> | Kode: '+r.kode+' | Brand: '+r.brand+' | Kategori: '+r.kategori+' | Satuan: '+r.satuan+' | Stok: '+r.stok}).join('<br>')+'<br><br><b>Kalau udah bener, pencet KIRIM BULK!</b>';
 }
 function parseBulkIO(txt,mode){
   var lines=txt.split('\n').filter(function(l){return l.trim()});
@@ -70,6 +119,12 @@ function parseBulkIO(txt,mode){
   lines.forEach(function(l){
     var parts=l.trim().split(/\s+/); if(parts.length<2) return;
     var qty=parseInt(parts[parts.length-1])||0; var nama=parts.slice(0,-1).join(' ').toUpperCase();
+    // Kalau format Bos: CKTW ... KEMIRI ... KG 10 -> qty terakhir, nama = tengah
+    if(parts[1] && parts[1].indexOf('CK')==0){
+      // Ambil nama dari parse master
+      var pm=parseSatuBarisMaster(l.replace(/\s+\d+$/,''));
+      if(pm) nama=pm.nama;
+    }
     var b=DB.b.find(function(x){return x.n==nama});
     out.push({tanggal:ns(),nama:nama,barang:nama,kode:b?b.k:'',brand:b?getBrand(b.k):'CKDS',qty:qty,masuk:mode=='IN'?qty:0,keluar:mode=='OUT'?qty:0,stok:qty,peminjam:'-',status:mode,dari:'-',ke:'-',untuk:'-',noSJ:'-'});
   });
@@ -78,19 +133,21 @@ function parseBulkIO(txt,mode){
 async function bulkMaster(){
   var txt=$id('pasteMaster').value; if(!txt.trim()) return alert('Paste dulu Bos!');
   var rows=parseBulkMaster(txt);
-  if(!rows.length) return alert('Format salah! Contoh: HANDSOAP | CKDS07.00034 | 20');
-  if(!confirm('Kirim '+rows.length+' barang sekaligus ke Sheet?')) return;
+  if(!rows.length) return alert('Format salah!');
+  // Cek dulu biar Bos yakin
+  var cek=confirm('Saya baca '+rows.length+' barang. Contoh pertama:\n1. '+rows[0].nama+' | '+rows[0].kode+' | '+rows[0].brand+'\n2. '+rows[1].nama+' | '+rows[1].kode+'\n\nBENER? Pencet OK untuk kirim ke Sheet!');
+  if(!cek) return;
   setTxt('progTxt','Mulai kirim '+rows.length+' barang...');
   await kirimChunk(rows,'MASTER','progBar','progTxt');
-  rows.forEach(function(r){ var ex=DB.b.find(function(x){return x.n==r.nama}); if(!ex) DB.b.push({id:Date.now()+Math.random(),n:r.nama,k:r.kode,s:r.stok,m:5,mx:2,brand:r.brand}); else ex.s+=r.stok; });
+  rows.forEach(function(r){ var ex=DB.b.find(function(x){return x.n==r.nama && x.k==r.kode}); if(!ex) DB.b.push({id:Date.now()+Math.random(),n:r.nama,k:r.kode,s:r.stok,m:5,mx:2,brand:r.brand,kat:r.kategori,satuan:r.satuan}); else ex.s+=r.stok; });
   DB.totalKirim+=rows.length; saveMini();
-  setTxt('progTxt','✅ BERHASIL! '+rows.length+' barang masuk ke Sheet! Cek Sheet DATA Bos!');
-  alert('✅ BERHASIL! '+rows.length+' barang sekaligus masuk ke Sheet!');
+  setTxt('progTxt','✅ BERHASIL! '+rows.length+' barang masuk! Total Master sekarang: '+DB.b.length);
+  alert('✅ BERHASIL! '+rows.length+' barang masuk! Total Master sekarang: '+DB.b.length+'! Cek menu Master Barang, udah keliatan!');
 }
 async function bulkIO(mode){
   var txt=mode=='IN'?$id('pasteIn').value:$id('pasteOut').value; if(!txt.trim()) return alert('Paste dulu Bos!');
   var rows=parseBulkIO(txt,mode);
-  if(!rows.length) return alert('Format salah! Contoh: HANDSOAP 10');
+  if(!rows.length) return alert('Format salah! Contoh: KEMIRI PACK 1 KG 10');
   if(!confirm('Kirim BULK '+mode+' '+rows.length+' baris sekaligus?')) return;
   var progId=mode=='IN'?'progBarIn':'progBarOut'; var txtId=mode=='IN'?'progTxtIn':'progTxtOut';
   await kirimChunk(rows,mode,progId,txtId);
@@ -102,7 +159,7 @@ async function bulkIO(mode){
 async function bulkSO(){
   var txt=$id('pasteSO').value; if(!txt.trim()) return alert('Paste dulu Bos!');
   var rows=parseBulkIO(txt,'SO');
-  if(!rows.length) return alert('Format: HANDSOAP 18');
+  if(!rows.length) return alert('Format: KEMIRI PACK 1 KG 18');
   if(!confirm('Kirim SO '+rows.length+' baris sekaligus?')) return;
   await kirimChunk(rows,'SO','progBarSO','progTxtSO');
   rows.forEach(function(r){ var b=DB.b.find(function(x){return x.n==r.nama}); if(b) b.s=r.qty; });
@@ -128,8 +185,9 @@ function back(id){var p=DB.p.find(function(x){return x.id==id});var b=DB.b.find(
 function addU(){var n=$id('u1').value,role=$id('uRole').value,u=$id('u2').value,p=$id('u3').value; if(!u||!p) return alert('Isi username & password!'); DB.u.push({nm:n,us:u,pw:p,mx:5,role:role}); saveMini(); alert('Akun dibuat!')}
 function login(){var u=$id('lu').value,p=$id('lp').value;if(u=='superadmin'&&p=='super123'){CUR='SUPER ADMIN';CURROLE='SUPER ADMIN';localStorage.setItem('r','SUPER ADMIN');$id('lg').style.display='none';buildMenu();sh('dash',null);return}var f=DB.u.find(function(x){return x.us==u&&x.pw==p});if(f){CUR=f.nm;CURROLE=f.role;localStorage.setItem('r',f.role+'|'+f.nm);$id('lg').style.display='none';buildMenu();if(f.role=='ATASAN')sh('dash',null);else if(f.role=='STAFF GUDANG')sh('pinjam',null);else sh('dash',null);return}alert('Username / password salah!')}
 function gudang(){CUR='ANAK GUDANG';CURROLE='STAFF GUDANG';$id('lg').style.display='none';buildMenu();sh('pinjam',null)}
-function exportCSV(){var c='Nama,Kode,Brand,Stok\n'+DB.b.map(function(b){return b.n+','+b.k+','+getBrand(b.k)+','+b.s}).join('\n');var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([c],{type:'text/csv'}));a.download='eatwell-v14-master.csv';a.click()}
-function render(){try{buildMenu();var low=DB.b.filter(function(b){return b.s<=b.m});setTxt('sB',DB.b.length);setTxt('sAwal',DB.b.reduce(function(a,b){return a+b.s},0));setTxt('sIn',DB.inLog.length);setTxt('sOut',DB.outLog.length);setTxt('sP',DB.p.filter(function(p){return p.st=='APPROVED'}).length);setTxt('sW',DB.p.filter(function(p){return p.st=='MENUNGGU'}).length);setTxt('sL',low.length);setTxt('sData',DB.totalKirim||0);setVal('linkSheet',DB.link||'');setHtml('nb',DB.p.slice(-5).map(function(p){return '<div class="notif">'+p.nm+' - '+p.br+' '+p.st+'</div>'}).join('')||'Belum ada pinjam');setHtml('nd',$id('nb').innerHTML);setTxt('nc','Notif');var o=DB.b.map(function(b){return '<option value="'+b.id+'">'+b.n+' - Stok '+b.s+'</option>'}).join('');['iB','oB','p3'].forEach(function(id){setHtml(id,o)});setHtml('tb','<table><tr><th>Barang</th><th>Kode</th><th>Stok</th></tr>'+DB.b.slice(-100).map(function(b){return '<tr><td>'+b.n+'</td><td>'+b.k+'</td><td>'+b.s+'</td></tr>'}).join('')+'</table><p>Menampilkan 100 terakhir. Lengkapnya di Sheet DATA!</p>');setHtml('tp','<table><tr><th>Peminjam</th><th>Barang</th><th>Qty</th><th>Status</th><th>Aksi</th></tr>'+DB.p.map(function(p){return '<tr><td>'+p.nm+'</td><td>'+p.br+'</td><td>'+p.q+'</td><td>'+p.st+'</td><td>'+(p.st=='MENUNGGU'&&canApprove()?'<button style="background:#00A651;color:#fff" onclick="appr('+p.id+')">✅ Approve</button> <button style="background:#E11D48;color:#fff" onclick="rej('+p.id+')">❌ Reject</button>':'')+(p.st=='APPROVED'?'<button onclick="back('+p.id+')">↩ Kembali</button>':'')+'</td></tr>'}).join('')+'</table>');setHtml('ta',canApprove()?'<table><tr><th>Peminjam</th><th>Barang</th><th>Qty</th><th>Aksi</th></tr>'+DB.p.filter(function(p){return p.st=='MENUNGGU'}).map(function(p){return '<tr><td>'+p.nm+'</td><td>'+p.br+'</td><td>'+p.q+'</td><td><button style="background:#00A651;color:#fff" onclick="appr('+p.id+')">✅ APPROVE</button></td></tr>'}).join('')+'</table>':'<p>⛔ TERKUNCI!</p>');setHtml('ts','<table><tr><th>No SJ</th><th>Peminjam</th><th>Barang</th><th>Qty</th><th>Print</th></tr>'+DB.sj.map(function(s){return '<tr><td>'+s.no+'</td><td>'+s.nm+'</td><td>'+s.br+'</td><td>'+s.q+'</td><td><button onclick="cetak({id:'+s.id+'})">🖨 Print</button></td></tr>'}).join('')+'</table>');setHtml('tu','<table><tr><th>Nama</th><th>Role</th><th>Username</th></tr>'+DB.u.map(function(u){return '<tr><td>'+u.nm+'</td><td>'+u.role+'</td><td>'+u.us+'</td></tr>'}).join('')+'</table>');setHtml('li',DB.inLog.slice(-20).map(function(l){return '<div>📥 IN '+l.br+' +'+l.q+'</div>'}).join('')||'Belum ada IN');setHtml('lo',DB.outLog.slice(-20).map(function(l){return '<div>📤 OUT '+l.br+' -'+l.q+'</div>'}).join('')||'Belum ada OUT');setHtml('lr','<p>Total Terkirim ke Sheet: '+DB.totalKirim+'</p>');setHtml('antiBlank','✅ EATWELL V14 BULK BERHASIL DIBUKA! - Paste 500 sekaligus bisa!');var ab2=$id('antiBlank'); if(ab2){ab2.style.background='#00A651';ab2.style.color='#fff'}}catch(e){var eb=$id('antiBlank');if(eb){eb.innerHTML='⚠️ ERROR: '+e.message;eb.style.background='#E11D48';eb.style.color='#fff'}}}
+function exportCSV(){var c='Nama,Kode,Brand,Kategori,Satuan,Stok\n'+DB.b.map(function(b){return b.n+','+b.k+','+getBrand(b.k)+','+(b.kat||'')+','+(b.satuan||'')+','+b.s}).join('\n');var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([c],{type:'text/csv'}));a.download='eatwell-v141-master.csv';a.click()}
+function renderMaster(){var kw=($id('cariMaster').value||'').toUpperCase();var list=DB.b.filter(function(b){return !kw || b.n.indexOf(kw)!=-1 || b.k.indexOf(kw)!=-1});setHtml('tb','<p>Menampilkan '+list.slice(0,100).length+' dari '+list.length+' (Total Master: '+DB.b.length+')</p><table><tr><th>Barang</th><th>Kode</th><th>Brand</th><th>Kategori</th><th>Satuan</th><th>Stok</th></tr>'+list.slice(0,100).map(function(b){return '<tr><td><b>'+b.n+'</b></td><td>'+b.k+'</td><td>'+getBrand(b.k)+'</td><td>'+(b.kat||'-')+'</td><td>'+(b.satuan||'-')+'</td><td>'+b.s+'</td></tr>'}).join('')+'</table>')}
+function render(){try{buildMenu();var low=DB.b.filter(function(b){return b.s<=5});setTxt('sB',DB.b.length);setTxt('sAwal',DB.b.reduce(function(a,b){return a+b.s},0));setTxt('sIn',DB.inLog.length);setTxt('sOut',DB.outLog.length);setTxt('sP',DB.p.filter(function(p){return p.st=='APPROVED'}).length);setTxt('sW',DB.p.filter(function(p){return p.st=='MENUNGGU'}).length);setTxt('sL',low.length);setTxt('sData',DB.totalKirim||0);setVal('linkSheet',DB.link||'');setHtml('nb',DB.p.slice(-5).map(function(p){return '<div class="notif">'+p.nm+' - '+p.br+' '+p.st+'</div>'}).join('')||'Belum ada pinjam');setHtml('nd',$id('nb').innerHTML);var o=DB.b.map(function(b){return '<option value="'+b.id+'">'+b.n+' - Stok '+b.s+'</option>'}).join('');['iB','oB','p3'].forEach(function(id){setHtml(id,o)});renderMaster();setHtml('tp','<table><tr><th>Peminjam</th><th>Barang</th><th>Qty</th><th>Status</th><th>Aksi</th></tr>'+DB.p.map(function(p){return '<tr><td>'+p.nm+'</td><td>'+p.br+'</td><td>'+p.q+'</td><td>'+p.st+'</td><td>'+(p.st=='MENUNGGU'&&canApprove()?'<button style="background:#00A651;color:#fff" onclick="appr('+p.id+')">✅ Approve</button> <button style="background:#E11D48;color:#fff" onclick="rej('+p.id+')">❌ Reject</button>':'')+(p.st=='APPROVED'?'<button onclick="back('+p.id+')">↩ Kembali</button>':'')+'</td></tr>'}).join('')+'</table>');setHtml('ta',canApprove()?'<table><tr><th>Peminjam</th><th>Barang</th><th>Qty</th><th>Aksi</th></tr>'+DB.p.filter(function(p){return p.st=='MENUNGGU'}).map(function(p){return '<tr><td>'+p.nm+'</td><td>'+p.br+'</td><td>'+p.q+'</td><td><button style="background:#00A651;color:#fff" onclick="appr('+p.id+')">✅ APPROVE</button></td></tr>'}).join('')+'</table>':'<p>⛔ TERKUNCI!</p>');setHtml('ts','<table><tr><th>No SJ</th><th>Peminjam</th><th>Barang</th><th>Qty</th><th>Print</th></tr>'+DB.sj.map(function(s){return '<tr><td>'+s.no+'</td><td>'+s.nm+'</td><td>'+s.br+'</td><td>'+s.q+'</td><td><button onclick="cetak({id:'+s.id+'})">🖨 Print</button></td></tr>'}).join('')+'</table>');setHtml('tu','<table><tr><th>Nama</th><th>Role</th><th>Username</th></tr>'+DB.u.map(function(u){return '<tr><td>'+u.nm+'</td><td>'+u.role+'</td><td>'+u.us+'</td></tr>'}).join('')+'</table>');setHtml('li',DB.inLog.slice(-20).map(function(l){return '<div>📥 IN '+l.br+' +'+l.q+'</div>'}).join('')||'Belum ada IN');setHtml('lo',DB.outLog.slice(-20).map(function(l){return '<div>📤 OUT '+l.br+' -'+l.q+'</div>'}).join('')||'Belum ada OUT');setHtml('lr','<p>Total Terkirim ke Sheet: '+DB.totalKirim+' | Total Master: '+DB.b.length+'</p>');setHtml('antiBlank','✅ EATWELL V14.1 BERHASIL DIBUKA! - Total Master: '+DB.b.length);var ab2=$id('antiBlank'); if(ab2){ab2.style.background='#00A651';ab2.style.color='#fff'}}catch(e){var eb=$id('antiBlank');if(eb){eb.innerHTML='⚠️ ERROR: '+e.message;eb.style.background='#E11D48';eb.style.color='#fff'}}}
 setInterval(function(){try{var c=$id('clock'); if(c) c.innerText=ns()}catch(e){}},1000);
 if(localStorage.getItem('r')){var rr=localStorage.getItem('r').split('|');CURROLE=rr[0];CUR=rr[1]||CUR;var lg=$id('lg'); if(lg) lg.style.display='none';}
 setVal('p5',todayStr());setVal('p6',new Date().toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit',hour12:false}));render();
