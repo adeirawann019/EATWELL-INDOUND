@@ -1,137 +1,80 @@
-<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>EATWELL V19 - ALUR LENGKAP 7 LANGKAH</title>
-<style>
-*{box-sizing:border-box;font-family:Arial,sans-serif}body{margin:0;background:#fefce8;color:#111}
-header{background:#0f172a;color:#fff;padding:14px;text-align:center}header b{font-size:20px}header b span{color:#ffd700}header p{margin:4px 0 0;font-size:12px;color:#cbd5e1}
-.wrap{max-width:1000px;margin:auto;padding:10px}
-.card{background:#fff;border:2px solid #e2e8f0;border-radius:16px;padding:14px;margin:10px 0;box-shadow:0 2px 10px #0001}
-h2{margin:0 0 8px;font-size:16px}h2 span{padding:4px 10px;border-radius:8px;color:#fff}
-.s1 span{background:#eab308;color:#000}.s2 span{background:#2563eb}.s3 span{background:#f97316}.s4 span{background:#16a34a}.s5 span{background:#ef4444}.s6 span{background:#2563eb}.s7 span{background:#7c3aed}
-button{border:0;border-radius:10px;padding:11px;font-weight:800;cursor:pointer;margin:4px 0}.b-y{background:#ffd700}.b-b{background:#2563eb;color:#fff}.b-o{background:#f97316;color:#fff}.b-g{background:#16a34a;color:#fff}.b-r{background:#ef4444;color:#fff}.b-p{background:#7c3aed;color:#fff}.b-d{background:#0f172a;color:#fff}
-input,textarea,select{width:100%;padding:10px;border-radius:10px;border:1px solid #ddd;margin:4px 0}
-table{width:100%;border-collapse:collapse;font-size:13px}th,td{border:1px solid #eee;padding:8px;text-align:left}th{background:#f8f8f8}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.kpi{background:#fef08a;border-radius:10px;padding:10px;text-align:center;font-weight:800}
-.badge{padding:4px 8px;border-radius:20px;font-size:11px;font-weight:800}.naik{background:#dcfce7;color:#166534}.tidak{background:#fee2e2;color:#b91c1c}
-.flow{text-align:center;font-size:20px}
-@media(max-width:700px){.grid,.grid4{grid-template-columns:1fr}}
-@media print{.no-print{display:none}body{background:#fff}}
-</style></head>
-<body>
-<header><b>EATWELL V19 - ALUR LENGKAP<br><span>- 1 GAMBAR LANGSUNG FAHAM -</span></b><p>Flowchart — 7 Langkah Praktis | Real-Time & Terpusat</p></header>
-<div class="wrap">
-
-<!-- LANGKAH 1 -->
-<div class="card s1"><h2><span>1</span> LANGKAH 1 - SUPER ADMIN PUSAT KENDALI</h2>
-<p>• Bos input Master Barang, SO Stok Awal, atur semua halaman (Atasan, Inbound, Assembly ON)<br>• Voice Note buat perintah</p>
-<b>Contoh: Stok Awal Ayam 340 KG</b>
-<div class="grid"><div><b>Master Barang:</b><input id="masterNama" value="Ayam"><input id="masterSO" type="number" value="340"><button class="b-y" onclick="simpanMaster()">💾 SIMPAN MASTER + SO AWAL</button></div>
-<div><b>Voice Note Perintah Bos:</b><textarea id="perintahBos" rows="2">Cek stok ayam, isi 50 KG hari ini!</textarea><button class="b-b" onclick="kirimPerintah()">🎤 KIRIM PERINTAH VOICE NOTE</button><div id="perintahOut" style="font-size:13px"></div></div></div>
-<div class="grid4"><div class="kpi">SO AWAL<br><b id="kSO">340</b></div><div class="kpi" style="background:#bfdbfe">IN<br><b id="kIN">0</b></div><div class="kpi" style="background:#fed7aa">OUT<br><b id="kOUT">0</b></div><div class="kpi" style="background:#fecaca">RETUR<br><b id="kRetur">0</b></div></div>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EATWELL V19 - 4 DASHBOARD</title>
+<style>body{margin:0;font-family:Arial;background:#f1f5f9}header{background:#fff;padding:14px;text-align:center}header b{font-size:22px}header b span{color:#0f172a}.wrap{max-width:1000px;margin:auto;padding:12px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.card{border-radius:16px;padding:16px;background:#fff}.y{border:3px solid #eab308}.bl{border:3px solid #2563eb}.o{border:3px solid #f97316}.g{border:3px solid #16a34a}button{border:0;border-radius:10px;padding:13px;font-weight:800;width:100%;cursor:pointer;margin-top:8px}.alur{background:#0f172a;color:#fff;border-radius:30px;padding:10px;text-align:center;font-size:13px;margin-top:12px}@media(max-width:700px){.grid{grid-template-columns:1fr}}</style></head>
+<body><header>🌿 <b>EATWELL - 4 DASHBOARD LENGKAP EATWELL V19 - CARA KERJA MASING-MASING</b></header><div class="wrap">
+<div class="grid">
+<div class="card y"><h2>👑 SUPER ADMIN (Kuning, Mahkota)</h2><p>Dashboard pusat: Master Barang, SO Mingguan Bulanan, IN OUT Copy Paste, Impor Master, Asisten AI, Kelola User, Pengaturan Halaman ON/OFF, Export 1 PDF.</p><p><b>Cara Kerja:</b> 1. Login superadmin 2. Impor Master & Input SO 3. Tambah/Edit User 4. Atur Halaman ON/OFF 5. Kirim Perintah & Export PDF 6. Cek Stok Akhir</p><p>Total Master: <b id="mTotal">1,248</b> | SO Mingguan: <b>36</b> | User Aktif: <b>12</b></p><button style="background:#ffd700" onclick="location.href='super-admin.html'">➡️ BUKA SUPER ADMIN</button></div>
+<div class="card bl"><h2>📦 INBOUND / GUDANG 6 ORANG (Biru)</h2><p>Dashboard HP: Pilih Brand Sendiri (contoh ARYA CKDS Daging), List IN & OUT hari ini, Scan Barcode, Input Copy Paste, Input Retur, Lihat Perintah.</p><p><b>Cara Kerja:</b> 1. Login pilih nama + password 2. Lihat Perintah dari Bos 3. Scan / Copy Paste IN 4. Input OUT 5. Input Retur 6. Cek stok brand sendiri</p><p>Brand: ARYA CKDS Daging | IN hari ini: +120 pcs | OUT: -45 pcs | Retur: 3 pcs</p><button style="background:#2563eb;color:#fff" onclick="location.href='inbound.html'">➡️ BUKA INBOUND</button></div>
+<div class="card o"><h2>🖥️ ATASAN (Oranye)</h2><p>Dashboard Lihat Saja: Stok Semua Brand, Laporan Inbound & Assembly, Retur Akumulasi, Pinjam Approve/Tolak, Grafik SO.</p><p><b>Cara Kerja:</b> 1. Login atasan 2. Lihat stok & laporan 3. Cek retur & pinjam 4. Approve/Tolak pinjam 5. Laporkan ke Super Admin kalau ada masalah</p><p>Stok Semua Brand: 3,456 pcs | Retur Akumulasi: 12 | Pinjam 2 - 1 Approve, 1 Pending</p><button style="background:#f97316;color:#fff" onclick="location.href='atasan.html'">➡️ BUKA ATASAN</button></div>
+<div class="card g"><h2>🏭 ASSEMBLY (Hijau)</h2><p>Dashboard HP: Foto Planning Produksi, List NAIK / TIDAK NAIK, Checklist Dikeluarkan, Input Retur Assembly.</p><p><b>Cara Kerja:</b> 1. Login assembly line 2. Lihat Foto Planning & Perintah 3. Cek List NAIK / TIDAK NAIK 4. Checklist barang dikeluarkan 5. Input retur 6. Kirim Laporan Assembly selesai</p><p>Planning Produksi - 20 Nov | Produk A - NAIK ✅ | Produk B - TIDAK NAIK ❌ | Retur Assembly: 2 pcs</p><button style="background:#16a34a;color:#fff" onclick="location.href='assembly.html'">➡️ BUKA ASSEMBLY</button></div>
 </div>
-<div class="flow">⬇️</div>
-
-<!-- LANGKAH 2 -->
-<div class="card s2"><h2><span>2</span> LANGKAH 2 - PLANNING PRODUKSI</h2>
-<p>• Kertas Planning ditulis: Ayam 20 KG, Premix 10 PACK, Kemiri 5 KG<br>• Assembly foto kertas planning di HP</p>
-<div class="grid"><div><textarea id="planning" rows="3">Ayam 20 KG
-Premix 10 PACK
-Kemiri 5 KG</textarea><button class="b-b" onclick="simpanPlanning()">💾 SIMPAN PLANNING</button></div>
-<div><button class="b-b" onclick="alert('Kamera HP dibuka - Foto kertas planning!')">📷 FOTO KERTAS PLANNING DI HP</button><div id="planningOut" style="font-size:13px;background:#eff6ff;padding:8px;border-radius:8px">Planning: Ayam 20KG • Premix 10 PACK • Kemiri 5KG</div></div></div>
-</div>
-<div class="flow">⬇️</div>
-
-<!-- LANGKAH 3 -->
-<div class="card s3"><h2><span>3</span> LANGKAH 3 - INBOUND BARANG KELUAR</h2>
-<p>• Anak Inbound voice note: <i>"Ayam keluar 20 kg buat produksi"</i> → Sistem jadi OUT -20 KG, list real-time<br>• Inbound juga bisa Scan Barcode</p>
-<textarea id="vnOut" rows="2">Ayam keluar 20 kg buat produksi</textarea>
-<div class="grid"><button class="b-o" onclick="prosesOUT()">🎤 TEKAN & NGOMONG - JADI OUT</button><button class="b-y" onclick="alert('Scan Barcode dibuka - arahkan ke barcode!')">📷 SCAN BARCODE</button></div>
-<div id="outList" style="font-size:13px;margin-top:6px"></div>
-<div style="background:#fee2e2;padding:8px;border-radius:8px;font-size:13px;margin-top:6px">OUT: -20 KG Ayam | Stok Live: <b id="stokLive">320 KG</b></div>
-</div>
-<div class="flow">⬇️</div>
-
-<!-- LANGKAH 4 -->
-<div class="card s4"><h2><span>4</span> LANGKAH 4 - ASSEMBLY - CEKLIS PRODUKSI</h2>
-<table><thead><tr><th>Item</th><th>Status</th><th>Keterangan</th><th>Ceklis</th></tr></thead><tbody id="assemblyTbl"></tbody></table>
-<button class="b-g" onclick="simpanAssembly()">💾 Pencet Simpan & → Jadi Laporan Otomatis</button><div id="assemblyOut" style="font-size:13px"></div>
-</div>
-<div class="flow">⬇️</div>
-
-<!-- LANGKAH 5 -->
-<div class="card s5"><h2><span>5</span> LANGKAH 5 - RETUR - TIDAK JADI PRODUKSI</h2>
-<p>• Inbound voice note: <i>"Ayam ga naik produksi 5 kg"</i> → Masuk kolom Barang Tidak Naik Produksi di Super Admin</p>
-<textarea id="vnRetur" rows="2">Ayam ga naik produksi 5 kg</textarea>
-<button class="b-r" onclick="prosesRetur()">🎤 VOICE NOTE RETUR - TEKAN & NGOMONG</button>
-<div id="returOut" style="font-size:13px;margin-top:6px"></div>
-<table><thead><tr><th>Barang</th><th>Jumlah</th><th>Tanggal</th><th>Jam</th><th>Ket</th></tr></thead><tbody id="returTbl"></tbody></table>
-<div style="background:#dcfce7;padding:8px;border-radius:8px;font-size:13px">✅ Kembali ke Stok Awal +5 KG</div>
-</div>
-<div class="flow">⬇️</div>
-
-<!-- LANGKAH 6 -->
-<div class="card s6"><h2><span>6</span> LANGKAH 6 - STOK AKHIR OTOMATIS</h2>
-<div style="background:#fef08a;padding:10px;border-radius:10px;font-weight:800">Rumus: Stok Awal 340 + IN 0 - OUT 20 + RETUR 5 = Stok Akhir <span id="rumusAkhir">325</span></div>
-<div class="grid" style="margin-top:8px"><div style="background:#eff6ff;padding:10px;border-radius:10px">👔 <b>Atasan:</b> Hanya bisa LIHAT alur ini, tidak bisa edit</div><div style="background:#fef9c3;padding:10px;border-radius:10px">⚙️ <b>Super Admin:</b> Bisa Edit | Tambah | Kurangi | Hapus semua</div></div>
-<p style="font-size:12px">Plus Mode Infokus HDMI untuk presentasi di proyektor <button class="b-d" onclick="alert('Mode Infokus HDMI aktif - layar full untuk proyektor!')">📺 Mode Infokus</button></p>
-</div>
-<div class="flow">⬇️</div>
-
-<!-- LANGKAH 7 -->
-<div class="card s7"><h2><span>7</span> LANGKAH 7 - LAPORAN 1 PDF</h2>
-<div class="grid4">
-<div class="card" style="background:#ffd700"><b>Super Admin</b><br>Laporan Lengkap<br><button class="b-y" onclick="buatLaporan('Super Admin - Laporan Lengkap')">📄 Laporan Super Admin</button></div>
-<div class="card" style="background:#bfdbfe"><b>Atasan</b><br>Laporan Statistik<br>Masuk 120 • Keluar 85 • Retur 15<br><button class="b-b" onclick="buatLaporan('Atasan - Laporan Statistik')">📄 Laporan Atasan</button></div>
-<div class="card" style="background:#fed7aa"><b>Inbound</b><br>Laporan Inbound<br><button class="b-o" onclick="buatLaporan('Inbound - Laporan Inbound')">📄 Laporan Inbound</button></div>
-<div class="card" style="background:#bbf7d0"><b>Assembly</b><br>Laporan Assembly<br>2 Naik • 1 Tidak Naik<br><button class="b-g" onclick="buatLaporan('Assembly - Laporan Assembly')">📄 Laporan Assembly</button></div>
-</div>
-<div id="laporanOut" style="font-size:13px;background:#f8f8f8;padding:10px;border-radius:10px"></div>
-<button class="b-p no-print" style="width:100%;font-size:16px" onclick="window.print()">📄 DOWNLOAD 1 PDF LAPORAN LENGKAP - KLIK INI</button>
-</div>
-
-<div style="background:#0f172a;color:#ffd700;text-align:center;padding:14px;border-radius:12px;font-weight:900">SEMUA TERPUSAT DI SUPER ADMIN, SEMUA REAL-TIME ⚡</div>
-<p style="text-align:center;font-size:11px;color:#888">Infografis EATWELL V19 • Flowchart lengkap • Real-time</p>
-</div>
-
+<div class="alur">ALUR KERJA: 👑 Super Admin ➡️ ⚙️ Atur & Perintah ➡️ 📦 Inbound & Assembly Kerja ➡️ 🖥️ Atasan Pantau & Approve ➡️ 🔄 Data Balik ke Super Admin ➡️ 📄 Export PDF</div>
+<p style="text-align:center;font-size:12px">Data mengalir dari Super Admin ke tim lapangan, lalu dipantau Atasan, hasil & laporan kembali ke Super Admin untuk Export PDF.<br>EATWELL V19 — Sistem Dashboard Terintegrasi • Real-time • Mobile Friendly</p>
+</div><script>let d=JSON.parse(localStorage.getItem('eatwell')||'{}');if(d.master)document.getElementById('mTotal').textContent=d.master.length;</script></body></html><!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SUPER ADMIN</title>
+<style>body{margin:0;font-family:Arial;background:#fefce8}header{background:#ffd700;padding:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}button{border:0;border-radius:10px;padding:10px;font-weight:800;cursor:pointer}.card{background:#fff;border-radius:14px;padding:14px;margin:10px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}input,textarea,select{width:100%;padding:10px;border-radius:10px;border:1px solid #ddd;margin:4px 0}table{width:100%;border-collapse:collapse;font-size:13px}th,td{border:1px solid #eee;padding:8px}th{background:#fef9c3}@media(max-width:700px){.grid{grid-template-columns:1fr}}</style></head>
+<body><header><b>👑 SUPER ADMIN (Kuning, Mahkota) - TOTAL - SUPER ADMIN</b><div><button onclick="location.href='index.html'">🏠 Menu</button><button onclick="window.print()">📄 Export 1 PDF</button></div></header>
+<div class="card"><b>Total Master: <span id="tMaster">0</span> | SO Mingguan: 36 | User Aktif: 12 | Stok Akhir: <span id="tAkhir">0</span></b><br><label>Pengaturan Halaman: Atasan <select id="sAtasan"><option>ON</option><option>OFF</option></select> Inbound <select id="sInbound"><option>ON</option><option>OFF</option></select> Assembly <select id="sAssembly"><option>ON</option><option>OFF</option></select></label><button style="background:#16a34a;color:#fff" onclick="simpanPengaturan()">💾 SIMPAN PENGATURAN ON/OFF</button></div>
+<div class="grid"><div class="card"><h3>1. Impor Master & Input SO - Copy Paste</h3><textarea id="masterIn" rows="4">Ayam | KG | CKDS Daging | 340
+Gula | KG | CKDS Bumbu | 50
+Bawang | KG | CKDS Bumbu | 30
+Tempe | KG | CKDS Sayur | 20</textarea><button style="background:#ffd700;width:100%" onclick="simpanMaster()">💾 IMPOR MASTER + SO</button><button style="background:#2563eb;color:#fff;width:100%" onclick="alert('Pilih file Excel / PDF - di GitHub Pages pilih file, nanti kebaca otomatis')">📄 IMPOR EXCEL / PDF</button><div id="masterOut"></div></div>
+<div class="card"><h3>2. IN OUT - Copy Paste</h3><b>IN:</b><textarea id="inIn" rows="2">Ayam 40 KG</textarea><button style="background:#16a34a;color:#fff" onclick="tambah('in')">+ TAMBAH IN</button><b>OUT:</b><textarea id="outIn" rows="2">Gula 5 KG</textarea><button style="background:#f97316;color:#fff" onclick="tambah('out')">+ TAMBAH OUT</button><h3>3. Kelola User</h3><input id="userIn" placeholder="Nama - Brand - Password, contoh: ARYA - CKDS Daging - 1234"><button style="background:#0f172a;color:#fff" onclick="tambahUser()">+ TAMBAH USER</button><div id="userOut" style="font-size:13px"></div></div></div>
+<div class="card"><h3>4. Asisten AI - Tinggal Perintah</h3><input id="aiIn" placeholder="Contoh: ayam ada berapa? / cari minus / buatkan laporan"><button style="background:#7c3aed;color:#fff" onclick="tanyaAI()">🤖 TANYA AI</button><div id="aiOut" style="background:#f8f8f8;padding:10px;border-radius:10px;margin-top:6px">Jawaban AI di sini...</div></div>
+<div class="card"><h3>5. Kirim Perintah ke Inbound / Assembly / Atasan</h3><input id="perintahIn" placeholder="Perintah Bos: ARYA cek ayam mines, isi 50 KG!"><button style="background:#ffd700" onclick="kirimPerintah()">📩 KIRIM PERINTAH</button><h3>6. Tabel Master + Stok Akhir</h3><table><thead><tr><th>Barang</th><th>Brand</th><th>SO</th><th>IN</th><th>OUT</th><th>Retur</th><th>STOK AKHIR</th></tr></thead><tbody id="tb"></tbody></table><p style="font-size:12px">Rumus: Stok Akhir = SO + IN - OUT + Retur</p></div>
 <script>
-let SO=340, INv=0, OUTv=0, RET=0;
-let ASSEMBLY=[{nama:'Ayam 20 KG',naik:true,ket:'-'},{nama:'Premix 10 PACK',naik:true,ket:'-'},{nama:'Kemiri 5 KG',naik:false,ket:'Barang basah'}];
-let RETUR=[];
-function update(){
-  document.getElementById('kSO').textContent=SO;
-  document.getElementById('kIN').textContent=INv;
-  document.getElementById('kOUT').textContent=OUTv;
-  document.getElementById('kRetur').textContent=RET;
-  let akhir=SO+INv-OUTv+RET;
-  document.getElementById('stokLive').textContent=akhir+' KG';
-  document.getElementById('rumusAkhir').textContent=akhir;
-  renderAssembly();
-}
-function simpanMaster(){ SO=parseInt(document.getElementById('masterSO').value)||340; update(); alert('Master + SO Awal tersimpan: '+document.getElementById('masterNama').value+' = '+SO+' KG'); }
-function kirimPerintah(){ document.getElementById('perintahOut').innerHTML='✅ Perintah terkirim ke Inbound / Assembly / Atasan: '+document.getElementById('perintahBos').value; alert('Perintah Voice Note terkirim!'); }
-function simpanPlanning(){ document.getElementById('planningOut').innerHTML='Planning tersimpan:<br>'+document.getElementById('planning').value.replace(/\n/g,'<br>'); alert('Planning tersimpan!'); }
-function prosesOUT(){
-  let t=document.getElementById('vnOut').value.toLowerCase();
-  let m=t.match(/(\d+)/); let qty=m?parseInt(m[1]):20;
-  OUTv+=qty; update();
-  document.getElementById('outList').innerHTML='✅ OUT berhasil: Ayam '+qty+' KG untuk Produksi - List Real-Time - Stok berkurang otomatis!';
-  alert('OUT '+qty+' KG berhasil! Stok sekarang '+(SO+INv-OUTv+RET)+' KG');
-}
-function renderAssembly(){
-  let tb=document.getElementById('assemblyTbl'); tb.innerHTML='';
-  ASSEMBLY.forEach((a,i)=>{ tb.innerHTML+=`<tr><td>${a.nama}</td><td>${a.naik?'<span class="badge naik">✅ NAIK</span>':'<span class="badge tidak">❌ TIDAK NAIK</span>'}</td><td>${a.ket}</td><td><button onclick="toggle(${i})">${a.naik?'Ubah jadi TIDAK':'Ubah jadi NAIK'}</button></td></tr>`; });
-}
-function toggle(i){ ASSEMBLY[i].naik=!ASSEMBLY[i].naik; ASSEMBLY[i].ket=ASSEMBLY[i].naik?'-':'Barang basah'; renderAssembly(); }
-function simpanAssembly(){ let naik=ASSEMBLY.filter(a=>a.naik).length; let tidak=ASSEMBLY.length-naik; document.getElementById('assemblyOut').innerHTML=`✅ Tersimpan! <b>${naik} Naik • ${tidak} Tidak Naik</b> - Sudah jadi Laporan Otomatis!`; alert('Assembly tersimpan jadi laporan!'); }
-function prosesRetur(){
-  let t=document.getElementById('vnRetur').value.toLowerCase();
-  let m=t.match(/(\d+)/); let qty=m?parseInt(m[1]):5;
-  RET+=qty; RETUR.push({barang:'Ayam',jml:qty,tgl:'5-10',jam:'10:00',ket:'Tidak Jadi Produksi'}); update();
-  let tb=document.getElementById('returTbl'); tb.innerHTML=RETUR.map(r=>`<tr><td>${r.barang}</td><td>${r.jml} KG</td><td>${r.tgl}</td><td>${r.jam}</td><td>${r.ket}</td></tr>`).join('');
-  document.getElementById('returOut').innerHTML=`⚠️ Ayam ${qty} KG - GA NAIK - Masuk Barang Tidak Naik di Super Admin - Kembali ke Stok Awal +${qty} KG`;
-  alert('Retur '+qty+' KG berhasil! Stok Akhir sekarang '+(SO+INv-OUTv+RET)+' KG');
-}
-function buatLaporan(jenis){ document.getElementById('laporanOut').innerHTML=`<b>${jenis}</b><br>SO Awal ${SO} + IN ${INv} - OUT ${OUTv} + RETUR ${RET} = Stok Akhir ${SO+INv-OUTv+RET}<br>Assembly: ${ASSEMBLY.filter(a=>a.naik).length} Naik • ${ASSEMBLY.filter(a=>!a.naik).length} Tidak Naik<br>Retur: ${RETUR.map(r=>r.barang+' '+r.jml+' KG').join(', ')||'Tidak ada'}`; }
-update();
-</script>
-</body></html>
+function load(){return JSON.parse(localStorage.getItem('eatwell')||'{"master":[{"nama":"Ayam","brand":"CKDS Daging","so":340,"in":0,"out":0,"retur":0},{"nama":"Gula","brand":"CKDS Bumbu","so":50,"in":0,"out":0,"retur":0},{"nama":"Bawang","brand":"CKDS Bumbu","so":30,"in":0,"out":0,"retur":0},{"nama":"Tempe","brand":"CKDS Sayur","so":20,"in":0,"out":0,"retur":0}],"users":["ARYA - CKDS Daging","MIRGA - CKDS Sayur","HIBAN - CKDS Bumbu","YOGI - CKDS Daging","MARSEL - CKDS Bumbu","NURYANTO - CKDS Sayur"],"perintah":"Cek stok beku CKDS hari ini","pengaturan":{"atasan":"ON","inbound":"ON","assembly":"ON"}}')}
+function save(d){localStorage.setItem('eatwell',JSON.stringify(d))}
+function render(){let d=load();let tb=document.getElementById('tb');tb.innerHTML='';let tot=0;d.master.forEach(m=>{let ak=m.so+m.in-m.out+m.retur;tot+=ak;tb.innerHTML+=`<tr><td>${m.nama}</td><td>${m.brand}</td><td>${m.so}</td><td>${m.in}</td><td>${m.out}</td><td>${m.retur}</td><td><b>${ak}</b></td></tr>`});document.getElementById('tMaster').textContent=d.master.length;document.getElementById('tAkhir').textContent=tot;document.getElementById('userOut').innerHTML='User: '+d.users.join(' | ');document.getElementById('masterOut').innerHTML='Master tersimpan: '+d.master.map(m=>m.nama+' '+m.so).join(', ');}
+function simpanMaster(){let d=load();document.getElementById('masterIn').value.split('\n').forEach(l=>{let p=l.split('|');if(p.length>=2){let nm=p[0].trim();let so=parseInt(p[3])||0;let ada=d.master.find(m=>m.nama.toLowerCase()===nm.toLowerCase());if(ada)ada.so=so;else d.master.push({nama:nm,brand:(p[2]||'CKDS').trim(),so:so,in:0,out:0,retur:0})}});save(d);render();alert('Master + SO tersimpan, langsung kebaca di Inbound/Atasan/Assembly!')}
+function tambah(j){let d=load();let v=document.getElementById(j==='in'?'inIn':'outIn').value;let m=v.match(/([a-zA-Z ]+)(\d+)/);if(!m)return alert('Format: Ayam 40 KG');let nm=m[1].trim();let q=parseInt(m[2]);let a=d.master.find(x=>x.nama.toLowerCase().includes(nm.toLowerCase()));if(!a){a={nama:nm,brand:'CKDS',so:0,in:0,out:0,retur:0};d.master.push(a)}a[j]+=q;save(d);render();alert(j.toUpperCase()+' '+nm+' '+q+' tersimpan!')}
+function tambahUser(){let d=load();let v=document.getElementById('userIn').value;if(!v)return alert('Isi user dulu');d.users.push(v);save(d);render();alert('User ditambah!')}
+function simpanPengaturan(){let d=load();d.pengaturan={atasan:document.getElementById('sAtasan').value,inbound:document.getElementById('sInbound').value,assembly:document.getElementById('sAssembly').value};save(d);alert('Pengaturan ON/OFF tersimpan!')}
+function kirimPerintah(){let d=load();d.perintah=document.getElementById('perintahIn').value;save(d);alert('Perintah terkirim ke semua dashboard!')}
+function tanyaAI(){let d=load();let q=document.getElementById('aiIn').value.toLowerCase();let el=document.getElementById('aiOut');if(q.includes('ayam')){let a=d.master.find(m=>m.nama.toLowerCase().includes('ayam'));el.innerHTML='🤖 Ayam: SO '+a.so+' + IN '+a.in+' - OUT '+a.out+' = Stok Akhir '+(a.so+a.in-a.out+a.retur)+' KG';}else if(q.includes('minus')){el.innerHTML='🤖 Barang minus: '+(d.master.filter(m=>(m.so+m.in-m.out+m.retur)<0).map(m=>m.nama).join(', ')||'Tidak ada, aman!');}else if(q.includes('laporan')){el.innerHTML='🤖 Laporan: Total Master '+d.master.length+', Stok Akhir '+d.master.reduce((a,b)=>a+b.so+b.in-b.out+b.retur,0);}else el.innerHTML='🤖 Perintah "'+q+'" dicatat. Coba: ayam ada berapa? / cari minus / buatkan laporan';}
+render();
+</script></body></html><!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>INBOUND</title>
+<style>body{margin:0;font-family:Arial;background:#dbeafe}.wrap{max-width:480px;margin:auto;padding:10px}.card{background:#fff;border-radius:14px;padding:14px;margin:8px}button{border:0;border-radius:10px;padding:11px;font-weight:800;width:100%;cursor:pointer;margin:4px 0}input,textarea,select{width:100%;padding:10px;border-radius:10px;border:1px solid #ddd;margin:4px 0}</style></head>
+<body><div class="wrap"><div class="card" style="background:#2563eb;color:#fff"><h2>📦 INBOUND / GUDANG 6 ORANG (Biru)</h2><p>Dashboard HP - Pilih Brand Sendiri</p></div>
+<div class="card"><b>1. Login pilih nama + password</b><select id="nama"><option>ARYA</option><option>MIRGA</option><option>HIBAN</option><option>YOGI</option><option>MARSEL</option><option>NURYANTO</option></select><input type="password" placeholder="Password: 1234" value="1234"><select id="brand"><option>CKDS Daging</option><option>CKDS Sayur</option><option>CKDS Bumbu</option></select><button style="background:#2563eb;color:#fff" onclick="login()">LOGIN INBOUND</button><div id="loginOut"></div></div>
+<div class="card"><b>2. Lihat Perintah dari Bos</b><div id="perintah" style="background:#eff6ff;padding:10px;border-radius:10px">Belum ada perintah</div></div>
+<div class="card"><b>Brand: <span id="brandOut">ARYA CKDS Daging</span></b><p>IN hari ini: <b id="inHari">+120 pcs</b> | OUT hari ini: <b id="outHari">-45 pcs</b></p><div style="display:flex;gap:6px"><button style="background:#2563eb;color:#fff" onclick="document.getElementById('returBox').scrollIntoView()">Retur</button><button style="background:#2563eb;color:#fff">3 pcs</button></div><div style="text-align:center;font-size:20px">||||| BARCODE |||||</div></div>
+<div class="card"><b>3. Scan / Copy Paste IN barang masuk</b><textarea id="inIn" rows="2">Ayam 40 KG</textarea><button style="background:#16a34a;color:#fff" onclick="inputIN()">📷 SCAN BARCODE + SIMPAN IN</button><b>4. Input OUT barang keluar</b><textarea id="outIn" rows="2">Ayam keluar 20 kg buat produksi</textarea><button style="background:#f97316;color:#fff" onclick="inputOUT()">📤 INPUT OUT</button></div>
+<div class="card" id="returBox"><b>5. Input Retur kalau ada</b><textarea id="returIn" rows="2">Ayam ga naik produksi 5 kg</textarea><button style="background:#ef4444;color:#fff" onclick="inputRetur()">🔴 INPUT RETUR</button><div id="returOut"></div></div>
+<div class="card"><b>6. Cek stok brand sendiri + List IN & OUT hari ini</b><div id="list"></div><button onclick="location.href='index.html'">🏠 Menu</button></div>
+</div><script>
+function load(){return JSON.parse(localStorage.getItem('eatwell')||'{"master":[],"perintah":"Cek stok beku CKDS hari ini"}')}function save(d){localStorage.setItem('eatwell',JSON.stringify(d))}
+function render(){let d=load();document.getElementById('perintah').textContent=d.perintah||'Belum ada perintah';let b=document.getElementById('brand').value;document.getElementById('brandOut').textContent=document.getElementById('nama').value+' - '+b;let list=d.master.filter(m=>m.brand===b);if(list.length===0)list=d.master;document.getElementById('list').innerHTML=list.map(m=>`• ${m.nama} - Stok Akhir ${m.so+m.in-m.out+m.retur} KG (SO ${m.so} + IN ${m.in} - OUT ${m.out} + Retur ${m.retur})`).join('<br>')||'Belum ada master, input dari Super Admin dulu';}
+function login(){render();document.getElementById('loginOut').innerHTML='✅ Login berhasil sebagai '+document.getElementById('nama').value+' - '+document.getElementById('brand').value;alert('Login Inbound berhasil!');}
+function inputIN(){let d=load();let v=document.getElementById('inIn').value;let m=v.match(/([a-zA-Z ]+)(\d+)/);if(!m)return alert('Format: Ayam 40 KG');let nm=m[1].trim();let q=parseInt(m[2]);let a=d.master.find(x=>x.nama.toLowerCase().includes(nm.toLowerCase()));if(a)a.in+=q;save(d);render();alert('IN '+nm+' '+q+' tersimpan, Scan Barcode berhasil!');}
+function inputOUT(){let d=load();let v=document.getElementById('outIn').value;let m=v.match(/([a-zA-Z ]+)(\d+)/);if(!m)return alert('Format: Ayam 20 KG');let nm=m[1].trim();let q=parseInt(m[2]);let a=d.master.find(x=>x.nama.toLowerCase().includes(nm.toLowerCase()));if(a)a.out+=q;save(d);render();alert('OUT '+nm+' '+q+' untuk Produksi tersimpan!');}
+function inputRetur(){let d=load();let v=document.getElementById('returIn').value;let m=v.match(/([a-zA-Z ]+)(\d+)/);let nm=m?m[1].trim():'Ayam';let q=m?parseInt(m[2]):5;let a=d.master.find(x=>x.nama.toLowerCase().includes(nm.toLowerCase()));if(a)a.retur+=q;save(d);render();document.getElementById('returOut').innerHTML=`⚠️ ${nm} ${q} KG - GA NAIK - Masuk Barang Tidak Naik di Super Admin`;alert('Retur '+q+' KG tersimpan!');}
+render();
+</script></body></html><!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ATASAN</title>
+<style>body{margin:0;font-family:Arial;background:#ffedd5}.wrap{max-width:700px;margin:auto;padding:12px}.card{background:#fff;border-radius:14px;padding:14px;margin:8px}button{border:0;border-radius:10px;padding:11px;font-weight:800;width:100%;cursor:pointer;margin:4px 0}table{width:100%;border-collapse:collapse;font-size:13px}th,td{border:1px solid #eee;padding:8px}.bar{height:18px;background:#fed7aa;border-radius:6px;margin:3px 0}.bar i{display:block;height:100%;background:#f97316;border-radius:6px}</style></head>
+<body><div class="wrap"><div class="card" style="background:#f97316;color:#fff"><h2>🖥️ ATASAN (Oranye) - Dashboard Lihat Saja</h2><p>Stok Semua Brand, Laporan Inbound & Assembly, Retur Akumulasi, Pinjam Approve/Tolak, Grafik SO</p></div>
+<div class="card"><b>1. Login atasan</b><input placeholder="Nama Atasan" value="ATASAN"><input type="password" placeholder="Password" value="1234"><button style="background:#f97316;color:#fff" onclick="alert('Login Atasan berhasil - Hanya bisa LIHAT, tidak bisa edit!')">LOGIN ATASAN</button></div>
+<div class="card"><h3>2. Lihat stok & laporan - Grafik SO Mingguan</h3><div id="grafik"></div><div id="stok"></div></div>
+<div class="card"><h3>3. Cek retur & pinjam</h3><p>Retur Akumulasi: <b id="returTotal">0</b> | Stok Semua Brand: <b id="stokTotal">0</b> pcs</p><div id="pinjamList"></div></div>
+<div class="card"><h3>4. Approve / Tolak pinjam</h3><p>Pinjam: YOGI pinjam dari MARSEL 10 KG - <span id="pinjamStatus">Menunggu</span></p><button style="background:#16a34a;color:#fff" onclick="approve(true)">✅ APPROVE PINJAM</button><button style="background:#ef4444;color:#fff" onclick="approve(false)">❌ TOLAK PINJAM</button></div>
+<div class="card"><h3>5. Laporkan ke Super Admin kalau ada masalah</h3><input id="lapor" placeholder="Laporkan masalah..."><button style="background:#0f172a;color:#fff" onclick="lapor()">📩 LAPORKAN KE SUPER ADMIN</button><button onclick="location.href='index.html'">🏠 Menu</button><button onclick="window.print()">📄 LAPORAN - EXPORT KE 1 PDF</button></div>
+</div><script>
+function load(){return JSON.parse(localStorage.getItem('eatwell')||'{"master":[]}')}
+function render(){let d=load();let tot=0,ret=0;let g='';d.master.forEach(m=>{let ak=m.so+m.in-m.out+m.retur;tot+=ak;ret+=m.retur;g+=`${m.nama}: SO ${m.so}<div class="bar"><i style="width:${Math.min(100,ak)}%"></i></div>`});document.getElementById('grafik').innerHTML=g||'Belum ada data, input dari Super Admin dulu';document.getElementById('stok').innerHTML=d.master.map(m=>`• ${m.nama} (${m.brand}) - Stok Akhir ${m.so+m.in-m.out+m.retur}`).join('<br>');document.getElementById('stokTotal').textContent=tot;document.getElementById('returTotal').textContent=ret;document.getElementById('pinjamList').innerHTML='Pinjam 2 - 1 Approve, 1 Pending - Pinjam YOGI 10 KG menunggu';}
+function approve(ok){document.getElementById('pinjamStatus').textContent=ok?'✅ Approved':'❌ Ditolak';let d=load();d.perintah=(ok?'Pinjam YOGI 10 KG Approved oleh Atasan':'Pinjam YOGI 10 KG Ditolak oleh Atasan');localStorage.setItem('eatwell',JSON.stringify(d));alert(ok?'Pinjam Approved!':'Pinjam Ditolak!');}
+function lapor(){let d=load();d.perintah='Laporan Atasan: '+document.getElementById('lapor').value;localStorage.setItem('eatwell',JSON.stringify(d));alert('Laporan terkirim ke Super Admin!');}
+render();
+</script></body></html><!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ASSEMBLY</title>
+<style>body{margin:0;font-family:Arial;background:#dcfce7}.wrap{max-width:600px;margin:auto;padding:12px}.card{background:#fff;border-radius:14px;padding:14px;margin:8px}button{border:0;border-radius:10px;padding:11px;font-weight:800;width:100%;cursor:pointer;margin:4px 0}input,textarea,select{width:100%;padding:10px;border-radius:10px;border:1px solid #ddd;margin:4px 0}</style></head>
+<body><div class="wrap"><div class="card" style="background:#16a34a;color:#fff"><h2>🏭 ASSEMBLY (Hijau) - Foto Planning Produksi</h2></div>
+<div class="card"><b>1. Login assembly line</b><select><option>Line 1 - Ayam</option><option>Line 2 - Sayur</option><option>Line 3 - Bumbu</option></select><button style="background:#16a34a;color:#fff" onclick="alert('Login Assembly berhasil!')">LOGIN ASSEMBLY</button></div>
+<div class="card"><b>2. Lihat Foto Planning & Perintah</b><button style="background:#2563eb;color:#fff" onclick="alert('Kamera dibuka - Foto kertas planning!')">📷 FOTO PLANNING PRODUKSI - 20 Nov</button><div id="perintah" style="background:#eff6ff;padding:10px;border-radius:10px;margin-top:6px">Perintah: -</div><p>Planning: Ayam 20 KG, Premix 10 PACK, Kemiri 5 KG</p></div>
+<div class="card"><b>3. Cek List NAIK / TIDAK NAIK</b><div id="list"></div></div>
+<div class="card"><b>4. Checklist barang dikeluarkan</b><label><input type="checkbox" checked> Ayam 20 KG sudah dikeluarkan</label><br><label><input type="checkbox" checked> Premix 10 PACK sudah dikeluarkan</label><br><label><input type="checkbox"> Kemiri 5 KG - TIDAK dikeluarkan (barang basah)</label></div>
+<div class="card"><b>5. Input kalau barang tidak naik / retur</b><textarea id="returIn" rows="2">Kemiri ga naik 5 kg barang basah</textarea><button style="background:#ef4444;color:#fff" onclick="inputRetur()">🔴 INPUT RETUR ASSEMBLY</button><div id="returOut"></div></div>
+<div class="card"><b>6. Kirim Laporan Assembly selesai</b><p>Produk A - NAIK ✅ | Produk B - TIDAK NAIK ❌ | Retur Assembly: 2 pcs</p><button style="background:#16a34a;color:#fff" onclick="kirim()">✅ KIRIM LAPORAN ASSEMBLY SELESAI</button><button onclick="location.href='index.html'">🏠 Menu</button></div>
+</div><script>
+function load(){return JSON.parse(localStorage.getItem('eatwell')||'{"master":[],"perintah":""}')}function save(d){localStorage.setItem('eatwell',JSON.stringify(d))}
+function render(){let d=load();document.getElementById('perintah').textContent='Perintah: '+(d.perintah||'-');document.getElementById('list').innerHTML=d.master.map(m=>`• ${m.nama} - ${m.retur>0?'❌ TIDAK NAIK ('+m.retur+' KG Retur)':'✅ NAIK'}`).join('<br>')||'Belum ada data';}
+function inputRetur(){let d=load();let v=document.getElementById('returIn').value;let m=v.match(/([a-zA-Z ]+)(\d+)/);let nm=m?m[1].trim():'Kemiri';let q=m?parseInt(m[2]):5;let a=d.master.find(x=>x.nama.toLowerCase().includes(nm.toLowerCase()));if(!a){a={nama:nm,brand:'CKDS',so:0,in:0,out:0,retur:0};d.master.push(a)}a.retur+=q;save(d);render();document.getElementById('returOut').innerHTML=`⚠️ ${nm} ${q} KG - TIDAK NAIK - Masuk Retur Assembly`;alert('Retur Assembly tersimpan!');}
+function kirim(){let d=load();d.perintah='Laporan Assembly Selesai: 2 Naik, 1 Tidak Naik - Dikirim ke Super Admin';save(d);alert('Laporan Assembly terkirim ke Super Admin & Atasan!');}
+render();
+</script></body></html>
