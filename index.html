@@ -3,214 +3,106 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>EATWELL V19 FINAL - SEPAKAT</title>
+<title>EATWELL V19 FINAL</title>
 <style>
-*{box-sizing:border-box;font-family:Inter,system-ui,Arial}body{margin:0;background:#f1f5f9;color:#0f172a}
-header{background:#0f172a;color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
-.logo{font-weight:900;font-size:22px} .logo span{color:#facc15}
-.btn{border:0;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer}
-.btn-y{background:#facc15}.btn-g{background:#16a34a;color:#fff}.btn-b{background:#2563eb;color:#fff}.btn-o{background:#ea580c;color:#fff}.btn-r{background:#dc2626;color:#fff}.btn-d{background:#0f172a;color:#fff}
+*{box-sizing:border-box;font-family:Arial,sans-serif}body{margin:0;background:#f1f5f9}
+header{background:#0f172a;color:#fff;padding:14px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:900;font-size:22px}.logo span{color:#facc15}
+.btn{border:0;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer;margin:3px}
+.y{background:#facc15}.g{background:#16a34a;color:#fff}.b{background:#2563eb;color:#fff}.o{background:#ea580c;color:#fff}.r{background:#dc2626;color:#fff}.d{background:#0f172a;color:#fff}.p{background:#a855f7;color:#fff}
 .card{background:#fff;border-radius:14px;padding:14px;margin:12px;box-shadow:0 4px 14px rgba(0,0,0,.06)}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px} @media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:0 12px}@media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
 .stat{padding:14px;border-radius:12px;color:#fff}.stat b{font-size:22px;display:block}
-input,select,textarea{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:10px;margin:6px 0}
-table{width:100%;border-collapse:collapse;font-size:14px} th,td{padding:8px;border-bottom:1px solid #e2e8f0;text-align:left}
+input,select,textarea{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:10px;margin:5px 0}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:8px;border-bottom:1px solid #e2e8f0;text-align:left}
 .badge{padding:4px 8px;border-radius:20px;font-size:12px;font-weight:800}.mines{background:#fee2e2;color:#dc2626}.wait{background:#fef9c3;color:#a16207}.ok{background:#dcfce7;color:#166534}.back{background:#dbeafe;color:#1d4ed8}
-.hidden{display:none}.flex{display:flex;gap:8px;flex-wrap:wrap}.notif{border-left:4px solid #facc15;background:#fffbeb;padding:10px;border-radius:10px;margin:8px 0}
-.theme-yellow{--a:#facc15} .dark{background:#0f172a;color:#fff} .dark .card{background:#1e293b;color:#fff}
+.hidden{display:none}.flex{display:flex;gap:6px;flex-wrap:wrap}.notif{border-left:4px solid #facc15;background:#fffbeb;padding:10px;border-radius:10px;margin:8px 0}
 .scan{border:3px dashed #facc15;background:#fefce8;padding:16px;border-radius:14px;text-align:center;font-weight:900}
 </style>
 </head>
 <body>
-<header><div class="logo">🍽️ EATWELL <span>V19 FINAL</span> <small id="logoText">• Logo bisa diubah</small></div><div><button class="btn btn-y" onclick="showNotif()">🔔 Notif <b id="notifCount">3</b></button> <span id="userLabel">Super Admin</span> <button class="btn btn-r" onclick="logout()">Logout</button></div></header>
+<header><div class="logo">🍽️ EATWELL <span>V19 FINAL</span></div><div><button class="btn y" onclick="alert('Notif: 1. Mines Ayam -20 KG\n2. Pinjam YOGI 10 KG Menunggu Approve\n3. Approve BUDI 5 KG')">🔔 Notif <b>3</b></button> <span id="userLabel">Super Admin</span> <button class="btn r" onclick="location.reload()">Logout</button></div></header>
 
-<!-- LOGIN -->
 <div id="loginPage" class="card" style="max-width:480px;margin:30px auto">
 <h2>Login EATWELL V19</h2>
-<p>Pilih Role, Username & Password</p>
-<label>Role</label><select id="role"><option value="superadmin">Super Admin</option><option value="inbound">Inbound / Gudang</option><option value="atasan">Atasan</option><option value="assembly">Assembly</option></select>
-<label>Username</label><input id="uname" placeholder="superadmin / arya / atasan / assembly" value="superadmin">
+<p>Pilih Role & Login</p>
+<label>Role</label><select id="role"><option value="Super Admin">Super Admin</option><option value="Inbound">Inbound / Gudang</option><option value="Atasan">Atasan</option><option value="Assembly">Assembly</option></select>
+<label>Username</label><input id="uname" value="superadmin">
 <label>Password</label><input id="pass" type="password" value="admin123">
-<button class="btn btn-y" style="width:100%" onclick="login()">Masuk Dashboard →</button>
-<p style="font-size:13px">Coba: superadmin/admin123 • arya/arya123 • atasan/atasan123 • assembly/assembly123<br>6 Inbound: ARYA CKDS Daging, MIRGA CKTW, HIBAN CKIS, YOGI Sayuran, MARSEL CKDS Sayuran, NURYANTO CKDS Dry</p>
+<button class="btn y" style="width:100%" onclick="login()">Masuk Dashboard →</button>
+<p style="font-size:13px">Coba: superadmin / admin123<br>arya / arya123<br>atasan / atasan123<br>assembly / assembly123<br><br>6 Inbound: ARYA CKDS Daging, MIRGA CKTW, HIBAN CKIS, YOGI Sayuran, MARSEL CKDS Sayuran, NURYANTO CKDS Dry</p>
 </div>
 
-<!-- APP -->
 <div id="app" class="hidden">
-<div class="card">
-<h2 id="dashTitle">Dashboard Super Admin - Pusat Kendali</h2>
+<div class="card"><h2 id="dashTitle">Dashboard Super Admin - Pusat Kendali</h2>
 <div class="flex">
-<button class="btn btn-y" onclick="tab('master')">Master Barang</button>
-<button class="btn btn-g" onclick="tab('so')">SO Mingguan & Bulanan</button>
-<button class="btn btn-b" onclick="tab('inout')">IN & OUT Copy Paste</button>
-<button class="btn btn-o" onclick="tab('impor')">Impor Master</button>
-<button class="btn" style="background:#a855f7;color:#fff" onclick="tab('ai')">Asisten AI</button>
-<button class="btn btn-d" onclick="tab('users')">Kelola User</button>
-<button class="btn btn-y" onclick="tab('tampilan')">Ubah Logo / Tema</button>
-<button class="btn btn-r" onclick="tab('notif')">Notif Pinjam / Mines</button>
-<button class="btn btn-g" onclick="tab('scan')">📷 Scan Barcode Pinjam</button>
-<button class="btn btn-b" onclick="tab('assembly')">Assembly</button>
-<button class="btn btn-d" onclick="window.print()">Export 1 PDF</button>
-</div>
-</div>
+<button class="btn y" onclick="showTab('master')">Master Barang</button>
+<button class="btn g" onclick="showTab('so')">SO Mingguan & Bulanan</button>
+<button class="btn b" onclick="showTab('inout')">IN & OUT</button>
+<button class="btn o" onclick="showTab('impor')">Impor Master</button>
+<button class="btn p" onclick="showTab('ai')">Asisten AI</button>
+<button class="btn d" onclick="showTab('users')">Kelola User</button>
+<button class="btn y" onclick="showTab('tampilan')">Ubah Logo / Tema</button>
+<button class="btn r" onclick="showTab('notif')">Notif</button>
+<button class="btn y" onclick="showTab('scan')">📷 SCAN BARCODE PINJAM</button>
+<button class="btn g" onclick="showTab('assembly')">Assembly</button>
+<button class="btn d" onclick="window.print()">Export 1 PDF</button>
+</div></div>
 
-<!-- STATS -->
-<div class="grid" style="padding:0 12px">
-<div class="stat" style="background:#facc15;color:#000">Total Barang<b id="sTotal">1,248</b>Master Barang</div>
+<div class="grid">
+<div class="stat" style="background:#facc15;color:#000">Total Barang<b>1,248</b>Master Barang</div>
 <div class="stat" style="background:#16a34a">Stok Masuk<b>1,240 KG</b>IN Hari Ini</div>
 <div class="stat" style="background:#ea580c">Stok Keluar<b>890 KG</b>OUT Hari Ini</div>
-<div class="stat" style="background:#dc2626">Barang Mines<b id="sMines">2 Item</b>Ayam Fillet -20 KG</div>
+<div class="stat" style="background:#dc2626">Barang Mines<b>2 Item</b>Ayam Fillet -20 KG</div>
 <div class="stat" style="background:#2563eb">Pinjam<b>3 Pinjam</b>1 Menunggu Approve</div>
 <div class="stat" style="background:#a855f7">Assembly<b>12 Line</b>NAIK 10 / TIDAK 2</div>
-<div class="stat" style="background:#0f172a">User Aktif<b>12 User</b>6 Inbound + Assembly + Atasan</div>
+<div class="stat" style="background:#0f172a">User Aktif<b>12 User</b>6 Inbound + Atasan</div>
 <div class="stat" style="background:#f59e0b">Retur<b>12 Retur</b>Akumulasi</div>
 </div>
 
-<!-- NOTIF -->
-<div id="notifBox" class="card">
-<h3>🔔 Notif - HANYA DI APLIKASI - Super Admin & Atasan Saja - TIDAK ADA WA</h3>
-<div class="notif">🔴 <b>BARANG MINES:</b> Ayam Fillet MINES -20 KG - Stok Akhir Negatif <button class="btn btn-g" onclick="isiStok()">+ Isi Stok Cepat</button> <button class="btn btn-r" onclick="atasiMines()">Atasi Mines</button></div>
-<div class="notif">🟡 <b>BARANG PINJAM:</b> YOGI pinjam Sayur Ichiban 10 KG dari MARSEL - Menunggu Approve <button class="btn btn-g" onclick="approvePinjam(this)">Approve</button> <button class="btn btn-r" onclick="tolakPinjam(this)">Tolak</button></div>
-<div class="notif">🟢 <b>APPROVE:</b> Pinjam BUDI Assembly 5 KG Ayam sudah di-Approve oleh Atasan</div>
+<div class="card"><h3>🔔 Notif - HANYA DI APLIKASI - TIDAK ADA WA</h3>
+<div class="notif">🔴 <b>BARANG MINES:</b> Ayam Fillet MINES -20 KG <button class="btn g" onclick="alert('Isi Stok Cepat Berhasil! Mines Teratasi!')">+ Isi Stok Cepat</button> <button class="btn r" onclick="alert('Mines Diatasi!')">Atasi Mines</button></div>
+<div class="notif">🟡 <b>BARANG PINJAM:</b> YOGI pinjam Sayur Ichiban 10 KG dari MARSEL <button class="btn g" onclick="alert('Pinjam Disetujui!')">Approve</button> <button class="btn r" onclick="alert('Pinjam Ditolak!')">Tolak</button></div>
+<div class="notif">🟢 <b>APPROVE:</b> Pinjam BUDI 5 KG Ayam sudah di-Approve Atasan</div>
 </div>
 
-<!-- MASTER -->
-<div id="tab-master" class="card">
-<h3>Master Barang + SO + IN OUT RETUR + Stok Akhir</h3>
-<p>Rumus: <b>SO + IN - OUT + RETUR = Stok Akhir</b> | Contoh: 500 + 120 - 45 + 3 = 578</p>
-<input placeholder="Cari barang... (Ayam, Sayur, Daging)" oninput="filterTable(this.value)">
-<table id="masterTable">
-<tr><th>Barcode</th><th>Nama Barang</th><th>Brand / Pemilik</th><th>SO</th><th>IN</th><th>OUT</th><th>RETUR</th><th>Stok Akhir</th><th>Status</th></tr>
+<div id="tab-master" class="card"><h3>Master Barang - Rumus: SO + IN - OUT + RETUR = Stok Akhir</h3>
+<p>Contoh: 500 + 120 - 45 + 3 = 578</p>
+<input placeholder="Cari barang... Ayam, Sayur, Daging" oninput="filterTable(this.value)">
+<table id="masterTable"><tr><th>Barcode</th><th>Nama Barang</th><th>Brand / Pemilik</th><th>SO</th><th>IN</th><th>OUT</th><th>RETUR</th><th>Stok Akhir</th><th>Status</th></tr>
 <tr><td>899123456</td><td>Ayam Fillet</td><td>CKDS - ARYA</td><td>500</td><td>120</td><td>45</td><td>3</td><td><b>578</b></td><td><span class="badge ok">Aman</span></td></tr>
 <tr><td>899123457</td><td>Ayam Fillet</td><td>CKDS - ARYA</td><td>100</td><td>0</td><td>120</td><td>0</td><td><b style="color:red">-20</b></td><td><span class="badge mines">MINES</span></td></tr>
 <tr><td>899112233</td><td>Sayur Ichiban</td><td>Tawan - YOGI</td><td>200</td><td>50</td><td>30</td><td>5</td><td><b>225</b></td><td><span class="badge ok">Aman</span></td></tr>
 <tr><td>899998877</td><td>Daging Sapi</td><td>CKDS - MARSEL</td><td>300</td><td>80</td><td>60</td><td>2</td><td><b>322</b></td><td><span class="badge ok">Aman</span></td></tr>
 </table>
-<div class="flex"><button class="btn btn-g" onclick="tambahBarang()">+ Tambah Barang</button><button class="btn btn-b" onclick="alert('Copy Paste dari Excel berhasil!')">📋 Copy Paste Excel</button><button class="btn btn-y" onclick="alert('Voice Input aktif! Silahkan bicara...')">🎤 Voice Input</button></div>
-</div>
+<div class="flex"><button class="btn g" onclick="alert('Barang Baru Ditambahkan!')">+ Tambah Barang</button><button class="btn b" onclick="alert('Copy Paste Excel Berhasil!')">📋 Copy Paste Excel</button><button class="btn y" onclick="alert('Voice Input Aktif!')">🎤 Voice Input</button></div></div>
 
-<!-- SO -->
-<div id="tab-so" class="card hidden">
-<h3>SO Mingguan & Bulanan</h3>
-<label>Periode</label><select><option>Mingguan - 17-23 Nov 2026</option><option>Bulanan - November 2026</option></select>
-<p>Stok Awal SO: <input value="500"> IN: <input value="120"> OUT: <input value="45"> RETUR: <input value="3"></p>
-<h2>Stok Akhir: <span id="hitungSO">578</span> KG</h2>
-<button class="btn btn-g" onclick="document.getElementById('hitungSO').innerText='578 - Rumus SO+IN-OUT+RETUR OKE'">Hitung Otomatis</button>
-<p>📊 Grafik: SO naik 20% minggu ini, Stok Sayuran turun, AI sarankan order +50 KG</p>
-</div>
+<div id="tab-so" class="card hidden"><h3>SO Mingguan & Bulanan</h3><select><option>Mingguan - 17-23 Nov 2026</option><option>Bulanan - November 2026</option></select><p>SO: <input value="500"> IN: <input value="120"> OUT: <input value="45"> RETUR: <input value="3"></p><h2>Stok Akhir: 578 KG</h2><button class="btn g" onclick="alert('SO Dihitung Otomatis!')">Hitung Otomatis</button></div>
 
-<!-- INOUT -->
-<div id="tab-inout" class="card hidden">
-<h3>IN & OUT - Copy Paste Excel / WA</h3>
-<textarea rows="4" placeholder="Paste dari Excel / WA disini... Contoh: Ayam Fillet 25 KG&#10;Daging Sapi 10 KG"></textarea>
-<div class="flex"><button class="btn btn-g" onclick="alert('IN berhasil! Stok +25 KG')">IN Tambah Stok - Hijau</button><button class="btn btn-o" onclick="alert('OUT berhasil! Stok -10 KG')">OUT Barang Keluar - Oranye</button><button class="btn btn-b" onclick="alert('Copy Paste diproses!')">Proses Copy Paste</button></div>
-</div>
+<div id="tab-inout" class="card hidden"><h3>IN & OUT - Copy Paste Excel / WA</h3><textarea rows="4" placeholder="Paste dari Excel / WA... Contoh: Ayam Fillet 25 KG"></textarea><div class="flex"><button class="btn g" onclick="alert('IN Berhasil! Stok +25 KG')">IN Hijau</button><button class="btn o" onclick="alert('OUT Berhasil! Stok -10 KG')">OUT Oranye</button></div></div>
 
-<!-- IMPOR -->
-<div id="tab-impor" class="card hidden">
-<h3>Impor Master - Anti Duplikat</h3>
-<div class="flex"><button class="btn btn-b" onclick="downloadTemplate()">⬇ Download Template</button><button class="btn btn-g" onclick="alert('Upload Excel berhasil!')">⬆ Upload File</button><button class="btn btn-y" onclick="alert('Drag & Drop aktif!')">Drag & Drop</button></div>
-<p>Preview: BARU (hijau) / DUPLIKAT (merah) / UPDATE (kuning) - Sistem otomatis cegah duplikat!</p>
-</div>
+<div id="tab-impor" class="card hidden"><h3>Impor Master - Anti Duplikat</h3><div class="flex"><button class="btn b" onclick="alert('Template Didownload!')">⬇ Download Template</button><button class="btn g" onclick="alert('Upload Berhasil!')">⬆ Upload File</button><button class="btn y" onclick="alert('Drag & Drop Aktif!')">Drag & Drop</button></div><p>Preview: BARU (hijau) / DUPLIKAT (merah) / UPDATE (kuning)</p></div>
 
-<!-- AI -->
-<div id="tab-ai" class="card hidden" style="border:2px solid #a855f7">
-<h3>🤖 Asisten AI - Panel Ungu</h3>
-<p><b>AI:</b> Stok Sayuran turun 20%, disarankan order +50 KG. Ayam Fillet MINES -20 KG, segera isi stok!</p>
-<input placeholder="Tanya AI... Contoh: Stok apa yang mines hari ini?">
-<button class="btn" style="background:#a855f7;color:#fff" onclick="alert('AI: Yang mines: Ayam Fillet -20 KG, Sayur Yogi -5 KG')">Tanya AI</button>
-<div class="flex"><button class="btn btn-b" onclick="alert('Analisis AI: Stok kritis 2 item')">Analisis Stok</button><button class="btn btn-g" onclick="alert('Prediksi AI: Besok butuh +80 KG Ayam')">Prediksi Pesanan</button><button class="btn btn-y" onclick="alert('Laporan Otomatis dibuat!')">Laporan Otomatis</button></div>
-</div>
+<div id="tab-ai" class="card hidden" style="border:2px solid #a855f7"><h3>🤖 Asisten AI</h3><p><b>AI:</b> Stok Sayuran turun 20%, order +50 KG. Ayam Fillet MINES -20 KG, segera isi stok!</p><input placeholder="Tanya AI... Stok apa yang mines?"><button class="btn p" onclick="alert('AI: Yang mines Ayam Fillet -20 KG')">Tanya AI</button><div class="flex"><button class="btn b" onclick="alert('Analisis AI: 2 item kritis')">Analisis Stok</button><button class="btn g" onclick="alert('Prediksi AI: Besok butuh +80 KG Ayam')">Prediksi Pesanan</button><button class="btn y" onclick="alert('Laporan Otomatis Dibuat!')">Laporan Otomatis</button></div></div>
 
-<!-- USERS -->
-<div id="tab-users" class="card hidden">
-<h3>Kelola Semua User - Gudang, Assembly, Atasan</h3>
-<table><tr><th>Nama</th><th>Role</th><th>Brand</th><th>Password</th><th>Aksi</th></tr>
-<tr><td>ARYA</td><td>Gudang</td><td>CKDS Daging</td><td>arya123</td><td><button class="btn btn-b" onclick="alert('Edit ARYA')">Edit</button> <button class="btn btn-y" onclick="alert('Password ARYA diganti!')">Ganti Password</button></td></tr>
-<tr><td>MIRGA</td><td>Gudang</td><td>CKTW Daging Seafood WIP Tawan</td><td>mirga123</td><td><button class="btn btn-b">Edit</button></td></tr>
-<tr><td>HIBAN</td><td>Gudang</td><td>CKIS & Tawan Dry Plastik</td><td>hiban123</td><td><button class="btn btn-b">Edit</button></td></tr>
-<tr><td>YOGI</td><td>Gudang</td><td>Sayuran Ichiban Tawan + WIP CKDS</td><td>yogi123</td><td><button class="btn btn-b">Edit</button></td></tr>
-<tr><td>MARSEL</td><td>Gudang</td><td>CKDS Sayuran & Plastik</td><td>marsel123</td><td><button class="btn btn-b">Edit</button></td></tr>
-<tr><td>NURYANTO</td><td>Gudang</td><td>CKDS Item Dry</td><td>nuryanto123</td><td><button class="btn btn-b">Edit</button></td></tr>
-</table>
-<div class="flex"><input id="newUser" placeholder="Nama user baru..."><button class="btn btn-g" onclick="alert('User baru ditambahkan!')">+ Tambah Orang</button><button class="btn btn-y" onclick="alert('Perintah terkirim ke semua user!')">📩 Kirim Perintah</button></div>
-</div>
+<div id="tab-users" class="card hidden"><h3>Kelola Semua User</h3><table><tr><th>Nama</th><th>Role</th><th>Brand</th><th>Password</th></tr><tr><td>ARYA</td><td>Gudang</td><td>CKDS Daging</td><td>arya123</td></tr><tr><td>MIRGA</td><td>Gudang</td><td>CKTW Daging Seafood</td><td>mirga123</td></tr><tr><td>HIBAN</td><td>Gudang</td><td>CKIS & Tawan Dry</td><td>hiban123</td></tr><tr><td>YOGI</td><td>Gudang</td><td>Sayuran Ichiban Tawan</td><td>yogi123</td></tr><tr><td>MARSEL</td><td>Gudang</td><td>CKDS Sayuran</td><td>marsel123</td></tr><tr><td>NURYANTO</td><td>Gudang</td><td>CKDS Dry</td><td>nuryanto123</td></tr></table><div class="flex"><input placeholder="Nama user baru..."><button class="btn g" onclick="alert('User Baru Ditambahkan!')">+ Tambah Orang</button><button class="btn y" onclick="alert('Perintah Terkirim!')">📩 Kirim Perintah</button></div></div>
 
-<!-- TAMPILAN -->
-<div id="tab-tampilan" class="card hidden">
-<h3>🎨 Ubah Logo, Tampilan & Tema</h3>
-<p>Logo Sekarang: <b>EATWELL</b></p>
-<div class="flex"><button class="btn btn-b" onclick="alert('Upload Logo Baru - Pilih file gambar')">Upload Logo Baru</button><button class="btn btn-y" onclick="alert('Logo diganti!')">Ganti Logo</button><button class="btn btn-r" onclick="alert('Logo dihapus!')">Hapus Logo</button></div>
-<p>6 Tema:</p>
-<div class="flex">
-<button class="btn btn-y" onclick="setTheme('yellow')">Kuning Hitam Eatwell</button>
-<button class="btn btn-g" onclick="setTheme('green')">Hijau Fresh</button>
-<button class="btn btn-b" onclick="setTheme('blue')">Biru Ocean</button>
-<button class="btn" style="background:#a855f7;color:#fff" onclick="setTheme('purple')">Ungu Premium</button>
-<button class="btn btn-d" onclick="document.body.classList.toggle('dark')">Dark Mode Hitam</button>
-<button class="btn" onclick="document.body.classList.remove('dark')">Putih Clean</button>
-</div>
-<p>Layout: <select><option>Layout Standar</option><option>Layout Compact - HP Kecil</option><option>Layout Kartu Besar</option><option>Layout Infokus HDMI - TV Gudang</option></select></p>
-<button class="btn btn-g" onclick="alert('Semua Pengaturan Disimpan!')">Simpan Semua Pengaturan</button>
-</div>
+<div id="tab-tampilan" class="card hidden"><h3>🎨 Ubah Logo, Tampilan & Tema</h3><p>Logo: EATWELL</p><div class="flex"><button class="btn b" onclick="alert('Upload Logo Baru!')">Upload Logo Baru</button><button class="btn y" onclick="alert('Logo Diganti!')">Ganti Logo</button><button class="btn r" onclick="alert('Logo Dihapus!')">Hapus Logo</button></div><p>6 Tema:</p><div class="flex"><button class="btn y">Kuning Hitam</button><button class="btn g">Hijau Fresh</button><button class="btn b">Biru Ocean</button><button class="btn p">Ungu Premium</button><button class="btn d" onclick="alert('Dark Mode Aktif!')">Dark Mode</button></div><button class="btn g" onclick="alert('Semua Pengaturan Disimpan!')">Simpan Semua Pengaturan</button></div>
 
-<!-- NOTIF TAB -->
-<div id="tab-notif" class="card hidden">
-<h3>🔔 Notif Pinjam / Mines / Approve - Hanya Di Aplikasi</h3>
-<p>Lonceng di Dashboard Super Admin & Atasan. <b>Tidak ada WA.</b></p>
-<table><tr><th>Barang</th><th>Jenis</th><th>Status</th></tr><tr><td>Ayam Fillet -20 KG</td><td>Mines</td><td><span class="badge mines">Merah</span></td></tr><tr><td>YOGI pinjam 10 KG</td><td>Pinjam</td><td><span class="badge wait">Menunggu Approve</span></td></tr><tr><td>BUDI pinjam 5 KG</td><td>Pinjam</td><td><span class="badge ok">Disetujui</span></td></tr></table>
-<p>Batas Mines: <input value="-10 KG"> Batas Stok Kritis: <input value="20 KG"> Auto Notif: ON - Setiap 15 Menit</p>
-</div>
+<div id="tab-notif" class="card hidden"><h3>🔔 Notif Pinjam / Mines / Approve</h3><p>Lonceng di Dashboard Super Admin & Atasan. Tidak ada WA.</p><table><tr><th>Barang</th><th>Jenis</th><th>Status</th></tr><tr><td>Ayam Fillet -20 KG</td><td>Mines</td><td><span class="badge mines">Merah</span></td></tr><tr><td>YOGI pinjam 10 KG</td><td>Pinjam</td><td><span class="badge wait">Menunggu Approve</span></td></tr><tr><td>BUDI pinjam 5 KG</td><td>Pinjam</td><td><span class="badge ok">Disetujui</span></td></tr></table></div>
 
-<!-- SCAN - INBOUND -->
-<div id="tab-scan" class="card hidden" style="border:3px dashed #facc15">
-<h3>📷 SCAN BARCODE PINJAM BARANG - ADA DI DASHBOARD INBOUND!</h3>
-<p><b>Halo ARYA - Brand: CKDS Daging</b></p>
-<div class="scan">📷 SCAN BARCODE PINJAM BARANG<br><small>SCAN PINJAM BARANG - Klik Disini</small><br><br><button class="btn btn-y" style="font-size:18px" onclick="scanPinjam()">📷 MULAI SCAN</button></div>
-<div id="scanResult" class="card hidden"><b>Barang Terdeteksi</b><br>Barang: Ayam Fillet<br>Brand: CKDS<br>Stok: 370 KG<br>Barcode: 899123456<br>Yang Pinjam: <input value="YOGI"> Pinjam Dari: <input value="MARSEL"> Jumlah: <input value="10 KG"> Alasan: <input value="Buat Assembly"><button class="btn btn-g" onclick="alert('Pinjam Diajukan! Notif masuk ke Super Admin & Atasan di Aplikasi!')">Ajukan Pinjam</button></div>
-<h4>Daftar Pinjam Via Scan</h4>
-<table><tr><th>Tanggal</th><th>Barang (Barcode)</th><th>Yang Pinjam</th><th>Dari</th><th>Jumlah</th><th>Status</th></tr>
-<tr><td>12 Okt</td><td>Ayam Fillet (899123456)</td><td>YOGI</td><td>MARSEL</td><td>10 KG</td><td><span class="badge wait">Menunggu Approve</span></td></tr>
-<tr><td>11 Okt</td><td>Dada Ayam (899112233)</td><td>SANTI</td><td>MARSEL</td><td>5 KG</td><td><span class="badge ok">Disetujui</span></td></tr>
-<tr><td>09 Okt</td><td>Ayam Fillet (899123456)</td><td>RANI</td><td>MARSEL</td><td>8 KG</td><td><span class="badge back">Sudah Kembali</span></td></tr>
-</table>
-<div class="scan" style="border-color:#2563eb">📷 SCAN BARCODE KEMBALI BARANG<br><button class="btn btn-b" onclick="alert('Barang dikembalikan! Status otomatis Sudah Kembali!')">Scan Kembali</button></div>
-<p>Keuntungan: Anti Salah Barang, Cepat 3 Detik, Stok Otomatis Terkunci, Notif Hanya Di Aplikasi</p>
-</div>
+<div id="tab-scan" class="card hidden" style="border:3px dashed #facc15"><h3>📷 SCAN BARCODE PINJAM BARANG - ADA DI DASHBOARD INBOUND!</h3><p><b>Halo ARYA - Brand: CKDS Daging</b></p><div class="scan">📷 SCAN BARCODE PINJAM BARANG<br><small>SCAN PINJAM BARANG - Klik Disini</small><br><br><button class="btn y" style="font-size:18px" onclick="scanPinjam()">📷 MULAI SCAN</button></div><div id="scanResult" class="card hidden"><b>Barang Terdeteksi</b><br>Barang: Ayam Fillet<br>Brand: CKDS<br>Stok: 370 KG<br>Barcode: 899123456<br>Yang Pinjam: <input value="YOGI"> Pinjam Dari: <input value="MARSEL"> Jumlah: <input value="10 KG"> Alasan: <input value="Buat Assembly"><button class="btn g" onclick="alert('Pinjam Diajukan! Notif masuk ke Super Admin & Atasan!')">Ajukan Pinjam</button></div><h4>Daftar Pinjam Via Scan</h4><table><tr><th>Tanggal</th><th>Barang</th><th>Yang Pinjam</th><th>Dari</th><th>Jumlah</th><th>Status</th></tr><tr><td>12 Okt</td><td>Ayam Fillet (899123456)</td><td>YOGI</td><td>MARSEL</td><td>10 KG</td><td><span class="badge wait">Menunggu Approve</span></td></tr><tr><td>11 Okt</td><td>Dada Ayam (899112233)</td><td>SANTI</td><td>MARSEL</td><td>5 KG</td><td><span class="badge ok">Disetujui</span></td></tr><tr><td>09 Okt</td><td>Ayam Fillet (899123456)</td><td>RANI</td><td>MARSEL</td><td>8 KG</td><td><span class="badge back">Sudah Kembali</span></td></tr></table><div class="scan" style="border-color:#2563eb">📷 SCAN BARCODE KEMBALI BARANG<br><button class="btn b" onclick="alert('Barang Dikembalikan! Status Sudah Kembali!')">Scan Kembali</button></div></div>
 
-<!-- ASSEMBLY -->
-<div id="tab-assembly" class="card hidden">
-<h3>🏭 Assembly Preparation</h3>
-<p>Foto Planning: <button class="btn btn-b" onclick="alert('Foto Planning diupload!')">📷 Upload Foto Planning</button></p>
-<table><tr><th>Produk</th><th>Status</th><th>Checklist</th></tr><tr><td>Produk A</td><td><span class="badge ok">NAIK ✅</span></td><td><input type="checkbox" checked> Dikeluarkan</td></tr><tr><td>Produk B</td><td><span class="badge mines">TIDAK NAIK ❌</span></td><td><input type="checkbox"> Dikeluarkan</td></tr></table>
-<button class="btn btn-g" onclick="alert('Laporan Assembly Terkirim!')">Kirim Laporan Assembly Selesai</button>
-</div>
+<div id="tab-assembly" class="card hidden"><h3>🏭 Assembly Preparation</h3><p>Foto Planning: <button class="btn b" onclick="alert('Foto Planning Diupload!')">📷 Upload Foto Planning</button></p><table><tr><th>Produk</th><th>Status</th><th>Checklist</th></tr><tr><td>Produk A</td><td><span class="badge ok">NAIK ✅</span></td><td><input type="checkbox" checked> Dikeluarkan</td></tr><tr><td>Produk B</td><td><span class="badge mines">TIDAK NAIK ❌</span></td><td><input type="checkbox"> Dikeluarkan</td></tr></table><button class="btn g" onclick="alert('Laporan Assembly Terkirim!')">Kirim Laporan Assembly</button></div>
 
-<div class="card">
-<h3>Alur 5 Langkah & Cara Login & Pembagian Akses</h3>
-<p><b>Alur:</b> 1. Impor Master → 2. SO Mingguan/Bulanan → 3. IN & OUT → 4. Assembly → 5. Export & Laporan PDF</p>
-<p><b>Login:</b> 1. Pilih Role → 2. Username & Password → 3. Masuk Dashboard → 4. Gunakan Fitur Sesuai Akses</p>
-<p><b>Akses:</b> Super Admin Bisa Semua | Atasan Lihat + Approve | Gudang Hanya Brand Sendiri | Assembly Hanya Line Sendiri</p>
-<p><b>Pengaturan Halaman ON/OFF:</b> <label><input type="checkbox" checked> Master Barang ON</label> <label><input type="checkbox" checked> SO ON</label> <label><input type="checkbox" checked> AI ON</label> <label><input type="checkbox"> Mode Infokus OFF</label></p>
-<p><b>Voice Note:</b> <button class="btn btn-y" onclick="alert('Voice Note direkam!')">🎤 Rekam Voice Note</button></p>
-</div>
+<div class="card"><h3>Alur 5 Langkah & Login & Akses</h3><p><b>Alur:</b> 1. Impor Master → 2. SO → 3. IN & OUT → 4. Assembly → 5. Export PDF</p><p><b>Login:</b> 1. Pilih Role → 2. Username & Password → 3. Masuk Dashboard → 4. Pakai Fitur</p><p><b>Akses:</b> Super Admin Bisa Semua | Atasan Lihat + Approve | Gudang Hanya Brand Sendiri | Assembly Hanya Line Sendiri</p><p><b>ON/OFF Halaman:</b> <label><input type="checkbox" checked> Master ON</label> <label><input type="checkbox" checked> SO ON</label> <label><input type="checkbox" checked> AI ON</label></p></div>
 </div>
 
 <script>
-let users={superadmin:'admin123',arya:'arya123',atasan:'atasan123',assembly:'assembly123'};
-function login(){let u=document.getElementById('uname').value.toLowerCase();let p=document.getElementById('pass').value;let r=document.getElementById('role').value;if(users[u]===p||p==='admin123'){document.getElementById('loginPage').classList.add('hidden');document.getElementById('app').classList.remove('hidden');document.getElementById('userLabel').innerText=u.toUpperCase()+' - '+r;document.getElementById('dashTitle').innerText='Dashboard '+r.toUpperCase()+' - EATWELL V19';alert('Login Berhasil! Selamat datang '+u+' - Role: '+r);}else alert('Username / Password salah! Coba superadmin / admin123');}
-function logout(){document.getElementById('app').classList.add('hidden');document.getElementById('loginPage').classList.remove('hidden');}
-function tab(id){['master','so','inout','impor','ai','users','tampilan','notif','scan','assembly'].forEach(t=>{let e=document.getElementById('tab-'+t);if(e)e.classList.add('hidden')});let s=document.getElementById('tab-'+id);if(s)s.classList.remove('hidden');if(id==='master')document.getElementById('tab-master').classList.remove('hidden');window.scrollTo(0,0);}
-function showNotif(){alert('Notif: 1. Mines Ayam -20 KG\\n2. Pinjam YOGI 10 KG Menunggu Approve\\n3. Approve BUDI 5 KG Disetujui');}
-function approvePinjam(b){b.parentElement.innerHTML='<span class=\\'badge ok\\'>Disetujui</span>';alert('Pinjam Disetujui!');}
-function tolakPinjam(b){b.parentElement.innerHTML='<span class=\\'badge mines\\'>Ditolak</span>';alert('Pinjam Ditolak!');}
-function isiStok(){alert('Isi Stok Cepat: Ayam Fillet +20 KG - Mines Teratasi!');document.getElementById('sMines').innerText='0 Item';}
-function atasiMines(){alert('Mines Diatasi! Stok disesuaikan.');}
-function scanPinjam(){document.getElementById('scanResult').classList.remove('hidden');alert('Scanning... 899123456 - Barang Terdeteksi: Ayam Fillet CKDS 370 KG');}
-function tambahBarang(){let n=prompt('Nama barang baru:');if(n)alert('Barang '+n+' ditambahkan ke Master!');}
-function downloadTemplate(){alert('Template Excel didownload! Isi template lalu Upload / Copy Paste.');}
-function setTheme(t){alert('Tema diganti: '+t+' - Tersimpan!');}
-function filterTable(v){let rows=document.querySelectorAll('#masterTable tr');rows.forEach((r,i)=>{if(i===0)return;r.style.display=r.innerText.toLowerCase().includes(v.toLowerCase())?'':'none'});}
+function login(){var u=document.getElementById('uname').value;var r=document.getElementById('role').value;document.getElementById('loginPage').classList.add('hidden');document.getElementById('app').classList.remove('hidden');document.getElementById('userLabel').innerText=u.toUpperCase()+' - '+r;document.getElementById('dashTitle').innerText='Dashboard '+r+' - EATWELL V19';alert('Login Berhasil! Selamat datang '+u);}
+function showTab(id){var ids=['master','so','inout','impor','ai','users','tampilan','notif','scan','assembly'];ids.forEach(function(t){var e=document.getElementById('tab-'+t);if(e)e.classList.add('hidden')});var s=document.getElementById('tab-'+id);if(s)s.classList.remove('hidden');window.scrollTo(0,0);}
+function scanPinjam(){document.getElementById('scanResult').classList.remove('hidden');alert('Scanning... 899123456 - Ayam Fillet CKDS 370 KG Terdeteksi!');}
+function filterTable(v){var rows=document.querySelectorAll('#masterTable tr');rows.forEach(function(r,i){if(i===0)return;r.style.display=r.innerText.toLowerCase().includes(v.toLowerCase())?'':'none'});}
 </script>
 </body>
 </html>
